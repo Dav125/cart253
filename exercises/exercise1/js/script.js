@@ -15,6 +15,18 @@ let squareX;
 let squareY;
 let squareSize = 100;
 
+/////////////////////// Start New //////////////////////////////
+
+// The new objects position and size when it moves from left to right
+let rectX;
+let rectY;
+let rectSizeW = 100;
+let rectSizeH = 25;
+
+//////////////////////End New /////////////////////////////////
+
+// The new objects that follows the mouse
+
 
 // preload()
 //
@@ -47,6 +59,16 @@ function setup() {
   rectMode(CENTER);
   // We won't have a stroke in this
   noStroke();
+
+  ////////////////////// Start New `///////////////////////
+
+  // Start the rectangle off the screen to the center left
+  rectX = -rectSizeW/2;
+  rectY = height/2 + rectSizeH/2;
+
+  rectMode(CENTER);
+  noStroke();
+  //////////////////// END NEW /////////////////////////////
 }
 
 
@@ -73,4 +95,20 @@ function draw() {
   fill(0,0,255,10);
   // Display the square
   rect(squareX,squareY,squareSize,squareSize);
+
+
+///////////////////// Start New ///////////////////////////
+  // New shape that moves from left to right
+  // Move rectangle from left to right
+  rectX += 1;
+
+
+  // Make the rectangle green
+  fill(0,255,0,10);
+
+  // Display the rectangle
+  rect(rectX,rectY,rectSizeW,rectSizeH);
+
+////////////////// End New ////////////////////////////////
+
 }
