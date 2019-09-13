@@ -31,6 +31,12 @@ let bubbleX;
 let bubbleY;
 let bubbleSize = 50;
 
+// New image the goes the opposite direction of the other objects
+let strokeImage;
+let strokeX;
+let strokeY;
+let strokeSize = 100;
+
 //////////////////////End New /////////////////////////////////
 // preload()
 //
@@ -38,6 +44,7 @@ let bubbleSize = 50;
 
 function preload() {
 bubbleImage = loadImage("assets/images/Bubble.png");
+strokeImage = loadImage("assets/images/black-felt-texture.png")
 }
 
 
@@ -73,6 +80,9 @@ function setup() {
   rectMode(CENTER);
   noStroke();
 
+  // Starting position of the stoke at the top of the screen
+  strokeX = width/2;
+  strokeY = -height + strokeSize/2;
 
 
   //////////////////// END NEW /////////////////////////////
@@ -102,6 +112,12 @@ function draw() {
   fill(0,0,255,10);
   // Display the square
   rect(squareX,squareY,squareSize,squareSize);
+  /////////////////Start New////////////////////////////
+  strokeY += 1;
+  image(strokeImage, strokeX, strokeY,strokeSize,strokeSize);
+
+
+  /////////////// End New /////////////////////////////
 
 
 ///////////////////// Start New ///////////////////////////
