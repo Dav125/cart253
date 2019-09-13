@@ -23,17 +23,21 @@ let rectY;
 let rectSizeW = 100;
 let rectSizeH = 25;
 
-//////////////////////End New /////////////////////////////////
+
 
 // The new objects that follows the mouse
+let bubbleImage;
+let bubbleX;
+let bubbleY;
+let bubbleSize = 50;
 
-
+//////////////////////End New /////////////////////////////////
 // preload()
 //
 // Nothing here
 
 function preload() {
-
+bubbleImage = loadImage("assets/images/Bubble.png");
 }
 
 
@@ -68,6 +72,9 @@ function setup() {
 
   rectMode(CENTER);
   noStroke();
+
+
+
   //////////////////// END NEW /////////////////////////////
 }
 
@@ -108,6 +115,17 @@ function draw() {
 
   // Display the rectangle
   rect(rectX,rectY,rectSizeW,rectSizeH);
+
+  // New Image that follows the mouse
+  bubbleX = mouseX;
+  bubbleY = mouseY;
+
+
+  // Display the bubble image
+  image(bubbleImage,bubbleX,bubbleY,bubbleSize,bubbleSize);
+  imageMode(CENTER);
+
+
 
 ////////////////// End New ////////////////////////////////
 
