@@ -29,6 +29,13 @@ let enemyVX = 5;
 // How many dodges the player has made
 let dodges = 0;
 
+/////////////////////////// Start New ////////////////////////////////
+
+// To write a text to show the score
+
+
+///////////////////////// End New ////////////////////////////////////
+
 // setup()
 //
 // Make the canvas, position the avatar and anemy
@@ -46,6 +53,12 @@ function setup() {
 
   // No stroke so it looks cleaner
   noStroke();
+
+  ///////////////////////// Start New /////////////////////////////////
+
+  // Adding a new font 
+
+  //////////////////////// End New ///////////////////////////////////
 }
 
 // draw()
