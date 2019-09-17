@@ -31,7 +31,19 @@ let dodges = 0;
 
 /////////////////////////// Start New ////////////////////////////////
 
-// To write a text to show the score
+// To write a text to show the score of the ball dodged
+let ballDodge = "Balls dodged:";
+
+// To write a text to show the score of the ball getting hit
+let ballHit = "Balls hit:";
+
+// How many balls the player hit
+let hit = 0;
+
+// Adding a new font: -----> source:
+// https://www.1001freefonts.com/sci-fi-fonts-5.php
+let myfont;
+
 
 
 ///////////////////////// End New ////////////////////////////////////
@@ -56,7 +68,8 @@ function setup() {
 
   ///////////////////////// Start New /////////////////////////////////
 
-  // Adding a new font 
+  // Adding a new font
+  myfont = "assets/fonts/quantum/quantflt.ttf"
 
   //////////////////////// End New ///////////////////////////////////
 }
