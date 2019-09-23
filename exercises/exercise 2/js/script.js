@@ -1,9 +1,9 @@
 /******************************************************
 
 Game - The Artful Dodger
-Pippin Barr
+David Fong
 
-A simple dodging game with keyboard controls
+A simple dodging game with keyboard controls -> (Let's try to make this interesting)
 
 ******************************************************/
 
@@ -32,19 +32,24 @@ let dodges = 0;
 /////////////////////////// Start New ////////////////////////////////
 
 // To write a text to show the score of the ball dodged
-let ballDodge = "Balls dodged:";
+let ballDodge = "Balls dodged";
 
 // To write a text to show the score of the ball getting hit
-let ballHit = "Balls hit:";
+let ballHit = "Balls hit";
 
 // How many balls the player hit
 let hit = 0;
 
 // Adding a new font: -----> source:
 // https://www.1001freefonts.com/sci-fi-fonts-5.php
-let myfont;
+let myFont;
 
+// Adding the preload function to load the new font
+function preload() {
 
+// New font to use
+myFont = loadFont("assets/fonts/quantum/quantflt.ttf");
+}
 
 ///////////////////////// End New ////////////////////////////////////
 
@@ -69,7 +74,13 @@ function setup() {
   ///////////////////////// Start New /////////////////////////////////
 
   // Adding a new font
-  myfont = "assets/fonts/quantum/quantflt.ttf"
+  textFont(myFont);
+
+  // The text size
+  textSize(20);
+
+  // Text alignment
+  textAlign(CENTER,CENTER);
 
   //////////////////////// End New ///////////////////////////////////
 }
@@ -81,6 +92,18 @@ function setup() {
 function draw() {
   // A pink background
   background(255,220,220);
+
+  ////////////////////////////// Start New ////////////////////////////
+
+  // Write a new text in front
+  // (Balls dodged)
+  text(ballDodge,width-400, height-480 );
+
+  // Write a new text in front right
+  // (Balls hit)
+  text(ballHit, width-100, height-480);
+
+  //////////////////////////// End New ////////////////////////////////
 
   // Default the avatar's velocity to 0 in case no key is pressed this frame
   avatarVX = 0;
@@ -155,6 +178,8 @@ function draw() {
 
   // Display the number of successful dodges in the console
   console.log(dodges);
+
+
 
   // The player is black
   fill(0);
