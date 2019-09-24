@@ -103,6 +103,14 @@ function draw() {
   // (Balls hit)
   text(ballHit, width-100, height-480);
 
+  // Display the number balls dodged
+  text(dodges,width-400, height-430);
+
+  // Display the number balls hit
+  text(hit, width-100, height -430);
+
+
+
   //////////////////////////// End New ////////////////////////////////
 
   // Default the avatar's velocity to 0 in case no key is pressed this frame
@@ -152,6 +160,13 @@ function draw() {
     avatarY = height/2;
     // Reset the dodge counter
     dodges = 0;
+
+    //////////////////////////// Start New ///////////////////////////////
+
+    //Show the amount of the ball hits the player
+    hit = hit + 1;
+
+    //////////////////////////// End New /////////////////////////////////
   }
 
   // Check if the avatar has gone off the screen (cheating!)
@@ -163,6 +178,11 @@ function draw() {
     avatarX = width/2;
     avatarY = height/2;
     dodges = 0;
+    ///////////////////////// Start New /////////////////////////////////
+    // If the the player goes of bounds the hit counter resets
+    hit = 0;
+
+    //////////////////////// End New ////////////////////////////////////
   }
 
   // Check if the enemy has moved all the way across the screen
@@ -174,6 +194,10 @@ function draw() {
     // Reset the enemy's position to the left at a random height
     enemyX = 0;
     enemyY = random(0,height);
+  ///////////////////////// Start New ////////////////////////////
+
+  //////////////////////// End New ///////////////////////////////
+
   }
 
   // Display the number of successful dodges in the console
