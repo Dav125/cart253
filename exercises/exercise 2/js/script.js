@@ -56,6 +56,15 @@ let red = 155;
 let green = 155;
 let blue = 155;
 
+// Adding variables to change the color of the avatar
+// This is the avatar's color
+let avatarR = 0;
+let avatarG = 0;
+let avatarB = 0;
+
+
+
+
 ///////////////////////// End New ////////////////////////////////////
 
 // setup()
@@ -128,6 +137,17 @@ function draw() {
   avatarVX = 0;
   avatarVY = 0;
 
+  ///////////////////////// Start New //////////////////////////////////
+  // If the avatar doesn't move, the avatar's color remains black
+  // by default
+  avatarR = 0;
+  avatarG = 0;
+  avatarB = 0;
+// If the avatar doesn't move, the avatar's size remains 50 by default
+  avatarSize = 50;
+
+  //////////////////////// End New /////////////////////////////////////
+
   // Check which keys are down and set the avatar's velocity based on its
   // speed appropriately
 
@@ -135,18 +155,35 @@ function draw() {
   if (keyIsDown(LEFT_ARROW)) {
     avatarVX = -avatarSpeed;
   //////////////////////// Start New ///////////////////////////////////
+  // These variables changes the background colors
   red = red + 25;
   green =green - 0;
   blue = blue - 0;
+
+  //if the avatar moves left, the color turns blue
+  avatarB = 255;
+
+  // if the avatar moves, the size changes
+  avatarSize = 55;
 
   //////////////////////// End New /////////////////////////////////////
   }
   else if (keyIsDown(RIGHT_ARROW)) {
     avatarVX = avatarSpeed;
     //////////////////////// Start New ///////////////////////////////////
+    // These variables changes the background colors
     red = red - 25;
     green =green + 0;
     blue = blue + 0;
+
+    //if the avatar moves right, the color turns cyan blue
+    avatarR = 0;
+    avatarG = 255;
+    avatarB = 255;
+
+    // if the avatar moves, the size changes
+    avatarSize = 55;
+
     //////////////////////// End New /////////////////////////////////////
   }
 
@@ -155,17 +192,37 @@ function draw() {
   if (keyIsDown(UP_ARROW)) {
     avatarVY = -avatarSpeed;
     //////////////////////// Start New ///////////////////////////////////
+    // These variables changes the background colors
     red = red - 0;
     green =green - 0;
     blue = blue - 25;
+
+    // if the avatar moves up, it turns green
+    avatarR = 0;
+    avatarG = 255;
+    avatarB = 150;
+
+    // if the avatar moves, the size changes
+    avatarSize = 55;
+
     //////////////////////// End New /////////////////////////////////////
   }
   else if (keyIsDown(DOWN_ARROW)) {
     avatarVY = avatarSpeed;
     //////////////////////// Start New ///////////////////////////////////
+    // These variables changes the background colors
     red = red + 0;
     green =green + 0;
     blue = blue + 25;
+
+    //if the avatar moves up, it turns green
+    avatarR = 0;
+    avatarG = 255;
+    avatarB = 150;
+
+    // if the avatar moves, the size changes
+    avatarSize = 55;
+
     //////////////////////// End New /////////////////////////////////////
   }
 
@@ -185,11 +242,15 @@ function draw() {
     // Tell the player they lost
     console.log("YOU LOSE!");
     // Reset the enemy's position
-    enemyX = 0;
-    enemyY = random(0,height);
+     enemyX = 0;
+     enemyY = random(0,height);
+
     // Reset the avatar's position
     avatarX = width/2;
     avatarY = height/2;
+
+
+
     // Reset the dodge counter
     dodges = 0;
 
@@ -257,6 +318,12 @@ function draw() {
   enemySpeed = random(1,20);
 
   }
+
+// if the dodge score shows 10, the speed drops by half
+  if (dodges === 10) {
+    avatarSpeed = 5;
+  }
+
   //////////////////////// End New ///////////////////////////////
 
   }
@@ -267,9 +334,10 @@ function draw() {
   console.log(dodges);
 
 
-
+//////////////////////// Start New ////////////////////////////////
   // The player is black
-  fill(0);
+  // Added new variables to change avatars colors
+  fill(avatarR, avatarG, avatarB);
   // Draw the player as a circle
   ellipse(avatarX,avatarY,avatarSize,avatarSize);
 
@@ -277,5 +345,5 @@ function draw() {
   fill(255,0,0);
   // Draw the enemy as a circle
   ellipse(enemyX,enemyY,enemySize,enemySize);
-
+////////////////////////// End New /////////////////////////////////
 }
