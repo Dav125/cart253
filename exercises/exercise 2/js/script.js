@@ -51,6 +51,11 @@ function preload() {
 myFont = loadFont("assets/fonts/quantum/quantflt.ttf");
 }
 
+// Adding number variables to change color background
+let red = 155;
+let green = 155;
+let blue = 155;
+
 ///////////////////////// End New ////////////////////////////////////
 
 // setup()
@@ -90,9 +95,15 @@ function setup() {
 // Handle moving the avatar and enemy and checking for dodges and
 // game over situations.
 function draw() {
-  // A pink background
-  background(255,220,220);
+//////////////////////////// Start New ////////////////////////////////
 
+  // A pink background
+  //background(255,220,220);
+
+  // A gray background that will change color
+  background(red,green,blue);
+
+////////////////////////// End New ////////////////////////////////////
   ////////////////////////////// Start New ////////////////////////////
 
   // Write a new text in front
@@ -123,18 +134,39 @@ function draw() {
   // Left and right
   if (keyIsDown(LEFT_ARROW)) {
     avatarVX = -avatarSpeed;
+  //////////////////////// Start New ///////////////////////////////////
+  red = red + 25;
+  green =green - 0;
+  blue = blue - 0;
+
+  //////////////////////// End New /////////////////////////////////////
   }
   else if (keyIsDown(RIGHT_ARROW)) {
     avatarVX = avatarSpeed;
+    //////////////////////// Start New ///////////////////////////////////
+    red = red - 25;
+    green =green + 0;
+    blue = blue + 0;
+    //////////////////////// End New /////////////////////////////////////
   }
 
   // Up and down (separate if-statements so you can move vertically and
   // horizontally at the same time)
   if (keyIsDown(UP_ARROW)) {
     avatarVY = -avatarSpeed;
+    //////////////////////// Start New ///////////////////////////////////
+    red = red - 0;
+    green =green - 0;
+    blue = blue - 25;
+    //////////////////////// End New /////////////////////////////////////
   }
   else if (keyIsDown(DOWN_ARROW)) {
     avatarVY = avatarSpeed;
+    //////////////////////// Start New ///////////////////////////////////
+    red = red + 0;
+    green =green + 0;
+    blue = blue + 25;
+    //////////////////////// End New /////////////////////////////////////
   }
 
   // Move the avatar according to its calculated velocity
@@ -170,6 +202,11 @@ function draw() {
     dodge = 0;
     hits = 0;
 
+    // If the player gets hit
+    red = 155;
+    green =155;
+    blue = 155;
+
     //////////////////////////// End New /////////////////////////////////
   }
 
@@ -187,6 +224,7 @@ function draw() {
     // If the the player goes of bounds the hit counter resets
     hit = 0;
 
+
     //////////////////////// End New ////////////////////////////////////
   }
 
@@ -200,12 +238,17 @@ function draw() {
     enemyX = 0;
     enemyY = random(0,height);
   ///////////////////////// Start New ////////////////////////////
+  // if the player crosses the screen, the color resets
+  red = 155;
+  green =155;
+  blue = 155;
 
   // If the enemy crosses the screen, the enemy size changes
   enemySize = enemySize + random(0,10);
 
   // If the enemy crosses the screen, the enemy speed changes at random
   enemySpeed = random(1,20);
+
 
   // if the enemy Speed reaches maximum speed, the enemy's speed and size
   // changes
@@ -214,7 +257,6 @@ function draw() {
   enemySpeed = random(1,20);
 
   }
-
   //////////////////////// End New ///////////////////////////////
 
   }
