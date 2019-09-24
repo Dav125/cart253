@@ -166,6 +166,10 @@ function draw() {
     //Show the amount of the ball hits the player
     hit = hit + 1;
 
+    // If player loses, everything resets
+    dodge = 0;
+    hits = 0;
+
     //////////////////////////// End New /////////////////////////////////
   }
 
@@ -179,6 +183,7 @@ function draw() {
     avatarY = height/2;
     dodges = 0;
     ///////////////////////// Start New /////////////////////////////////
+
     // If the the player goes of bounds the hit counter resets
     hit = 0;
 
@@ -196,9 +201,25 @@ function draw() {
     enemyY = random(0,height);
   ///////////////////////// Start New ////////////////////////////
 
+  // If the enemy crosses the screen, the enemy size changes
+  enemySize = enemySize + random(0,10);
+
+  // If the enemy crosses the screen, the enemy speed changes at random
+  enemySpeed = random(1,20);
+
+  // if the enemy Speed reaches maximum speed, the enemy's speed and size
+  // changes
+  if(enemySpeed = 20){
+  enemySize = random(50,100);
+  enemySpeed = random(1,20);
+
+  }
+
   //////////////////////// End New ///////////////////////////////
 
   }
+
+
 
   // Display the number of successful dodges in the console
   console.log(dodges);
