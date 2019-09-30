@@ -1,12 +1,12 @@
 "use strict";
 
 /******************************************************************************
-Where's Sausage Dog?
-by Pippin Barr
+Where's Sausage Dog? Where is it indeed...
+by David Fong
 
 An algorithmic version of a Where's Wally/Waldo searching game where you
 need to click on the sausage dog you're searching for in amongst all
-the visual noise of other animals.
+the visual noise of other animals. ------> I'll see what I can do.
 
 Animal images from:
 https://creativenerds.co.uk/freebies/80-free-wildlife-icons-the-best-ever-animal-icon-set/
@@ -36,6 +36,10 @@ let numDecoys = 100;
 // Keep track of whether they've won
 let gameOver = false;
 
+///////////////////////// Start New ///////////////////////////
+
+///////////////////////// End New /////////////////////////////
+
 // preload()
 //
 // Loads the target and decoy images before the program starts
@@ -52,6 +56,11 @@ function preload() {
   decoyImage8 = loadImage("assets/images/animals-08.png");
   decoyImage9 = loadImage("assets/images/animals-09.png");
   decoyImage10 = loadImage("assets/images/animals-10.png");
+
+///////////////////////// Start New ///////////////////////////
+
+///////////////////////// End New /////////////////////////////
+
 }
 
 // setup()
@@ -120,6 +129,10 @@ function setup() {
 // Displays the game over screen if the player has won,
 // otherwise nothing (all the gameplay stuff is in mousePressed())
 function draw() {
+
+  ///////////////////////// Start New ///////////////////////////
+  ///////////////////////// End New /////////////////////////////
+
   if (gameOver) {
     // Prepare our typography
     textFont("Helvetica");
