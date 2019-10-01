@@ -38,6 +38,27 @@ let gameOver = false;
 
 ///////////////////////// Start New ///////////////////////////
 
+// The necessary variables to create an interface to find the lost dog
+// Loads the dog image in the interfaces
+let lostDog;
+let winDog;
+
+// Variable for the color interface
+let red = 100;
+let green = 100;
+let blue = 220;
+
+
+// Loads the rectangle interface
+let interRect;
+let interRectX;
+let interRectY;
+let interRectW;
+let interRectH;
+
+
+
+
 ///////////////////////// End New /////////////////////////////
 
 // preload()
@@ -58,6 +79,11 @@ function preload() {
   decoyImage10 = loadImage("assets/images/animals-10.png");
 
 ///////////////////////// Start New ///////////////////////////
+
+// Load the dog image for the interfaces
+lostDog = loadImage("assets/images/animals-target.png");
+
+winDog = loadImage("assets/images/animals-target.png");
 
 ///////////////////////// End New /////////////////////////////
 
@@ -121,6 +147,13 @@ function setup() {
 
   // And draw it (because it's the last thing drawn, it will always be on top)
   image(targetImage,targetX,targetY);
+
+///////////////////////// Start New ///////////////////////////
+interRectX = width - 301;
+interRectY = 0;
+interRectW = 300;
+interRectH = 200;
+///////////////////////// End New /////////////////////////////
 }
 
 
@@ -131,6 +164,19 @@ function setup() {
 function draw() {
 
   ///////////////////////// Start New ///////////////////////////
+
+  // Interface at the top right corner
+  noStroke();
+
+  fill(red,green,blue);
+  rect(interRectX, interRectY, interRectW,interRectH);
+  image(lostDog, interRectX + interRectW /2, interRectY + interRectH/2 , interRectW/2, interRectH/2);
+
+  // Postion of the lost dog textFont
+  fill(255);
+  textSize(15);
+  textAlign(CENTER);
+  text("WANTED DOG", interRectX + interRectW/2, interRectY + interRectH/2 + 50);
   ///////////////////////// End New /////////////////////////////
 
   if (gameOver) {
