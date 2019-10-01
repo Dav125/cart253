@@ -17,6 +17,15 @@ let targetX;
 let targetY;
 let targetImage;
 
+////////////////////////////////// Start New ////////////////////////////////
+
+// Random()
+//
+// The size of the dog will change random when it appears in the screen
+let targetSize;
+
+////////////////////////////////// End New //////////////////////////////////
+
 // The ten decoy images
 let decoyImage1;
 let decoyImage2;
@@ -62,6 +71,12 @@ let winDogY;
 let winDogSpeed;
 let winDogVX;
 
+// Variable for the color of the winning screen
+let rngr;
+let rngg;
+let rngb;
+
+
 
 
 ///////////////////////// End New /////////////////////////////
@@ -103,6 +118,15 @@ function setup() {
   background("#ffff00");
   imageMode(CENTER);
 
+//////////////////////////// Start New ///////////////////////////
+
+// Random()
+//
+// The size of the dog will change random when it appears in the screen
+  targetSize = random(10,200);
+
+/////////////////////////// End New /////////////////////////////
+
   // Use a for loop to draw as many decoys as we need
   for (let i = 0; i < numDecoys; i++) {
     // Choose a random location on the canvas for this decoy
@@ -142,14 +166,14 @@ function setup() {
   targetY = random(0, height);
 
   // And draw it (because it's the last thing drawn, it will always be on top)
-  image(targetImage, targetX, targetY);
+  image(targetImage, targetX, targetY, targetSize, targetSize);
 
   ///////////////////////// Start New ///////////////////////////
 
   // Preparing the size of the interface
-  interRectX = width - 301;
-  interRectY = 0;
-  interRectW = 300;
+  interRectX = width - 201;
+  interRectY = 1;
+  interRectW = 200;
   interRectH = 200;
 
   // Putting this condition in order for the dog to go
@@ -159,7 +183,18 @@ function setup() {
     targetY = random(0, height);
   }
 
+//Noise()
+//
+// Using this function to make my dog move more freely
+  winDogSpeed = random(0, 1000);
+  winDogVX = random(0, 1000);
 
+//background()
+//
+// To make my new background change to new colors
+  rngr = random(0,255);
+  rngg = random(0,255);
+  rngb = random(0,255);
   ///////////////////////// End New /////////////////////////////
 }
 
@@ -175,7 +210,7 @@ function draw() {
   // Interface at the top right corner
   noStroke();
 
-  fill(red, green, blue);
+  fill(red, green, blue, 8);
   rect(interRectX, interRectY, interRectW, interRectH);
   image(lostDog, interRectX + interRectW / 2, interRectY + interRectH / 2, interRectW / 2, interRectH / 2);
 
@@ -185,14 +220,15 @@ function draw() {
   textAlign(CENTER);
   text("WANTED DOG", interRectX + interRectW / 2, interRectY + interRectH / 2 + 50);
   ///////////////////////// End New /////////////////////////////
-
+  ///////////////////////// Start New ///////////////////////////
   if (gameOver) {
+    background(rngr,rngg,rngb);
     // Prepare our typography
     textFont("Helvetica");
-    textSize(128);
+    textSize(90);
     textAlign(CENTER, CENTER);
     noStroke();
-    fill(random(255));
+    fill(random(255),random(255),random(255));
 
     // Tell them they won!
     text("YOU WINNED!", width / 2, height / 2);
@@ -200,28 +236,22 @@ function draw() {
     // Draw a circle around the sausage dog to show where it is (even though
     // they already know because they found it!)
     noFill();
-    stroke(random(255));
+    stroke(random(255),random(255),random(255));
     strokeWeight(10);
     ellipse(targetX, targetY, targetImage.width, targetImage.height);
 
 
-    ///////////////////////// Start New ///////////////////////////
 
     // The apperance of the dog moving when we win the game
     image(winDog, winDogX, winDogY);
 
-    //The dog popping up
-    winDogX = random(0, width);
-    winDogY = random(0, height);
+    // The speed of the dogs
+    winDogX = width * noise(winDogVX);
+    winDogY = height * noise(winDogSpeed);
 
     // The variation of speed of the dogs appearing
-    winDogSpeed = random(2, 100);
-    winDogVX = random(2, 100);
-
-    // The speed of the dogs
-    winDogVX = winDogSpeed;
-    winDogX = winDogX + winDogVX;
-    winDogY = winDogY + winDogVX;
+    winDogSpeed += 0.01;
+    winDogVX += 0.02;
 
 
     ///////////////////////// End New /////////////////////////////
