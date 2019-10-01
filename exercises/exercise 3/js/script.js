@@ -149,10 +149,21 @@ function setup() {
   image(targetImage,targetX,targetY);
 
 ///////////////////////// Start New ///////////////////////////
+
+// Preparing the size of the interface
 interRectX = width - 301;
 interRectY = 0;
 interRectW = 300;
 interRectH = 200;
+
+// Putting this condition in order for the dog to go
+// underneath the interface
+while (targetX > interRectX && targetY < interRectY + interRectH) {
+  targetX = random(0,width);
+  targetY = random(0,height);
+}
+
+
 ///////////////////////// End New /////////////////////////////
 }
 
