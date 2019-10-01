@@ -56,6 +56,11 @@ let interRectY;
 let interRectW;
 let interRectH;
 
+// The dog moves when the game is over
+let winDogX;
+let winDogY;
+let winDogSpeed;
+let winDogVX;
 
 
 
@@ -78,14 +83,14 @@ function preload() {
   decoyImage9 = loadImage("assets/images/animals-09.png");
   decoyImage10 = loadImage("assets/images/animals-10.png");
 
-///////////////////////// Start New ///////////////////////////
+  ///////////////////////// Start New ///////////////////////////
 
-// Load the dog image for the interfaces
-lostDog = loadImage("assets/images/animals-target.png");
+  // Load the dog image for the interfaces
+  lostDog = loadImage("assets/images/animals-target.png");
 
-winDog = loadImage("assets/images/animals-target.png");
+  winDog = loadImage("assets/images/animals-target.png");
 
-///////////////////////// End New /////////////////////////////
+  ///////////////////////// End New /////////////////////////////
 
 }
 
@@ -94,15 +99,15 @@ winDog = loadImage("assets/images/animals-target.png");
 // Creates the canvas, sets basic modes, draws correct number
 // of decoys in random positions, then the target
 function setup() {
-  createCanvas(windowWidth,windowHeight);
+  createCanvas(windowWidth, windowHeight);
   background("#ffff00");
   imageMode(CENTER);
 
   // Use a for loop to draw as many decoys as we need
   for (let i = 0; i < numDecoys; i++) {
     // Choose a random location on the canvas for this decoy
-    let x = random(0,width);
-    let y = random(0,height);
+    let x = random(0, width);
+    let y = random(0, height);
     // Generate a random number we can use for probability
     let r = random();
     // Use the random number to display one of the ten decoy
@@ -110,61 +115,52 @@ function setup() {
     // We'll talk more about this nice quality of random soon enough.
     // But basically each "if" and "else if" has a 10% chance of being true
     if (r < 0.1) {
-      image(decoyImage1,x,y);
-    }
-    else if (r < 0.2) {
-      image(decoyImage2,x,y);
-    }
-    else if (r < 0.3) {
-      image(decoyImage3,x,y);
-    }
-    else if (r < 0.4) {
-      image(decoyImage4,x,y);
-    }
-    else if (r < 0.5) {
-      image(decoyImage5,x,y);
-    }
-    else if (r < 0.6) {
-      image(decoyImage6,x,y);
-    }
-    else if (r < 0.7) {
-      image(decoyImage7,x,y);
-    }
-    else if (r < 0.8) {
-      image(decoyImage8,x,y);
-    }
-    else if (r < 0.9) {
-      image(decoyImage9,x,y);
-    }
-    else if (r < 1.0) {
-      image(decoyImage10,x,y);
+      image(decoyImage1, x, y);
+    } else if (r < 0.2) {
+      image(decoyImage2, x, y);
+    } else if (r < 0.3) {
+      image(decoyImage3, x, y);
+    } else if (r < 0.4) {
+      image(decoyImage4, x, y);
+    } else if (r < 0.5) {
+      image(decoyImage5, x, y);
+    } else if (r < 0.6) {
+      image(decoyImage6, x, y);
+    } else if (r < 0.7) {
+      image(decoyImage7, x, y);
+    } else if (r < 0.8) {
+      image(decoyImage8, x, y);
+    } else if (r < 0.9) {
+      image(decoyImage9, x, y);
+    } else if (r < 1.0) {
+      image(decoyImage10, x, y);
     }
   }
 
   // Once we've displayed all decoys, we choose a random location for the target
-  targetX = random(0,width);
-  targetY = random(0,height);
+  targetX = random(0, width);
+  targetY = random(0, height);
 
   // And draw it (because it's the last thing drawn, it will always be on top)
-  image(targetImage,targetX,targetY);
+  image(targetImage, targetX, targetY);
 
-///////////////////////// Start New ///////////////////////////
+  ///////////////////////// Start New ///////////////////////////
 
-// Preparing the size of the interface
-interRectX = width - 301;
-interRectY = 0;
-interRectW = 300;
-interRectH = 200;
+  // Preparing the size of the interface
+  interRectX = width - 301;
+  interRectY = 0;
+  interRectW = 300;
+  interRectH = 200;
 
-// Putting this condition in order for the dog to go
-// underneath the interface
-while (targetX > interRectX && targetY < interRectY + interRectH) {
-  targetX = random(0,width);
-  targetY = random(0,height);
-}
+  // Putting this condition in order for the dog to go
+  // underneath the interface
+  while (targetX > interRectX && targetY < interRectY + interRectH) {
+    targetX = random(0, width);
+    targetY = random(0, height);
+  }
 
 
-///////////////////////// End New /////////////////////////////
+  ///////////////////////// End New /////////////////////////////
 }
 
 
@@ -179,34 +175,56 @@ function draw() {
   // Interface at the top right corner
   noStroke();
 
-  fill(red,green,blue);
-  rect(interRectX, interRectY, interRectW,interRectH);
-  image(lostDog, interRectX + interRectW /2, interRectY + interRectH/2 , interRectW/2, interRectH/2);
+  fill(red, green, blue);
+  rect(interRectX, interRectY, interRectW, interRectH);
+  image(lostDog, interRectX + interRectW / 2, interRectY + interRectH / 2, interRectW / 2, interRectH / 2);
 
   // Postion of the lost dog textFont
   fill(255);
   textSize(15);
   textAlign(CENTER);
-  text("WANTED DOG", interRectX + interRectW/2, interRectY + interRectH/2 + 50);
+  text("WANTED DOG", interRectX + interRectW / 2, interRectY + interRectH / 2 + 50);
   ///////////////////////// End New /////////////////////////////
 
   if (gameOver) {
     // Prepare our typography
     textFont("Helvetica");
     textSize(128);
-    textAlign(CENTER,CENTER);
+    textAlign(CENTER, CENTER);
     noStroke();
     fill(random(255));
 
     // Tell them they won!
-    text("YOU WINNED!",width/2,height/2);
+    text("YOU WINNED!", width / 2, height / 2);
 
     // Draw a circle around the sausage dog to show where it is (even though
     // they already know because they found it!)
     noFill();
     stroke(random(255));
     strokeWeight(10);
-    ellipse(targetX,targetY,targetImage.width,targetImage.height);
+    ellipse(targetX, targetY, targetImage.width, targetImage.height);
+
+
+    ///////////////////////// Start New ///////////////////////////
+
+    // The apperance of the dog moving when we win the game
+    image(winDog, winDogX, winDogY);
+
+    //The dog popping up
+    winDogX = random(0, width);
+    winDogY = random(0, height);
+
+    // The variation of speed of the dogs appearing
+    winDogSpeed = random(2, 100);
+    winDogVX = random(2, 100);
+
+    // The speed of the dogs
+    winDogVX = winDogSpeed;
+    winDogX = winDogX + winDogVX;
+    winDogY = winDogY + winDogVX;
+
+
+    ///////////////////////// End New /////////////////////////////
   }
 }
 
@@ -218,10 +236,10 @@ function mousePressed() {
   // Check if the cursor is in the x range of the target
   // (We're subtracting the image's width/2 because we're using imageMode(CENTER) -
   // the key is we want to determine the left and right edges of the image.)
-  if (mouseX > targetX - targetImage.width/2 && mouseX < targetX + targetImage.width/2) {
+  if (mouseX > targetX - targetImage.width / 2 && mouseX < targetX + targetImage.width / 2) {
     // Check if the cursor is also in the y range of the target
     // i.e. check if it's within the top and bottom of the image
-    if (mouseY > targetY - targetImage.height/2 && mouseY < targetY + targetImage.height/2) {
+    if (mouseY > targetY - targetImage.height / 2 && mouseY < targetY + targetImage.height / 2) {
       gameOver = true;
     }
   }
