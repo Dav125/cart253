@@ -3,7 +3,7 @@
 /******************************************************
 
 Game - Chaser
-Pippin Barr
+David Fong
 
 A "simple" game of cat and mouse. The player is a circle and can move with keys,
 if they overlap the (randomly moving) prey they "eat it" by sucking out its life
@@ -15,6 +15,7 @@ random movement, screen wrap.
 
 ******************************************************/
 
+////////////////////////// Start New ///////////////////////////////////
 // Track whether the game is over
 let gameOver = false;
 
@@ -38,6 +39,11 @@ let preyRadius = 25;
 let preyVX;
 let preyVY;
 let preyMaxSpeed = 4;
+
+// More variable for prey to make noise() movements
+let preyTX;
+let preyTY;
+
 // Prey health
 let preyHealth;
 let preyMaxHealth = 100;
@@ -48,6 +54,8 @@ let preyFill = 200;
 let eatHealth = 10;
 // Number of prey eaten during the game (the "score")
 let preyEaten = 0;
+
+/////////////////////////// End New //////////////////////////////////////
 
 // setup()
 //
@@ -60,6 +68,18 @@ function setup() {
   // We're using simple functions to separate code out
   setupPrey();
   setupPlayer();
+
+////////////////////////////// Start New ////////////////////////////////////
+
+// Noise()
+//
+// Using these codes to make the more fluent movement
+preyTX = random(0, 1000);
+preyTY = random(0, 1000);
+
+///////////////////////////// End New ///////////////////////////////////////
+
+
 }
 
 // setupPrey()
@@ -81,6 +101,8 @@ function setupPlayer() {
   playerY = height / 2;
   playerHealth = playerMaxHealth;
 }
+
+/////////////////////////// Start New //////////////////////////////////////
 
 // draw()
 //
@@ -109,6 +131,8 @@ function draw() {
   }
 }
 
+
+
 // handleInput()
 //
 // Checks arrow keys and adjusts player velocity accordingly
@@ -135,6 +159,8 @@ function handleInput() {
     playerVY = 0;
   }
 }
+
+/////////////////////////// End New /////////////////////////////////////////
 
 // movePlayer()
 //
@@ -211,6 +237,8 @@ function checkEating() {
   }
 }
 
+//////////////////////// Start New //////////////////////////////////////////
+
 // movePrey()
 //
 // Moves the prey based on random velocity changes
@@ -224,8 +252,19 @@ function movePrey() {
     //
     // Use map() to convert from the 0-1 range of the random() function
     // to the appropriate range of velocities for the prey
-    preyVX = map(random(), 0, 1, -preyMaxSpeed, preyMaxSpeed);
-    preyVY = map(random(), 0, 1, -preyMaxSpeed, preyMaxSpeed);
+
+    // noise()
+    //
+    // Replace the random function in order for the prey to move more
+    // fluentaly.
+    preyVX = map(noise(preyTX), 0, 1, -preyMaxSpeed, preyMaxSpeed);
+    preyVY = map(noise(preyTY), 0, 1, -preyMaxSpeed, preyMaxSpeed);
+
+    // The variation of speed of the prey
+    preyTX += 0.05;
+    preyTY += 0.05;
+
+
   }
 
   // Update prey position based on velocity
@@ -247,6 +286,8 @@ function movePrey() {
     preyY = preyY - height;
   }
 }
+
+/////////////////////////// End New ////////////////////////////////////////
 
 // drawPrey()
 //
