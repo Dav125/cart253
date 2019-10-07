@@ -137,6 +137,20 @@ function draw() {
 //
 // Checks arrow keys and adjusts player velocity accordingly
 function handleInput() {
+
+  // keyIsDown()
+  //
+  // When the shift button is being used, player's health
+  // drains faster
+  if(keyIsDown(SHIFT)){
+
+    // constrain()
+    //
+    // Using this function to keep the parametres from 100 to 0
+    // intact in order for it for not drop down to negatives
+    playerHealth = constrain(playerHealth - 2, 0, playerMaxHealth);
+  }
+
   // Check for horizontal movement
   if (keyIsDown(LEFT_ARROW)) {
     playerVX = -playerMaxSpeed;
@@ -286,6 +300,23 @@ function movePrey() {
     preyY = preyY - height;
   }
 }
+
+// keyPressed and keyReleased()
+//
+// When we pressed the shift button, the player moves faster
+// but loses health faster
+function keyPressed(){
+  if (keyCode === SHIFT){
+    playerMaxSpeed = playerMaxSpeed * 4;
+  }
+}
+
+function keyReleased(){
+  if (keyCode === SHIFT){
+    playerMaxSpeed = playerMaxSpeed / 4;
+  }
+}
+
 
 /////////////////////////// End New ////////////////////////////////////////
 
