@@ -69,6 +69,11 @@ let dungeonSound;
 // Variable for monster sound
 let monsterSound;
 
+// Variable for changing background color
+let r = 200;
+let g = 100;
+let b = 100;
+
 
 // preload()
 //
@@ -103,9 +108,8 @@ function setup() {
   // loop(), playMode()
   //
   // Added a sound that plays in the background
-  console.log(dungeonSound);
-  dungeonSound.loop();
   dungeonSound.playMode("untilDone"); //<========= The sound will keep playing until it's done
+  dungeonSound.loop();
 
 // Noise()
 //
@@ -148,7 +152,7 @@ function setupPlayer() {
 // displays the two agents.
 // When the game is over, shows the game over screen.
 function draw() {
-  background(100, 100, 200);
+  background(r, g, b);
 
   if (!gameOver) {
     handleInput();
@@ -201,9 +205,13 @@ function handleInput() {
   // Check for horizontal movement
   if (keyIsDown(LEFT_ARROW)) {
     playerVX = -playerMaxSpeed;
+    // Background changes color
+    r = r - 20;
   }
   else if (keyIsDown(RIGHT_ARROW)) {
     playerVX = playerMaxSpeed;
+    // Background changes color
+    r = r + 20;
   }
   else {
     playerVX = 0;
@@ -212,9 +220,13 @@ function handleInput() {
   // Check for vertical movement
   if (keyIsDown(UP_ARROW)) {
     playerVY = -playerMaxSpeed;
+    // Background changes color
+    r = r + 20;
   }
   else if (keyIsDown(DOWN_ARROW)) {
     playerVY = playerMaxSpeed;
+    // Background changes color
+    r = r - 20;
   }
   else {
     playerVY = 0;
@@ -226,7 +238,7 @@ function handleInput() {
 // Shows the score of prey being eaten
 function preyScore(){
   textFont(myFont);
-  textSize(30);
+  textSize(40);
   textAlign(CENTER, CENTER);
 
   text(preyEaten, width/2, height/2);
@@ -263,7 +275,7 @@ function preyScore(){
     preyMaxSpeed = 11;
   }
   if (preyEaten === 15){
-    playerRadius = 5;
+    playerRadius = 8;
     preyMaxSpeed = 12;
   }
 }
