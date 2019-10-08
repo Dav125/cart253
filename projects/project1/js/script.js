@@ -60,6 +60,14 @@ let preyEaten = 0;
 // Source:-->https://www.1001freefonts.com/retro-fonts-8.php
 let myFont;
 
+// Variable for the player avatar
+let monsterAvatar;
+
+// Variable for ambient sound
+let dungeonSound;
+
+// Variable for monster sound
+let monsterSound;
 
 
 // preload()
@@ -67,6 +75,16 @@ let myFont;
 // To load my assets
 function preload() {
 myFont = loadFont("assets/fonts/landsdowne/Landsdowne.ttf");
+
+// Background sound playing
+dungeonSound = loadSound("assets/sounds/ambient.wav");
+
+// Avatar transforms when the shift buttons is pressed
+monsterAvatar = loadImage("assets/images/monster.png");
+
+// This sound plays when the shift button is pressed
+monsterSound = loadSound("assets/sounds/monster.wav");
+
 
 }
 
@@ -82,7 +100,12 @@ function setup() {
   setupPrey();
   setupPlayer();
 
-
+  // loop(), playMode()
+  //
+  // Added a sound that plays in the background
+  console.log(dungeonSound);
+  dungeonSound.loop();
+  dungeonSound.playMode("untilDone"); //<========= The sound will keep playing until it's done
 
 // Noise()
 //
@@ -165,6 +188,14 @@ function handleInput() {
     // Using this function to keep the parametres from 100 to 0
     // intact in order for it for not drop down to negatives
     playerHealth = constrain(playerHealth - 2, 0, playerMaxHealth);
+
+    // image(), imageMode(), and tint
+    //
+    // The player transfoms into a monster
+    imageMode(CENTER);
+    tint(255,playerHealth); //<--------------- In order for the image fades the same as the original version of the avatar
+    image(monsterAvatar, playerX, playerY);
+
   }
 
   // Check for horizontal movement
@@ -195,7 +226,7 @@ function handleInput() {
 // Shows the score of prey being eaten
 function preyScore(){
   textFont(myFont);
-  textSize(20);
+  textSize(30);
   textAlign(CENTER, CENTER);
 
   text(preyEaten, width/2, height/2);
@@ -371,12 +402,23 @@ function movePrey() {
 function keyPressed(){
   if (keyCode === SHIFT){
     playerMaxSpeed = playerMaxSpeed * 4;
+
+    // play()
+    //
+    // Monster sound is played
+    monsterSound.play();
+    monsterSound.volume = 0.3;
   }
 }
 
 function keyReleased(){
   if (keyCode === SHIFT){
     playerMaxSpeed = playerMaxSpeed / 4;
+
+    // pause();
+    //
+    // the sound stops playing
+    monsterSound.pause();
   }
 }
 
