@@ -55,7 +55,20 @@ let eatHealth = 10;
 // Number of prey eaten during the game (the "score")
 let preyEaten = 0;
 
-/////////////////////////// End New //////////////////////////////////////
+
+// New personal font Landsdowne.tff
+// Source:-->https://www.1001freefonts.com/retro-fonts-8.php
+let myFont;
+
+
+
+// preload()
+//
+// To load my assets
+function preload() {
+myFont = loadFont("assets/fonts/landsdowne/Landsdowne.ttf");
+
+}
 
 // setup()
 //
@@ -69,7 +82,7 @@ function setup() {
   setupPrey();
   setupPlayer();
 
-////////////////////////////// Start New ////////////////////////////////////
+
 
 // Noise()
 //
@@ -125,6 +138,9 @@ function draw() {
 
     drawPrey();
     drawPlayer();
+
+    preyScore();
+
   }
   else {
     showGameOver();
@@ -171,6 +187,53 @@ function handleInput() {
   }
   else {
     playerVY = 0;
+  }
+}
+
+// preyScore()
+//
+// Shows the score of prey being eaten
+function preyScore(){
+  textFont(myFont);
+  textSize(20);
+  textAlign(CENTER, CENTER);
+
+  text(preyEaten, width/2, height/2);
+
+// Strings of if
+//
+// Whenever the prey gets eaten, it gets smaller and faster
+  if (preyEaten === 1){
+    preyRadius = 20;
+    preyMaxSpeed = 5;
+  }
+  if(preyEaten === 3){
+    preyRadius = 15;
+    preyMaxSpeed = 6;
+  }
+  if(preyEaten === 5){
+    preyRadius = 10;
+    preyMaxSpeed = 7;
+  }
+  if(preyEaten === 7){
+    preyRadius = 5;
+    preyMaxSpeed = 8;
+  }
+  if(preyEaten === 9){
+    playerRadius = 20;
+    preyMaxSpeed = 9;
+  }
+  if(preyEaten === 11){
+    playerRadius = 15;
+    preyMaxSpeed = 10;
+  }
+  if(preyEaten === 13){
+    playerRadius = 10;
+    preyMaxSpeed = 11;
+  }
+  if (preyEaten === 15){
+    playerRadius = 5;
+    preyMaxSpeed = 12;
   }
 }
 
