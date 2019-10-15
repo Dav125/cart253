@@ -143,6 +143,24 @@ function draw() {
     // inside a conditional!)
     if (ballIsOutOfBounds()) {
       // If it went off either side, reset it
+  //////////////////////////// Start New ////////////////////////////////////
+      if (ball.x < 0) {
+        rightHP = rightHP - 1;
+        console.log("Left side lose HP");
+      }
+       else if (ball.x > width) {
+        leftHP = leftHP - 1;
+        console.log("Left side lose HP");
+      }
+
+      if (leftHP === 0) {
+        reset();
+      }
+      else if (rightHP === 0) {
+        reset();
+      }
+
+      //////////////////////////// End New ////////////////////////////////////
       resetBall();
       // This is where we would likely count points, depending on which side
       // the ball went off...
@@ -216,25 +234,9 @@ function ballIsOutOfBounds() {
   // Check for ball going off the sides
   if (ball.x < 0 || ball.x > width) {
     return true;
-    //////////////////////////// Start New ////////////////////////////////////
 
-    if (ball.x < 0) {
-      rightHP = rightHP - 1;
-      rightHP = constrain(rightHP, 0, 3);
-    }
 
-     else if (ball.x > width) {
-      leftHP = leftHP - 1;
-      leftHP = constrain(leftHP, 0, 3);
-    }
 
-    if (leftHP === 0) {
-      reset();
-    }
-
-    if (rightHP === 0) {
-      reset();
-    }
     /////////////////////////// End New ////////////////////////////////////
   } else {
     return false;
