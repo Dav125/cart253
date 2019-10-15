@@ -143,13 +143,12 @@ function draw() {
     // inside a conditional!)
     if (ballIsOutOfBounds()) {
       // If it went off either side, reset it
-  //////////////////////////// Start New ////////////////////////////////////
+      //////////////////////////// Start New ////////////////////////////////////
 
-
+      // If either sides win, the paddles reposiotion at the center by reset()
       if (leftHP === 0) {
         reset();
-      }
-      else if (rightHP === 0) {
+      } else if (rightHP === 0) {
         reset();
       }
 
@@ -181,7 +180,7 @@ function draw() {
   fill(leftHP);
   rect(280, 30, 40, 40);
 
-// right side
+  // right side
   fill(rightHP);
   rect(360, 30, 40, 40);
   pop();
@@ -307,9 +306,25 @@ function checkBallPaddleCollision(paddle) {
       // Play our bouncing sound effect by rewinding and then playing
       beepSFX.currentTime = 0;
       beepSFX.play();
+
+      //////////////////////////// Start New //////////////////////////////
+      // Whenever the ball comes in contact with the paddles,
+      // the paddles changes size and the ball changes as well
+      ball.size = 35;
+      paddle.w = 10;
+      paddle.h = 90;
+
     }
+  } else {
+
+    // If the ball doesn't hit, nothing happens
+    ball.size = 20;
+    paddle.w = 20;
+    paddle.h = 70;
+
   }
 }
+////////////////////////// End New //////////////////////////////////
 
 // displayPaddle(paddle)
 //
@@ -331,24 +346,21 @@ function displayBall() {
 //
 // Sets the starting position and velocity of the ball
 function resetBall() {
-////////////////////////// Start New ////////////////////////////////////
+  ////////////////////////// Start New ////////////////////////////////////
   if (ball.x < 0) {
     leftHP = leftHP - 25;
     leftHP = constrain(leftHP, 0, 255);
     ball.speed = -ball.speed;
-
-
     console.log("Left side lose HP");
 
-  }
-   else if (ball.x > width) {
+  } else if (ball.x > width) {
     rightHP = rightHP - 25;
-    rightHP =constrain(rightHP, 0, 255);
+    rightHP = constrain(rightHP, 0, 255);
     ball.speed = -ball.speed;
     console.log("Right side lose HP");
 
   }
-  //////////////////////////  End New /////////////////////////////////////
+
   // Initialise the ball's position and velocity
   ball.x = width / 2;
   ball.y = height / 2;
