@@ -147,12 +147,18 @@ function draw() {
       if (ball.x < 0) {
         leftHP = leftHP - 25;
         leftHP = constrain(leftHP, 0, 255);
+        ball.speed = -ball.speed;
+
+
         console.log("Left side lose HP");
+
       }
        else if (ball.x > width) {
         rightHP = rightHP - 25;
         rightHP =constrain(rightHP, 0, 255);
+      ball.speed = -ball.speed;
         console.log("Right side lose HP");
+
       }
 
       if (leftHP === 0) {
@@ -190,7 +196,7 @@ function draw() {
   fill(leftHP);
   rect(280, 30, 40, 40);
 
-// right side 
+// right side
   fill(rightHP);
   rect(360, 30, 40, 40);
   pop();
