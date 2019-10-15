@@ -1,7 +1,7 @@
 "use strict";
 
 // Pong
-// by Pippin Barr
+// by David Fong
 //
 // A "simple" implementation of Pong with no scoring system
 // just the ability to play the game with the keyboard.
@@ -61,6 +61,20 @@ let rightPaddle = {
 
 // A variable to hold the beep sound we will play on bouncing
 let beepSFX;
+
+//////////////////////////// Start New ///////////////////////////////////////
+
+// Health points
+//
+// Display both sides health points
+
+// Left side points
+let leftHP = 3;
+
+// Right side points
+let rightHP = 3;
+
+//////////////////////////// End New /////////////////////////////////////////
 
 // preload()
 //
@@ -186,6 +200,25 @@ function ballIsOutOfBounds() {
   // Check for ball going off the sides
   if (ball.x < 0 || ball.x > width) {
     return true;
+
+    if (ball.x < 0) {
+      rightHP = rightHP - 1;
+      rightHP = constrain(rightHP, 0, 3);
+    }
+
+    if (ball.x > width){
+      leftHP = leftHP - 1;
+      leftHP = constrain(leftHP, 0, 3);
+    }
+
+    if (leftHP === 0){
+      leftHP = 3;
+    }
+
+    if (rightHP === 0){
+      rightHP = 3;
+    }
+
   }
   else {
     return false;
