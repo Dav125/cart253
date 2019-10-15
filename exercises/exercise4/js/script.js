@@ -385,8 +385,15 @@ function displayStartMessage() {
   push();
   textAlign(CENTER, CENTER);
   textSize(32);
-  text("CLICK TO START", width / 2, height / 2);
+//////////////////// Start New //////////////////////////////////
+
+  // Just repositioned the text
+  text("CLICK TO START", width / 2, height / 4);
+
+////////////////////// End New //////////////////////////////////
   pop();
+
+
 }
 
 // mousePressed()
