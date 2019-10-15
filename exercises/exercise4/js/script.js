@@ -69,16 +69,16 @@ let beepSFX;
 // Display both sides health points
 
 // Max Health points
-let leftMaxHP = 3;
+let leftMaxHP = 255;
 
 // Max Health points
-let rightMaxHP = 3;
+let rightMaxHP = 255;
 
 // Left side points
-let leftHP = 3;
+let leftHP = leftMaxHP;
 
 // Right side points
-let rightHP = 3;
+let rightHP = rightMaxHP;
 
 //////////////////////////// End New /////////////////////////////////////////
 
@@ -145,12 +145,14 @@ function draw() {
       // If it went off either side, reset it
   //////////////////////////// Start New ////////////////////////////////////
       if (ball.x < 0) {
-        rightHP = rightHP - 1;
+        leftHP = leftHP - 25;
+        leftHP = constrain(leftHP, 0, 255);
         console.log("Left side lose HP");
       }
        else if (ball.x > width) {
-        leftHP = leftHP - 1;
-        console.log("Left side lose HP");
+        rightHP = rightHP - 25;
+        rightHP =constrain(rightHP, 0, 255);
+        console.log("Right side lose HP");
       }
 
       if (leftHP === 0) {
@@ -178,12 +180,20 @@ function draw() {
 
   ///////////////////////// Start New ////////////////////////////////////////
 
-  // text()
+  // rect()
   //
-  // Display the score
-  text(leftHP, 280, 30);
+  // Display the score, and I am also using he push and pop to contain
+  // the color fill change will only happen for the HP.
 
-  text(rightHP, 360, 30);
+  // left side
+  push();
+  fill(leftHP);
+  rect(280, 30, 40, 40);
+
+// right side 
+  fill(rightHP);
+  rect(360, 30, 40, 40);
+  pop();
 
   //////////////////////// End New ///////////////////////////////////////////
 }
