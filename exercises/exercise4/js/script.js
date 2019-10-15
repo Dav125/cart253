@@ -75,10 +75,10 @@ let leftMaxHP = 3;
 let rightMaxHP = 3;
 
 // Left side points
-let leftHP = leftMaxHP;
+let leftHP = 3;
 
 // Right side points
-let rightHP = rightMaxHP;
+let rightHP = 3;
 
 //////////////////////////// End New /////////////////////////////////////////
 
@@ -147,8 +147,7 @@ function draw() {
       // This is where we would likely count points, depending on which side
       // the ball went off...
     }
-  }
-  else {
+  } else {
     // Otherwise we display the message to start the game
     displayStartMessage();
   }
@@ -157,6 +156,18 @@ function draw() {
   displayPaddle(leftPaddle);
   displayPaddle(rightPaddle);
   displayBall();
+
+
+  ///////////////////////// Start New ////////////////////////////////////////
+
+  // text()
+  //
+  // Display the score
+  text(leftHP, 280, 30);
+
+  text(rightHP, 360, 30);
+
+  //////////////////////// End New ///////////////////////////////////////////
 }
 
 // handleInput()
@@ -174,8 +185,7 @@ function handleInput(paddle) {
   else if (keyIsDown(paddle.downKey)) {
     // Move down
     paddle.vy = paddle.speed;
-  }
-  else {
+  } else {
     // Otherwise stop moving
     paddle.vy = 0;
   }
@@ -206,31 +216,49 @@ function ballIsOutOfBounds() {
   // Check for ball going off the sides
   if (ball.x < 0 || ball.x > width) {
     return true;
-//////////////////////////// Start New ////////////////////////////////////
+    //////////////////////////// Start New ////////////////////////////////////
 
     if (ball.x < 0) {
       rightHP = rightHP - 1;
       rightHP = constrain(rightHP, 0, 3);
     }
 
-    if (ball.x > width){
+     else if (ball.x > width) {
       leftHP = leftHP - 1;
       leftHP = constrain(leftHP, 0, 3);
     }
 
-    if (leftHP === 0){
-      leftHP = leftMaxHP;
+    if (leftHP === 0) {
+      reset();
     }
 
-    if (rightHP === 0){
-      rightHP = rightMaxHP;
+    if (rightHP === 0) {
+      reset();
     }
-/////////////////////////// End New ////////////////////////////////////
-  }
-  else {
+    /////////////////////////// End New ////////////////////////////////////
+  } else {
     return false;
   }
 }
+
+///////////////////////// Start New /////////////////////////////////////
+
+function reset() {
+  // Reset the position of the ball
+  ball.x = width / 2;
+  ball.y = height / 2;
+
+  // Reset the position of the paddles
+  rightPaddle.y = height / 2;
+  leftPaddle.y = height / 2;
+
+  // Reset the health of the Health
+  leftHP = leftMaxHP;
+  rightHP = rightMaxHP;
+}
+
+//////////////////////// End New ////////////////////////////////////////
+
 
 // checkBallWallCollision()
 //
