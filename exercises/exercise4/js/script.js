@@ -144,22 +144,7 @@ function draw() {
     if (ballIsOutOfBounds()) {
       // If it went off either side, reset it
   //////////////////////////// Start New ////////////////////////////////////
-      if (ball.x < 0) {
-        leftHP = leftHP - 25;
-        leftHP = constrain(leftHP, 0, 255);
-        ball.speed = -ball.speed;
 
-
-        console.log("Left side lose HP");
-
-      }
-       else if (ball.x > width) {
-        rightHP = rightHP - 25;
-        rightHP =constrain(rightHP, 0, 255);
-      ball.speed = -ball.speed;
-        console.log("Right side lose HP");
-
-      }
 
       if (leftHP === 0) {
         reset();
@@ -346,11 +331,30 @@ function displayBall() {
 //
 // Sets the starting position and velocity of the ball
 function resetBall() {
+////////////////////////// Start New ////////////////////////////////////
+  if (ball.x < 0) {
+    leftHP = leftHP - 25;
+    leftHP = constrain(leftHP, 0, 255);
+    ball.speed = -ball.speed;
+
+
+    console.log("Left side lose HP");
+
+  }
+   else if (ball.x > width) {
+    rightHP = rightHP - 25;
+    rightHP =constrain(rightHP, 0, 255);
+    ball.speed = -ball.speed;
+    console.log("Right side lose HP");
+
+  }
+  //////////////////////////  End New /////////////////////////////////////
   // Initialise the ball's position and velocity
   ball.x = width / 2;
   ball.y = height / 2;
   ball.vx = ball.speed;
   ball.vy = ball.speed;
+
 }
 
 // displayStartMessage()
