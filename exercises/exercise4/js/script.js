@@ -332,6 +332,15 @@ function checkBallPaddleCollision(paddle) {
 function displayPaddle(paddle) {
   // Draw the paddles
   rect(paddle.x, paddle.y, paddle.w, paddle.h);
+
+    ////////////////////// Start New /////////////////////////////////////////
+
+    // constrain()
+    //
+    // To make the paddle stay inside the screen and not go out of bounds
+    paddle.y = constrain(paddle.y, 0, height-paddle.h);
+
+    ///////////////////// End New ///////////////////////////////////////////
 }
 
 // displayBall()
