@@ -68,11 +68,17 @@ let beepSFX;
 //
 // Display both sides health points
 
+// Max Health points
+let leftMaxHP = 3;
+
+// Max Health points
+let rightMaxHP = 3;
+
 // Left side points
-let leftHP = 3;
+let leftHP = leftMaxHP;
 
 // Right side points
-let rightHP = 3;
+let rightHP = rightMaxHP;
 
 //////////////////////////// End New /////////////////////////////////////////
 
@@ -200,6 +206,7 @@ function ballIsOutOfBounds() {
   // Check for ball going off the sides
   if (ball.x < 0 || ball.x > width) {
     return true;
+//////////////////////////// Start New ////////////////////////////////////
 
     if (ball.x < 0) {
       rightHP = rightHP - 1;
@@ -212,13 +219,13 @@ function ballIsOutOfBounds() {
     }
 
     if (leftHP === 0){
-      leftHP = 3;
+      leftHP = leftMaxHP;
     }
 
     if (rightHP === 0){
-      rightHP = 3;
+      rightHP = rightMaxHP;
     }
-
+/////////////////////////// End New ////////////////////////////////////
   }
   else {
     return false;
