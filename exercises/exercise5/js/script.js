@@ -11,7 +11,7 @@ let tiger;
 //////////////////////////// Start New ///////////////////////////////
 
 // New predator
-let lion;
+let lion; // New
 
 /////////////////////////// End New //////////////////////////////////
 
@@ -66,6 +66,11 @@ function draw() {
   tiger.handleEating(antelope);
   tiger.handleEating(zebra);
   tiger.handleEating(bee);
+
+  // New handle for the lion to eat its prey
+  lion.handleEating(antelope); // New
+  lion.handleEating(zebra); // New
+  lion.handleEating(bee); // New
 
   // Display all the "animals"
   tiger.display();
