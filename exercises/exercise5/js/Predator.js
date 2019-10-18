@@ -6,11 +6,17 @@
 
 class Predator {
 
+/////////////////////////////// Start New /////////////////////////////////////
+
   // constructor
   //
   // Sets the initial values for the Predator's properties
   // Either sets default values or uses the arguments provided
-  constructor(x, y, speed, fillColor, radius) {
+  //
+  // Added the upKey, downKey, leftKey, rightKey
+  // in the argument
+
+  constructor(x, y, speed, fillColor, radius, upKey, downKey, leftKey, rightKey) {
     // Position
     this.x = x;
     this.y = y;
@@ -32,7 +38,7 @@ class Predator {
     this.leftKey = LEFT_ARROW;
     this.rightKey = RIGHT_ARROW;
   }
-
+/////////////////////////// End New ///////////////////////////////////////////
   // handleInput
   //
   // Checks if an arrow key is pressed and sets the predator's
