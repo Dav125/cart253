@@ -1,3 +1,7 @@
+/////////////////////////////// Start New /////////////////////////////////////
+// New variable to keep track of prey being eaten
+let devourPrey = 0;
+
 // Predator
 //
 // A class that represents a simple predator
@@ -6,7 +10,6 @@
 
 class Predator {
 
-/////////////////////////////// Start New /////////////////////////////////////
 
   // constructor
   //
@@ -119,6 +122,12 @@ class Predator {
       // Check if the prey died and reset it if so
       if (prey.health < 0) {
         prey.reset();
+
+///////////////////////////// Start New ///////////////////////////////////
+      // To keep track of the prey being eaten
+      console.log(devourPrey);
+      devourPrey = devourPrey + 1;
+///////////////////////////// End New /////////////////////////////////////
       }
     }
   }
