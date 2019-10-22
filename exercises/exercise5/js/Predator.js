@@ -15,7 +15,7 @@ class Predator {
   //
   // Sets the initial values for the Predator's properties
   // Either sets default values or uses the arguments provided
-  constructor(x, y, speed, fillColor, radius, upKey, downKey, leftKey, rightKey) {
+  constructor(x, y, speed, fillColor, radius, upKey, downKey, leftKey, rightKey, spaceKey) {
     // Position
     this.x = x;
     this.y = y;
@@ -41,6 +41,9 @@ class Predator {
 
     // New variable to keep track of prey being eaten
     this.devourPrey = 0;
+
+    // Adding the new sprint button
+    this.spaceKey = spaceKey;
   }
 /////////////////////////// End New ///////////////////////////////////////////
   // handleInput
@@ -68,6 +71,19 @@ class Predator {
     else {
       this.vy = 0;
     }
+///////////////////////////// Start New //////////////////////////////
+
+  // Sprint button that allows the prey to go faster
+  // or else it will just move at normal speed
+  if (keyIsDown(this.spaceKey)) {
+    this.speed = 10;
+  }
+  else {
+    this.speed = 5;
+  }
+
+//////////////////////////// End New ////////////////////////////////
+
   }
 
   // move
