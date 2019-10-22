@@ -1,6 +1,6 @@
 /////////////////////////////// Start New /////////////////////////////////////
 // New variable to keep track of prey being eaten
-let devourPrey = 0;
+
 
 // Predator
 //
@@ -38,6 +38,8 @@ class Predator {
     this.downKey = downKey;
     this.leftKey = leftKey;
     this.rightKey = rightKey;
+
+    this.devourPrey = 0;
   }
 /////////////////////////// End New ///////////////////////////////////////////
   // handleInput
@@ -125,8 +127,9 @@ class Predator {
 
 ///////////////////////////// Start New ///////////////////////////////////
       // To keep track of the prey being eaten
-      console.log(devourPrey);
-      devourPrey = devourPrey + 1;
+      console.log("You have eaten",this.devourPrey, "prey");
+      this.devourPrey = this.devourPrey + 1;
+
 ///////////////////////////// End New /////////////////////////////////////
       }
     }
