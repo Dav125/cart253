@@ -44,6 +44,7 @@ class Predator {
 
     // Adding the new sprint button
     this.spaceKey = spaceKey;
+
   }
 /////////////////////////// End New ///////////////////////////////////////////
   // handleInput
@@ -162,6 +163,12 @@ class Predator {
     fill(this.fillColor);
     this.radius = this.health;
     ellipse(this.x, this.y, this.radius * 2);
+    pop();
+
+    // To show how many prey has been eaten by displaying the number
+    push();
+    textAlign(CENTER,CENTER);
+    text(this.devourPrey, this.x, this.y);
     pop();
   }
 }
