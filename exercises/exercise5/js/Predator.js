@@ -1,5 +1,5 @@
 /////////////////////////////// Start New /////////////////////////////////////
-// New variable to keep track of prey being eaten
+
 
 
 // Predator
@@ -39,6 +39,7 @@ class Predator {
     this.leftKey = leftKey;
     this.rightKey = rightKey;
 
+    // New variable to keep track of prey being eaten
     this.devourPrey = 0;
   }
 /////////////////////////// End New ///////////////////////////////////////////
