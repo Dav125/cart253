@@ -165,10 +165,15 @@ class Predator {
     ellipse(this.x, this.y, this.radius * 2);
     pop();
 
+    ///////////////////////////// Start New ///////////////////////////////////
+
     // To show how many prey has been eaten by displaying the number
     push();
     textAlign(CENTER,CENTER);
+    textSize(20);
     text(this.devourPrey, this.x, this.y);
     pop();
+
+    ///////////////////////////// End New /////////////////////////////////////
   }
 }
