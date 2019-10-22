@@ -21,7 +21,7 @@ let newZebra = [];
 let newBee = [];
 
 // How many preys that are being shown
-let numPreys = 1;
+let numPreys = 3;
 
 //////////////////////////// Start New ////////////////////////////////
 
