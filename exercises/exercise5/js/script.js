@@ -36,8 +36,8 @@ let numPreys = 1;
 // new argument for the predator class
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  tiger = new Predator(100, 100, 5, color(200, 200, 0), 40, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW);
-  lion = new Predator(200, 200, 5, color(0, 200, 200), 45, 87, 83, 65, 68); // New
+  tiger = new Predator(100, 100, 5, color(200, 200, 0), 40, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW, 32);
+  lion = new Predator(200, 200, 5, color(0, 200, 200), 45, 87, 83, 65, 68, 32); // New
 
   for (let i = 0; i < numPreys; i++) {
 
