@@ -48,7 +48,7 @@ class Predator {
     //Adding image for animals
     this.animalImage = animalImage;
   }
-/////////////////////////// End New ///////////////////////////////////////////
+  /////////////////////////// End New ///////////////////////////////////////////
   // handleInput
   //
   // Checks if an arrow key is pressed and sets the predator's
@@ -57,35 +57,30 @@ class Predator {
     // Horizontal movement
     if (keyIsDown(this.leftKey)) {
       this.vx = -this.speed;
-    }
-    else if (keyIsDown(this.rightKey)) {
+    } else if (keyIsDown(this.rightKey)) {
       this.vx = this.speed;
-    }
-    else {
+    } else {
       this.vx = 0;
     }
     // Vertical movement
     if (keyIsDown(this.upKey)) {
       this.vy = -this.speed;
-    }
-    else if (keyIsDown(this.downKey)) {
+    } else if (keyIsDown(this.downKey)) {
       this.vy = this.speed;
-    }
-    else {
+    } else {
       this.vy = 0;
     }
-///////////////////////////// Start New //////////////////////////////
+    ///////////////////////////// Start New //////////////////////////////
 
-  // Sprint button that allows the prey to go faster
-  // or else it will just move at normal speed
-  if (keyIsDown(this.spaceKey)) {
-    this.speed = 10;
-  }
-  else {
-    this.speed = 5;
-  }
+    // Sprint button that allows the prey to go faster
+    // or else it will just move at normal speed
+    if (keyIsDown(this.spaceKey)) {
+      this.speed = 10;
+    } else {
+      this.speed = 5;
+    }
 
-//////////////////////////// End New ////////////////////////////////
+    //////////////////////////// End New ////////////////////////////////
 
   }
 
@@ -113,15 +108,13 @@ class Predator {
     // Off the left or right
     if (this.x < 0) {
       this.x += width;
-    }
-    else if (this.x > width) {
+    } else if (this.x > width) {
       this.x -= width;
     }
     // Off the top or bottom
     if (this.y < 0) {
       this.y += height;
-    }
-    else if (this.y > height) {
+    } else if (this.y > height) {
       this.y -= height;
     }
   }
@@ -145,12 +138,12 @@ class Predator {
       if (prey.health < 0) {
         prey.reset();
 
-///////////////////////////// Start New ///////////////////////////////////
-      // To keep track of the prey being eaten
-      console.log("You have eaten",this.devourPrey, "prey");
-      this.devourPrey = this.devourPrey + 1;
+        ///////////////////////////// Start New ///////////////////////////////////
+        // To keep track of the prey being eaten
+        console.log("You have eaten", this.devourPrey, "prey");
+        this.devourPrey = this.devourPrey + 1;
 
-///////////////////////////// End New /////////////////////////////////////
+        ///////////////////////////// End New /////////////////////////////////////
       }
     }
   }
@@ -164,14 +157,14 @@ class Predator {
     noStroke();
     fill(this.fillColor);
     this.radius = this.health;
-    image(this.animalImage,this.x, this.y, this.radius * 2);
+    image(this.animalImage, this.x, this.y, this.radius * 2);
     pop();
 
     ///////////////////////////// Start New ///////////////////////////////////
 
     // To show how many prey has been eaten by displaying the number
     push();
-    textAlign(CENTER,CENTER);
+    textAlign(CENTER, CENTER);
     textSize(20);
     text(this.devourPrey, this.x, this.y);
     pop();

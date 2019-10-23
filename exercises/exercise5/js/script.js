@@ -35,9 +35,9 @@ let numPreys = 3;
 // preload()
 //
 // To load the images for the animals
-function preload(){
+function preload() {
   tigerImg = loadImage("assets/images/tiger.png");
-  lionImg  = loadImage("assets/images/lion.png");
+  lionImg = loadImage("assets/images/lion.png");
   antelopeImg = loadImage("assets/images/antelope.png");
   zebraImg = loadImage("assets/images/zebra.png");
   beeImg = loadImage("assets/images/bee.png");
@@ -91,7 +91,7 @@ function setup() {
 // Handles input, movement, eating, and displaying for the system's objects
 function draw() {
   // Clear the background to greed
-  background(0,200,100);
+  background(0, 200, 100);
   //////////////////////////// Start New /////////////////////////////////
   // Handle input for the tiger
   tiger.handleInput();
