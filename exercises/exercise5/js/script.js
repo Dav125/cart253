@@ -1,9 +1,9 @@
-// Predator-Prey Simulation
-// by Pippin Barr
+// Tiger lion Simulation
+// by David Fong
 //
-// Creates a predator and three prey (of different sizes and speeds)
-// The predator chases the prey using the arrow keys and consumes them.
-// The predator loses health over time, so must keep eating to survive.
+// Both the lion and the tiger are hungry to eat,
+// guide them by using directional buttons to the preys
+// before they're dead
 
 // Our predator
 let tiger;
@@ -12,6 +12,13 @@ let tiger;
 
 // New predator
 let lion; // New
+
+//New images for the animal
+let tigerImg;
+let lionImg;
+let antelopeImg;
+let zebraImg;
+let beeImg;
 
 /////////////////////////// End New //////////////////////////////////
 
@@ -25,6 +32,17 @@ let numPreys = 3;
 
 //////////////////////////// Start New ////////////////////////////////
 
+// preload()
+//
+// To load the images for the animals
+function preload(){
+  tigerImg = loadImage("assets/images/tiger.png");
+  lionImg  = loadImage("assets/images/lion.png");
+  antelopeImg = loadImage("assets/images/antelope.png");
+  zebraImg = loadImage("assets/images/zebra.png");
+  beeImg = loadImage("assets/images/bee.png");
+}
+
 // setup()
 //
 // Sets up a canvas
@@ -36,8 +54,8 @@ let numPreys = 3;
 // new argument for the predator class
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  tiger = new Predator(100, 100, 5, color(200, 200, 0), 40, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW, 32);
-  lion = new Predator(200, 200, 5, color(0, 200, 200), 45, 87, 83, 65, 68, 32); // New
+  tiger = new Predator(100, 100, 5, color(200, 200, 0), 40, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW, 32, tigerImg);
+  lion = new Predator(200, 200, 5, color(0, 200, 200), 45, 87, 83, 65, 68, 32, lionImg); // New
 
   for (let i = 0; i < numPreys; i++) {
 
@@ -50,9 +68,9 @@ function setup() {
 
     // New variable to be able
     // to add new array version of the animals
-    let addAntelope = new Prey(foodX, foodY, 10, color(255, 100, 10), 50);
-    let addZebra = new Prey(foodX, foodY, 8, color(255, 255, 255), 60);
-    let addBee = new Prey(foodX, foodY, 20, color(255, 255, 0), 10);
+    let addAntelope = new Prey(foodX, foodY, 10, color(255, 100, 10), 50, antelopeImg);
+    let addZebra = new Prey(foodX, foodY, 8, color(255, 255, 255), 60, zebraImg);
+    let addBee = new Prey(foodX, foodY, 20, color(255, 255, 0), 10, beeImg);
 
     // push()
     //
@@ -62,6 +80,8 @@ function setup() {
     newZebra.push(addZebra);
     newBee.push(addBee);
   }
+
+
 }
 
 //////////////////////////// End New ///////////////////////////////////
@@ -70,8 +90,8 @@ function setup() {
 //
 // Handles input, movement, eating, and displaying for the system's objects
 function draw() {
-  // Clear the background to black
-  background(0);
+  // Clear the background to greed
+  background(0,200,100);
   //////////////////////////// Start New /////////////////////////////////
   // Handle input for the tiger
   tiger.handleInput();
