@@ -15,7 +15,7 @@ class Predator {
   //
   // Sets the initial values for the Predator's properties
   // Either sets default values or uses the arguments provided
-  constructor(x, y, speed, fillColor, radius, upKey, downKey, leftKey, rightKey, spaceKey) {
+  constructor(x, y, speed, fillColor, radius, upKey, downKey, leftKey, rightKey, spaceKey, animalImage) {
     // Position
     this.x = x;
     this.y = y;
@@ -45,6 +45,8 @@ class Predator {
     // Adding the new sprint button
     this.spaceKey = spaceKey;
 
+    //Adding image for animals
+    this.animalImage = animalImage;
   }
 /////////////////////////// End New ///////////////////////////////////////////
   // handleInput
@@ -162,7 +164,7 @@ class Predator {
     noStroke();
     fill(this.fillColor);
     this.radius = this.health;
-    ellipse(this.x, this.y, this.radius * 2);
+    image(this.animalImage,this.x, this.y, this.radius * 2);
     pop();
 
     ///////////////////////////// Start New ///////////////////////////////////
