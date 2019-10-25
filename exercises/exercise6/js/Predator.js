@@ -86,7 +86,9 @@ class Predator {
 ////////////////////////////////////////////////// FIXED
     //this.x = this.vx; ====> Missing + to be able to the X axis
     this.x += this.vx;
-    this.y = this.vy;
+////////////////////////////////////////////////// FIXED
+    //   this.y = this.vy; ====> Missing + to be able to the Y axis
+    this.y += this.vy;
     // Update health
     this.health = this.health - this.healthLossPerMove;
     this.health = constrain(this.health, 0, this.maxHealth);
