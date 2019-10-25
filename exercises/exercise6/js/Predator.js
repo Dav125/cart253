@@ -14,6 +14,7 @@ class Predator {
   //
   // Sets the initial values for the Predator's properties
   // Either sets default values or uses the arguments provided
+
 ///////////////////////////////////////////////////// FIXED
   //construction(x, y, speed, feltColor, radius) { => Wrong word, it was supossed to be fillColor
   //                          ---------
@@ -32,7 +33,11 @@ class Predator {
     this.healthGainPerEat = 1;
     // Display properties
     this.fillColor = fillColor;
-    this.radios = this.health; // Radius is defined in terms of health
+
+//////////////////////////////////////////////////// FIXED
+    //this.radios = this.health;  ====> Small typo, it was radius not radios
+    this.radius = this.health; // Radius is defined in terms of health
+
     // Input properties
     this.appKey = UP_ARROW;
     this.downKey = DOWN_ARROW;
