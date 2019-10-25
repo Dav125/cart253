@@ -34,7 +34,9 @@ function setup() {
 //tiger = new Predator(100, , 100, 5, color(200, 200, 0), 40); ==> There was an extra comma and space
   tiger = new Predator(100, 100, 5, color(200, 200, 0), 40);
   antelope = new Prey(100, 100, 10, color(255, 100, 10), 50);
-  zebra = new Prey(100, 8, color(255, 255, 255), 60);
+////////////////////////////////////////////////////// FIXED
+//zebra = new Prey(100, 8, color(255, 255, 255), 60); ==> Missng the y property in the argument
+  zebra = new Prey(100, 100, 8, color(255, 255, 255), 60);
   bee = new Prey(100, 100, 20, color(255, 255, 0), 10);
 }
 
