@@ -35,7 +35,7 @@ function setup() {
   tiger = new Predator(100, 100, 5, color(200, 200, 0), 40);
   antelope = new Prey(100, 100, 10, color(255, 100, 10), 50);
 ////////////////////////////////////////////////////// FIXED
-//zebra = new Prey(100, 8, color(255, 255, 255), 60); ==> Missng the y property in the argument
+  //zebra = new Prey(100, 8, color(255, 255, 255), 60); ==> Missng the y property in the argument
   zebra = new Prey(100, 100, 8, color(255, 255, 255), 60);
   bee = new Prey(100, 100, 20, color(255, 255, 0), 10);
 }
@@ -51,7 +51,7 @@ function draw() {
 
   // Handle input for the tiger
 /////////////////////////////////////////////////////// FIXED
-// Missing the handleInput() for tiger
+  // Missing the handleInput() for tiger
   tiger.handleInput();
 
 
@@ -59,6 +59,9 @@ function draw() {
   tiger.move();
   antelope.move();
   zebra.move();
+/////////////////////////////////////// FIXED
+  // Missing the bee.move();
+  bee.move();
 
   // Handle the tiger eating any of the prey
   tiger.handleEating(antelope);
