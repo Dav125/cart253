@@ -27,7 +27,7 @@ class Prey {
     this.vx = 0;
     this.vy = 0;
 /////////////////////////////////////////////////////////////// FIXED
-    //this.sped = speed; ====> A typo, its speed not sped  
+    //this.sped = speed; ====> A typo, its speed not sped
     this.speed = speed;
     // Time properties for noise() function
     this.tx = random(0, 0); // To make x and y noise different
@@ -44,7 +44,10 @@ class Prey {
   //
   // Sets velocity based on the noise() function and the Prey's speed
   // Moves based on the resulting velocity and handles wrapping
-  mover() {
+
+//////////////////////////////////////////////////////// FIXED
+  //mover() { ========> A small typo, there is no r in move()
+  move() {
     // Set velocity via noise()
     this.vx = map(noise(this.tx), 0, 1, -this.speed, this.speed);
     this.vy = map(noise(this.ty), 0, 1, -this.speed, this.speed);
