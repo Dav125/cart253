@@ -33,7 +33,9 @@ class Prey {
 ////////////////////////////////////////////////////////////// FIXED
     // this.tx = random(0, 0); ==> Missing max value to use noise()
     this.tx = random(0, 1000); // To make x and y noise different
-    this.ty = random(0, 0); // we use random starting values
+////////////////////////////////////////////////////////////// FIXED
+    // this.ty = random(0, 0); ==> Missing the max value to use noise()
+    this.ty = random(0, 1000); // we use random starting values
     // Health properties
     this.maxHealth = radius;
     this.health = this.maxHealth; // Must be AFTER defining this.maxHealth
