@@ -30,11 +30,11 @@ let bee;
 //functionsetup() { =============> There is supposed to be a space in between function and setup
 function setup() {
   createCanvas(windowWidth, windowHeight);
-///////////////////////////////////////////////////// FIXED
-//tiger = new Predator(100, , 100, 5, color(200, 200, 0), 40); ==> There was an extra comma and space
+  ///////////////////////////////////////////////////// FIXED
+  //tiger = new Predator(100, , 100, 5, color(200, 200, 0), 40); ==> There was an extra comma and space
   tiger = new Predator(100, 100, 5, color(200, 200, 0), 40);
   antelope = new Prey(100, 100, 10, color(255, 100, 10), 50);
-////////////////////////////////////////////////////// FIXED
+  ////////////////////////////////////////////////////// FIXED
   //zebra = new Prey(100, 8, color(255, 255, 255), 60); ==> Missng the y property in the argument
   zebra = new Prey(100, 100, 8, color(255, 255, 255), 60);
   bee = new Prey(100, 100, 20, color(255, 255, 0), 10);
@@ -45,12 +45,12 @@ function setup() {
 // Handles input, movement, eating, and displaying for the system's objects
 function draw() {
   // Clear the background to black
-//////////////////////////////////////////////////////// FIXED
-//backgroun(0); =======> Small typo, supposed to be background
+  //////////////////////////////////////////////////////// FIXED
+  //backgroun(0); =======> Small typo, supposed to be background
   background(0);
 
   // Handle input for the tiger
-/////////////////////////////////////////////////////// FIXED
+  /////////////////////////////////////////////////////// FIXED
   // Missing the handleInput() for tiger
   tiger.handleInput();
 
@@ -59,7 +59,7 @@ function draw() {
   tiger.move();
   antelope.move();
   zebra.move();
-/////////////////////////////////////// FIXED
+  /////////////////////////////////////// FIXED
   // Missing the bee.move();
   bee.move();
 
@@ -70,13 +70,13 @@ function draw() {
 
   // Display all the "animals"
   tiger.display();
-///////////////////////////////////////////// FIXED
+  ///////////////////////////////////////////// FIXED
   // antelop.display();=====> Small Typo, it was missing an e in antelope
   antelope.display();
-////////////////////////////////////////////// FIXED
+  ////////////////////////////////////////////// FIXED
   // zebra.disploy(); =====> Typo on display()
   zebra.display();
-/////////////////////////////////////////////// FIXED
+  /////////////////////////////////////////////// FIXED
   // b.display(); ============> A small typo, missing 2 e in bee
   bee.display();
 }
