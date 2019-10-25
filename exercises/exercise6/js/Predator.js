@@ -83,7 +83,9 @@ class Predator {
   // Handles wrapping
   move() {
     // Update position
-    this.x = this.vx;
+////////////////////////////////////////////////// FIXED
+    //this.x = this.vx; ====> Missing + to be able to the X axis
+    this.x += this.vx;
     this.y = this.vy;
     // Update health
     this.health = this.health - this.healthLossPerMove;
