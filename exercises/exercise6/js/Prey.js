@@ -8,7 +8,10 @@
 // ~10 ERRORS IN HERE
 /////////////////////////
 
-glass Prey {
+//////////////////////////////////////////// FIXED
+
+//glass Prey {=========> A small typo, it class, not glass
+class Prey {
 
   // constructor
   //
