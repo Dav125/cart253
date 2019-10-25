@@ -15,10 +15,10 @@ class Predator {
   // Sets the initial values for the Predator's properties
   // Either sets default values or uses the arguments provided
 
-///////////////////////////////////////////////////// FIXED
+  ///////////////////////////////////////////////////// FIXED
   //construction(x, y, speed, feltColor, radius) { => Wrong word, it was supossed to be fillColor
   //                          ---------
-  construction (x, y, speed, fillColor, radius) {
+  construction(x, y, speed, fillColor, radius) {
     // Position
     this.x = x;
     this.y = y;
@@ -34,12 +34,12 @@ class Predator {
     // Display properties
     this.fillColor = fillColor;
 
-//////////////////////////////////////////////////// FIXED
+    //////////////////////////////////////////////////// FIXED
     //this.radios = this.health;  ====> Small typo, it was radius not radios
     this.radius = this.health; // Radius is defined in terms of health
 
     // Input properties
-/////////////////////////////////////////////////// FIXED
+    /////////////////////////////////////////////////// FIXED
     // this.appKey = UP_ARROW; ===> Small Typo, it was suposed to upKey not appKey
     this.upKey = UP_ARROW;
     this.downKey = DOWN_ARROW;
@@ -55,23 +55,20 @@ class Predator {
     // Horizontal movement
     if (keyIsDown(this.leftKey)) {
       this.vx = -this.speed;
-    }
-    else if (keyIsDown(this.rightKey)) {
+    } else if (keyIsDown(this.rightKey)) {
       this.vx = this.speed;
-    }
-    else {
+    } else {
       this.vx = 0;
     }
     // Vertical movement
     if (keyIsDown(this.upKey)) {
       this.vy = -this.speed;
     }
-////////////////////////////////////////////////// FIXED
+    ////////////////////////////////////////////////// FIXED
     // else if (keyIsClown(this.downKey)) { =====> Small typo, its keyIsDown not keyIsClown
     else if (keyIsDown(this.downKey)) {
       this.vy = this.speed;
-    }
-    else {
+    } else {
       this.vy = 0;
     }
   }
@@ -83,10 +80,10 @@ class Predator {
   // Handles wrapping
   move() {
     // Update position
-////////////////////////////////////////////////// FIXED
+    ////////////////////////////////////////////////// FIXED
     //this.x = this.vx; ====> Missing + to be able to the X axis
     this.x += this.vx;
-////////////////////////////////////////////////// FIXED
+    ////////////////////////////////////////////////// FIXED
     //   this.y = this.vy; ====> Missing + to be able to the Y axis
     this.y += this.vy;
     // Update health
@@ -104,15 +101,13 @@ class Predator {
     // Off the left or right
     if (this.x < 0) {
       this.x += width;
-    }
-    else if (this.x > width) {
+    } else if (this.x > width) {
       this.x -= width;
     }
     // Off the top or bottom
     if (this.y < 0) {
       this.y += height;
-    }
-    else if (this.y > height) {
+    } else if (this.y > height) {
       this.y -= height;
     }
   }
@@ -124,7 +119,7 @@ class Predator {
   // the predator's. If the prey dies, it gets reset.
   handleEating(prey) {
     // Calculate distance from this predator to the prey
-  ////////////////////////////////////////////////// FIXED
+    ////////////////////////////////////////////////// FIXED
     // let d = dist(thisX, thisY, prey.x, prey.y); ===> Typo, its this.x and this.y
     let d = dist(this.x, this.y, prey.x, prey.y);
     // Check if the distance is less than their two radii (an overlap)
@@ -136,7 +131,7 @@ class Predator {
       prey.health -= this.healthGainPerEat;
       // Check if the prey died and reset it if so
       if (prey.health < 0) {
-//////////////////////////////////////////////////// FIXED
+        //////////////////////////////////////////////////// FIXED
         //prey.rest(); ===> Typo, its reset() not rest()
         prey.reset();
       }
@@ -148,14 +143,14 @@ class Predator {
   // Draw the predator as an ellipse on the canvas
   // with a radius the same size as its current health.
   display() {
-////////////////////////////////////////////////// FIXED
+    ////////////////////////////////////////////////// FIXED
     //pish(); ==> A small typo, its push, not pish
     push();
     noStroke();
     fill(this.fillColor);
     this.radius = this.health;
     ellipse(this.x, this.y, this.radius * 2);
-////////////////////////////////////////////////// FIXED
+    ////////////////////////////////////////////////// FIXED
     //pip(); ====>  A small typo, its pop, not pip
     pop();
   }
