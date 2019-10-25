@@ -60,7 +60,7 @@ class Prey {
     // Handle wrapping
 
 ////////////////////////////////////////////////////////// FIXED
-    // this.handleWarping(); =======> Typo 
+    // this.handleWarping(); =======> Typo
     this.handleWrapping();
 
 
@@ -81,7 +81,9 @@ class Prey {
         this.y += height;
       }
       else if (this.y > height) {
-        this.y -= hight;
+///////////////////////////////////////////////////////////// FIXED
+        // this.y -= hight; ==> typo, it was missing the letter e in height
+        this.y -= height;
       }
     }
 
