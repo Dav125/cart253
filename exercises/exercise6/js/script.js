@@ -76,5 +76,7 @@ function draw() {
 ////////////////////////////////////////////// FIXED
   // zebra.disploy(); =====> Typo on display()
   zebra.display();
-  b.display();
+/////////////////////////////////////////////// FIXED
+  // b.display(); ============> A small typo, missing 2 e in bee
+  bee.display();
 }
