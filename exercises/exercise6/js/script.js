@@ -1,7 +1,7 @@
 "use strict";
 
 // Predator-Prey Simulation
-// by Pippin Barr
+// by David Fong
 //
 // Creates a predator and three prey (of different sizes and speeds)
 // The predator chases the prey using the arrow keys and consumes them.
@@ -14,8 +14,10 @@
 // Our predator
 let tiger;
 
+///////////////////////// FIXED
 // The three prey
-let antelop;
+//let antelop;=======> Small typo
+let antelope;
 let zebra;
 let bee;
 
