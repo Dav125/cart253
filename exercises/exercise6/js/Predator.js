@@ -66,7 +66,9 @@ class Predator {
     if (keyIsDown(this.upKey)) {
       this.vy = -this.speed;
     }
-    else if (keyIsClown(this.downKey)) {
+////////////////////////////////////////////////// FIXED
+    // else if (keyIsClown(this.downKey)) { =====> Small typo, its keyIsDown not keyIsClown
+    else if (keyIsDown(this.downKey)) {
       this.vy = this.speed;
     }
     else {
