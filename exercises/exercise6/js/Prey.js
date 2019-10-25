@@ -58,7 +58,10 @@ class Prey {
     this.tx += 0.01;
     this.ty += 0.01;
     // Handle wrapping
-    this.handleWarping();
+
+////////////////////////////////////////////////////////// FIXED
+    // this.handleWarping(); =======> Typo 
+    this.handleWrapping();
 
 
     // handleWrapping
