@@ -155,6 +155,8 @@ class Predator {
     fill(this.fillColor);
     this.radius = this.health;
     ellipse(this.x, this.y, this.radius * 2);
-    pip();
+////////////////////////////////////////////////// FIXED
+    //pip(); ====>  A small typo, its pop, not pip
+    pop();
   }
 }
