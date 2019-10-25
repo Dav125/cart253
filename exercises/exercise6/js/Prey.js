@@ -17,7 +17,7 @@ class Prey {
   //
   // Sets the initial values for the Predator's properties
   // Either sets default values or uses the arguments provided
-/////////////////////////////////////////////////////////////// FIXED
+  /////////////////////////////////////////////////////////////// FIXED
   //constructor(x, why, speed, fillColor, radius) { ==> A small typo, its y not why
   constructor(x, y, speed, fillColor, radius) {
     // Position
@@ -26,14 +26,14 @@ class Prey {
     // Velocity and speed
     this.vx = 0;
     this.vy = 0;
-/////////////////////////////////////////////////////////////// FIXED
+    /////////////////////////////////////////////////////////////// FIXED
     //this.sped = speed; ====> A typo, its speed not sped
     this.speed = speed;
     // Time properties for noise() function
-////////////////////////////////////////////////////////////// FIXED
+    ////////////////////////////////////////////////////////////// FIXED
     // this.tx = random(0, 0); ==> Missing max value to use noise()
     this.tx = random(0, 1000); // To make x and y noise different
-////////////////////////////////////////////////////////////// FIXED
+    ////////////////////////////////////////////////////////////// FIXED
     // this.ty = random(0, 0); ==> Missing the max value to use noise()
     this.ty = random(0, 1000); // we use random starting values
     // Health properties
@@ -49,7 +49,7 @@ class Prey {
   // Sets velocity based on the noise() function and the Prey's speed
   // Moves based on the resulting velocity and handles wrapping
 
-//////////////////////////////////////////////////////// FIXED
+  //////////////////////////////////////////////////////// FIXED
   //mover() { ========> A small typo, there is no r in move()
   move() {
     // Set velocity via noise()
@@ -63,7 +63,7 @@ class Prey {
     this.ty += 0.01;
     // Handle wrapping
 
-////////////////////////////////////////////////////////// FIXED
+    ////////////////////////////////////////////////////////// FIXED
     // this.handleWarping(); =======> Typo
     this.handleWrapping();
 
@@ -74,20 +74,18 @@ class Prey {
     // wraps it to the other side if so
     handleWrapping() {
       // Off the left or right
-/////////////////////////////////////////////////////////// FIXED
+      /////////////////////////////////////////////////////////// FIXED
       // if (this.x > 0) { ===> this.x is supposed to be less 0
       if (this.x < 0) {
         this.x += width;
-      }
-      else if (this.x > width) {
+      } else if (this.x > width) {
         this.x -= width;
       }
       // Off the top or bottom
       if (this.y < 0) {
         this.y += height;
-      }
-      else if (this.y > height) {
-///////////////////////////////////////////////////////////// FIXED
+      } else if (this.y > height) {
+        ///////////////////////////////////////////////////////////// FIXED
         // this.y -= hight; ==> typo, it was missing the letter e in height
         this.y -= height;
       }
@@ -102,7 +100,7 @@ class Prey {
       noStroke();
       fill(this.fillColor);
       this.radius = this.health;
-///////////////////////////////////////////////////////// FIXED
+      ///////////////////////////////////////////////////////// FIXED
       // ellipse(this.x, this.y, this.radius * "two"); =====> Wrong use with "two", we just need the use of number 2
       ellipse(this.x, this.y, this.radius * 2);
       pop();
