@@ -16,9 +16,9 @@ class Predator {
   // Either sets default values or uses the arguments provided
 
   ///////////////////////////////////////////////////// FIXED
-  //construction(x, y, speed, feltColor, radius) { => Wrong word, it was supossed to be fillColor
+  //construction(x, y, speed, feltColor, radius) { => Wrong words, construction is suposed to be constructor and feltColor was supossed to be fillColor
   //                          ---------
-  construction(x, y, speed, fillColor, radius) {
+  constructor(x, y, speed, fillColor, radius) {
     // Position
     this.x = x;
     this.y = y;
