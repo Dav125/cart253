@@ -64,9 +64,9 @@ class Prey {
     // Handle wrapping
 
     ////////////////////////////////////////////////////////// FIXED
-    // this.handleWarping(); =======> Typo
+    // this.handleWarping(); =======> Typo and missing an indent
     this.handleWrapping();
-
+    }
 
     // handleWrapping
     //
