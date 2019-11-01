@@ -96,7 +96,7 @@ function startGame(){
 // gameScreen()
 //
 // This function is for the game to be able to play the game
-// I reposition the all the Handle input, movement, eating and displayed objects here 
+// I reposition the all the Handle input, movement, eating and displayed objects here
 function gameScreen() {
 
   // Handle input for the tiger
@@ -197,4 +197,28 @@ for(let cx = x; cx <= x + w; cx++ ){
 
 pop();
 
+}
+
+// gameOver()
+//
+// This is the screen where the is over when the predator's HP
+// hits 0
+function gameOver(){
+  // Adding push and pop
+  //
+  // Display the game over title at the screen
+  textFont(quantumfont);
+  textSize(40);
+  textAlign(CENTER, CENTER);
+  noStroke();
+  fill(255, 100, 100);
+  text("Game Over", width / 2, height / 4);
+
+  // if statement
+  //
+  // if either the mouse or the key is pressed,
+  // the game restart to the beginning of the screen
+  if (mouseIsPressed || keyIsPressed){
+    state = "startGame";
+  }
 }
