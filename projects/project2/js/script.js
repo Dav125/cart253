@@ -5,6 +5,10 @@
 // The predator chases the prey using the arrow keys and consumes them.
 // The predator loses health over time, so must keep eating to survive.
 
+
+// For the code with the gradient, I found it in P5
+// Source: https://p5js.org/examples/color-linear-gradient.html
+
 // Our predator
 let tiger;
 
