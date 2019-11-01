@@ -22,6 +22,11 @@ let bee;
 let startColor;
 let endColor;
 
+// state and startGame
+//
+// Variable for using switch function
+let state = "startGame";
+
 // setup()
 //
 // Sets up a canvas
