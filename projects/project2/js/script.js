@@ -27,6 +27,19 @@ let endColor;
 // Variable for using switch function
 let state = "startGame";
 
+// Variable to store new font
+let quantumfont;
+
+// preload()
+//
+// Adding this to store my font
+function preload() {
+  // Adding a new font: -----> source:
+  // https://www.1001freefonts.com/sci-fi-fonts-5.php
+  quantumfont = loadFont("assets/fonts/quantum/quantflt.ttf");
+
+}
+
 // setup()
 //
 // Sets up a canvas
@@ -44,6 +57,40 @@ function setup() {
   // it allows me to modify my color picker
   startColor = color(255,0,255);
   endColor = color(0);
+}
+
+// startGame()
+//
+// Displaying the title screen of the game
+function startGame(){
+
+  // push() and pop()
+  //
+  // To keep the text size, text font, and text alignment
+  // from spreading trough other text that I might add
+  push();
+
+  // Adding a new font
+  textfont(quantumfont);
+
+  // To adjust my font size
+  textSize(40);
+
+  // text alignment
+  textAlign(CENTER, CENTER);
+
+  // No stroke
+  noStroke();
+
+  // Color fill of the title
+  text("Working title", width / 2, height / 4);
+
+  pop();
+
+  // The game starts when a button is pressed
+  if (mouseIsPressed || keyIsPressed){
+    state = "playGame";
+  }
 }
 
 // draw()
@@ -87,7 +134,7 @@ function draw() {
     case "endGame":
       // gameOver()
       //
-      // This is game over screen 
+      // This is game over screen
       gameOver();
   }
 
