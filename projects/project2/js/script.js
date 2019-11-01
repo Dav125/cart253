@@ -93,6 +93,33 @@ function startGame(){
   }
 }
 
+// gameScreen()
+//
+// This function is for the game to be able to play the game
+// I reposition the all the Handle input, movement, eating and displayed objects here 
+function gameScreen() {
+
+  // Handle input for the tiger
+  tiger.handleInput();
+
+  // Move all the "animals"
+  tiger.move();
+  antelope.move();
+  zebra.move();
+  bee.move();
+
+  // Handle the tiger eating any of the prey
+  tiger.handleEating(antelope);
+  tiger.handleEating(zebra);
+  tiger.handleEating(bee);
+
+  // Display all the "animals"
+  tiger.display();
+  antelope.display();
+  zebra.display();
+  bee.display();
+}
+
 // draw()
 //
 // Handles input, movement, eating, and displaying for the system's objects
@@ -138,26 +165,8 @@ function draw() {
       gameOver();
   }
 
-  // Handle input for the tiger
-  tiger.handleInput();
-
-  // Move all the "animals"
-  tiger.move();
-  antelope.move();
-  zebra.move();
-  bee.move();
-
-  // Handle the tiger eating any of the prey
-  tiger.handleEating(antelope);
-  tiger.handleEating(zebra);
-  tiger.handleEating(bee);
-
-  // Display all the "animals"
-  tiger.display();
-  antelope.display();
-  zebra.display();
-  bee.display();
 }
+
 
 // setGradient()
 //
