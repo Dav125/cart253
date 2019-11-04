@@ -62,7 +62,7 @@ function setup() {
 // startGame()
 //
 // Displaying the title screen of the game
-function startGame(){
+function startScreen(){
 
   // push() and pop()
   //
@@ -71,7 +71,7 @@ function startGame(){
   push();
 
   // Adding a new font
-  textfont(quantumfont);
+  textFont(quantumfont);
 
   // To adjust my font size
   textSize(40);
