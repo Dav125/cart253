@@ -97,14 +97,14 @@ class Procrastinator{
 
     // display
     //
-    // Draw the prey as an rectangle on the canvas
+    // Draw the lion as an ellipse on the canvas
     // with a radius the same size as its current health.
     display() {
       push();
       noStroke();
       fill(this.fillColor);
       this.radius = this.health;
-      rect(this.x, this.y, this.radius * 2);
+      ellipse(this.x, this.y, this.radius * 2);
       pop();
     }
 }

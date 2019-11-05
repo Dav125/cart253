@@ -12,6 +12,9 @@
 // Our predator
 let tiger;
 
+// Our new class called procrastinator
+let lion;
+
 // The three prey
 // addding [] to these variables
 let antelope = [];
@@ -52,12 +55,17 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   tiger = new Predator(100, 100, 5, color(200, 200, 0), 40);
 
+  // New class called Procrastinator
+  //
+  // its a lion which also eats its preys
+  lion = new Procrastinator(100,100, 3, color(0, 100, 255), 40);
+
 
   // color()
   //
   // Setting these 2 set of color to make gradient
   // it allows me to modify my color picker
-  startColor = color(255,0,255);
+  startColor = color(200,0,255);
   endColor = color(0);
 
   // for loop
@@ -135,6 +143,9 @@ function gameScreen() {
   // Move all the "animals"
   tiger.move();
 
+  // Move lion
+  lion.move();
+
   // for loop function
   //
   // new animals will appear as array objects
@@ -154,6 +165,7 @@ function gameScreen() {
   // Also having the [i] with the new animals
   // helps keep track of the new animals
   tiger.handleEating(antelope[i]);
+  lion.handleEating(antelope[i]);
   }
 
   // For the zebra that will appear
@@ -171,6 +183,7 @@ function gameScreen() {
   // Also having the [i] with the new animals
   // helps keep track of the new animals
   tiger.handleEating(zebra[i]);
+  lion.handleEating(zebra[i]);
   }
 
   // For the new Bee that will appear
@@ -188,6 +201,7 @@ function gameScreen() {
     // Also having the [i] with the new animals
     // helps keep track of the new animals
     tiger.handleEating(bee[i]);
+    lion.handleEating(bee[i]);
   }
 
   // if statement
@@ -210,7 +224,10 @@ function gameScreen() {
   // Display all the "animals"
   // Removed the prey displays here since they moved to for loops
   tiger.display();
-  
+
+  //Display new class lion
+  lion.display();
+
 }
 
 // draw()
