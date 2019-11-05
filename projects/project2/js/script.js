@@ -14,9 +14,9 @@ let tiger;
 
 // The three prey
 // addding [] to these variables
-let antelope;
-let zebra;
-let bee;
+let antelope = [];
+let zebra = [];
+let bee = [];
 
 // Adding these two variable to create a horizontal
 // gradient
@@ -32,7 +32,7 @@ let state = "startGame";
 let quantumfont;
 
 // How many prey objects that will appear in the screen
-//let numPreys = 5;
+let numPreys = 5;
 
 // preload()
 //
@@ -51,9 +51,7 @@ function preload() {
 function setup() {
   createCanvas(windowWidth, windowHeight);
   tiger = new Predator(100, 100, 5, color(200, 200, 0), 40);
-  antelope = new Prey(100, 100, 10, color(255, 100, 10), 50);
-  zebra = new Prey(100, 100, 8, color(255, 255, 255), 60);
-  bee = new Prey(100, 100, 20, color(255, 255, 0), 10);
+
 
   // color()
   //
@@ -65,7 +63,30 @@ function setup() {
   // for loop
   //
   // Using this code to make all of my prey as array objects
-  // for (let i = 0; i < numPreys)
+   for (let i = 0; i < numPreys; i++) {
+
+     // random()
+     //
+     // Both the reX and reY are here
+     // to change the postion of the preys
+     let reX = random(0, width);
+     let reY = random(0, height);
+
+     // Moved all of the original prey codes
+     // here to turn them into array objects
+     antelope = new Prey(reX, reY, 10, color(255, 100, 10), 50);
+     zebra = new Prey(reX, reY, 8, color(255, 255, 255), 60);
+     bee = new Prey(reX, reY, 20, color(255, 255, 0), 10);
+
+     // push()
+     //
+     // To add new preys in the containner of the array
+     // so that new preys will appear
+     addAntelope.push(antelope);
+     addZebra.push(zebra);
+     addBee.push(bee);
+
+   }
 }
 
 // startGame()
