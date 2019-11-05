@@ -74,17 +74,17 @@ function setup() {
 
      // Moved all of the original prey codes
      // here to turn them into array objects
-     antelope = new Prey(reX, reY, 10, color(255, 100, 10), 50);
-     zebra = new Prey(reX, reY, 8, color(255, 255, 255), 60);
-     bee = new Prey(reX, reY, 20, color(255, 255, 0), 10);
+     newAntelope = new Prey(reX, reY, 10, color(255, 100, 10), 50);
+     newZebra = new Prey(reX, reY, 8, color(255, 255, 255), 60);
+     newBee = new Prey(reX, reY, 20, color(255, 255, 0), 10);
 
      // push()
      //
      // To add new preys in the containner of the array
      // so that new preys will appear
-     addAntelope.push(antelope);
-     addZebra.push(zebra);
-     addBee.push(bee);
+     antelope.push(newAntelope);
+     zebra.push(newZebra);
+     bee.push(newBee);
 
    }
 }
@@ -134,14 +134,61 @@ function gameScreen() {
 
   // Move all the "animals"
   tiger.move();
-  antelope.move();
-  zebra.move();
-  bee.move();
 
-  // Handle the tiger eating any of the prey
-  tiger.handleEating(antelope);
-  tiger.handleEating(zebra);
-  tiger.handleEating(bee);
+  // for loop function
+  //
+  // new animals will appear as array objects
+
+  // For new antelope that will appear
+  for (let i = 0; i < antelope.lengh; i++) {
+
+    // All of the move() and display() of the new antelope
+  antelope[i].move();
+  antelope[i].display();
+
+  //handleEating()
+  //
+  // The tiger will be able to eat the
+  // new array object version of the preys
+  //
+  // Also having the [i] with the new animals
+  // helps keep track of the new animals
+  tiger.handleEating(antelope[i]);
+  }
+
+  // For the zebra that will appear
+  for (let i = 0; i < zebra.length; i++){
+    // All of the move() and display() of the new Zebra
+    zebra[i].move();
+    zebra[i].display();
+
+
+  //handleEating()
+  //
+  // The tiger will be able to eat the
+  // new array object version of the preys
+  //
+  // Also having the [i] with the new animals
+  // helps keep track of the new animals
+  tiger.handleEating(zebra[i]);
+  }
+
+  // For the new Bee that will appear
+  for (let i = 0; i < bee.length; i++) {
+
+    // All of the move() and display() of the new Bee
+    bee[i].move();
+    bee[i].display();
+
+    //handleEating()
+    //
+    // The tiger will be able to eat the
+    // new array object version of the preys
+    //
+    // Also having the [i] with the new animals
+    // helps keep track of the new animals
+    tiger.handleEating(bee[i]);
+  }
 
   // if statement
   //
@@ -152,21 +199,18 @@ function gameScreen() {
 
     // Copying all of these classes here to refresh there HP
     tiger = new Predator(100, 100, 5, color(200, 200, 0), 40);
-    antelope = new Prey(100, 100, 10, color(255, 100, 10), 50);
-    zebra = new Prey(100, 100, 8, color(255, 255, 255), 60);
-    bee = new Prey(100, 100, 20, color(255, 255, 0), 10);
+    newAntelope = new Prey(100, 100, 10, color(255, 100, 10), 50);
+    newZebra = new Prey(100, 100, 8, color(255, 255, 255), 60);
+    newBee = new Prey(100, 100, 20, color(255, 255, 0), 10);
 
     // The next state of the game
     state = "endGame";
   }
 
   // Display all the "animals"
+  // Removed the prey displays here since they moved to for loops
   tiger.display();
-  antelope.display();
-  zebra.display();
-  bee.display();
-
-
+  
 }
 
 // draw()
