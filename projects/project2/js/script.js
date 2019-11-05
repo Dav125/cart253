@@ -13,6 +13,7 @@
 let tiger;
 
 // The three prey
+// addding [] to these variables
 let antelope;
 let zebra;
 let bee;
@@ -29,6 +30,9 @@ let state = "startGame";
 
 // Variable to store new font
 let quantumfont;
+
+// How many prey objects that will appear in the screen
+//let numPreys = 5;
 
 // preload()
 //
@@ -57,6 +61,11 @@ function setup() {
   // it allows me to modify my color picker
   startColor = color(255,0,255);
   endColor = color(0);
+
+  // for loop
+  //
+  // Using this code to make all of my prey as array objects
+  // for (let i = 0; i < numPreys)
 }
 
 // startGame()
@@ -88,7 +97,7 @@ function startScreen(){
   pop();
 
   // The game starts when a button is pressed
-  if (mouseIsPressed || keyIsPressed){
+  if (keyIsPressed){
     state = "playGame";
   }
 }
@@ -113,11 +122,30 @@ function gameScreen() {
   tiger.handleEating(zebra);
   tiger.handleEating(bee);
 
+  // if statement
+  //
+  // This code will keep track of the predator's heatlh
+  // if the tiger's health reaches 0, the game will go
+  // to the game over screen
+  if( tiger.health === 0 ) {
+
+    // Copying all of these classes here to refresh there HP
+    tiger = new Predator(100, 100, 5, color(200, 200, 0), 40);
+    antelope = new Prey(100, 100, 10, color(255, 100, 10), 50);
+    zebra = new Prey(100, 100, 8, color(255, 255, 255), 60);
+    bee = new Prey(100, 100, 20, color(255, 255, 0), 10);
+
+    // The next state of the game
+    state = "endGame";
+  }
+
   // Display all the "animals"
   tiger.display();
   antelope.display();
   zebra.display();
   bee.display();
+
+
 }
 
 // draw()
@@ -207,18 +235,21 @@ function gameOver(){
   // Adding push and pop
   //
   // Display the game over title at the screen
+  push();
   textFont(quantumfont);
   textSize(40);
   textAlign(CENTER, CENTER);
   noStroke();
   fill(255, 100, 100);
   text("Game Over", width / 2, height / 4);
+  pop();
+
 
   // if statement
   //
   // if either the mouse or the key is pressed,
   // the game restart to the beginning of the screen
-  if (mouseIsPressed || keyIsPressed){
+  if (mouseIsPressed){
     state = "startGame";
   }
 }
