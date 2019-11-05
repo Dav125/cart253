@@ -58,7 +58,7 @@ function setup() {
   // New class called Procrastinator
   //
   // its a lion which also eats its preys
-  lion = new Procrastinator(100,100, 3, color(0, 100, 255), 40);
+  lion = new Procrastinator(100,100, 3, color(0, 100, 255), 40, 30);
 
 
   // color()

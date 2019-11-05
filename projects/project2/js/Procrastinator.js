@@ -10,7 +10,7 @@ class Procrastinator{
   //
   // Sets the initial values for the Predator's properties
   // Either sets default values or uses the arguments provided
-  constructor(x, y, speed, fillColor, radius) {
+  constructor(x, y, speed, fillColor, width, height) {
     // Position
     this.x = x;
     this.y = y;
@@ -22,13 +22,17 @@ class Procrastinator{
     this.tx = random(0, 1000); // To make x and y noise different
     this.ty = random(0, 1000); // we use random starting values
     // Health properties
-    this.maxHealth = radius;
+    this.maxHealth = width;
     this.health = this.maxHealth; // Must be AFTER defining this.maxHealth
     this.healthLossPerMove = 0.1;
     this.healthGainPerEat = 1;
     // Display properties
     this.fillColor = fillColor;
-    this.radius = this.health;
+    this.baseWidth = width;
+    this.baseHeight = height;
+    this.width = width;
+    this.height = height;
+    this.healthratio = this.health / this.maxHealth;
   }
 
 
@@ -49,6 +53,9 @@ class Procrastinator{
       // Update health
       this.health = this.health - this.healthLossPerMove;
       this.health = constrain(this.health, 0, this.maxHealth);
+      this.healthratio = this.health / this.maxHealth;
+      this.width = this.baseWidth * this.healthratio;
+      this.height = this.baseHeight* this.healthratio;
       // Handle wrapping
       this.handleWrapping();
     }
@@ -79,12 +86,16 @@ class Procrastinator{
     // the predator's. If the prey dies, it gets reset.
     handleEating(prey) {
       // Calculate distance from this predator to the prey
-      let d = dist(this.x, this.y, prey.x, prey.y);
+      let distX = Math.abs(ellipse.x - rect.x - rect.w/2);
+      let distY = Math.abs(ellipse.y - rect.y - rect.h/2);
       // Check if the distance is less than their two radii (an overlap)
-      if (d < this.radius + prey.radius) {
+      if (distX <= (rect.w/2)|| distY <= (rect.h/2)) {
         // Increase predator health and constrain it to its possible range
         this.health += this.healthGainPerEat;
         this.health = constrain(this.health, 0, this.maxHealth);
+        this.healthratio = this.health / this.maxHealth;
+        this.width = this.baseWidth * this.healthratio;
+        this.height = this.baseHeight* this.healthratio;
         // Decrease prey health by the same amount
         prey.health -= this.healthGainPerEat;
         // Check if the prey died and reset it if so
@@ -104,7 +115,7 @@ class Procrastinator{
       noStroke();
       fill(this.fillColor);
       this.radius = this.health;
-      ellipse(this.x, this.y, this.radius * 2);
+      rect(this.x, this.y, this.width, this.height);
       pop();
     }
 }
