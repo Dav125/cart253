@@ -71,12 +71,33 @@ class Wormhole {
   //
   // if this object touches a other object, its moves them a other
   // postion
-  handleWarping(circle){
-    let d = dist(this.x, this.y, circle.x, circle.y)
-      if (d < this.radius + circle.radius) {
-        circle.x = random(0, width);
-        circle.y = random(0, height);
+  handleWarping(objects){
+
+    let d = dist(this.x, this.y, objects.x, objects.y)
+
+    // Math.abs()
+    //
+    // variables to keep track of the collision between ellipse and rectangle
+    let distX = Math.abs(ellipse.x - rect.x - rect.w/2);
+    let distY = Math.abs(ellipse.y - rect.y - rect.h/2);
+
+      // d < this.radius + objects.radius
+      //
+      // To keep track of the collision from ellipse to ellipse
+      if (d < this.radius + objects.radius) {
+        objects.x = random(0, width);
+        objects.y = random(0, height);
       }
+
+      // distX and distY
+      //
+      // To keep track of the collision between ellipse and rectangle
+      if (distX <= (rect.w/2)|| distY <= (rect.h/2)){
+        objects.x = random(0, width);
+        objects.y = random(0, height);
+
+      }
+
   }
 
   // display
