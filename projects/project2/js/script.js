@@ -15,6 +15,9 @@ let tiger;
 // Our new class called procrastinator
 let lion;
 
+// Adding a variable for making a wormhole
+let wormhole;
+
 // The three prey
 // addding [] to these variables
 let antelope = [];
@@ -58,8 +61,12 @@ function setup() {
   // New class called Procrastinator
   //
   // its a lion which also eats its preys
-  lion = new Procrastinator(100,100, 3, color(0, 100, 255), 40, 30);
+  lion = new Procrastinator(100,100, 7, color(0, 100, 255), 60, 40);
 
+  // New wormhole class
+  //
+  // Its to change the postion of the other objects
+  wormhole = new Wormhole(width/2, height/2, 3, color(200, 0, 200), 30);
 
   // color()
   //
@@ -112,7 +119,7 @@ function startScreen(){
   textFont(quantumfont);
 
   // To adjust my font size
-  textSize(40);
+  textSize(30);
 
   // text alignment
   textAlign(CENTER, CENTER);
@@ -121,7 +128,7 @@ function startScreen(){
   noStroke();
 
   // Color fill of the title
-  text("Working title", width / 2, height / 4);
+  text("Press a button to start", width / 2, height / 4);
 
   pop();
 
@@ -146,6 +153,16 @@ function gameScreen() {
   // Move lion
   lion.move();
 
+  // Move the wormhole
+  wormhole.move();
+
+
+  // handleWarping()
+  //
+  // to change the postion of the new objects
+  wormhole.handleWarping(tiger);
+
+
   // for loop function
   //
   // new animals will appear as array objects
@@ -166,6 +183,13 @@ function gameScreen() {
   // helps keep track of the new animals
   tiger.handleEating(antelope[i]);
   lion.handleEating(antelope[i]);
+
+  // handleWarping()
+  //
+  // to change the postion of the new objects
+  wormhole.handleWarping(antelope[i]);
+
+
   }
 
   // For the zebra that will appear
@@ -184,6 +208,13 @@ function gameScreen() {
   // helps keep track of the new animals
   tiger.handleEating(zebra[i]);
   lion.handleEating(zebra[i]);
+
+  // handleWarping()
+  //
+  // to change the postion of the new objects
+  wormhole.handleWarping(zebra[i]);
+
+
   }
 
   // For the new Bee that will appear
@@ -202,6 +233,12 @@ function gameScreen() {
     // helps keep track of the new animals
     tiger.handleEating(bee[i]);
     lion.handleEating(bee[i]);
+
+    // handleWarping()
+    //
+    // to change the postion of the new objects
+    wormhole.handleWarping(bee[i]);
+
   }
 
   // if statement
@@ -217,6 +254,11 @@ function gameScreen() {
     newZebra = new Prey(100, 100, 8, color(255, 255, 255), 60);
     newBee = new Prey(100, 100, 20, color(255, 255, 0), 10);
 
+    // New class called Procrastinator
+    //
+    // its a lion which also eats its preys
+    lion = new Procrastinator(100,100, 7, color(0, 100, 255), 60, 40);
+
     // The next state of the game
     state = "endGame";
   }
@@ -227,6 +269,9 @@ function gameScreen() {
 
   //Display new class lion
   lion.display();
+
+  // Display new wormhole class
+  wormhole.display();
 
 }
 

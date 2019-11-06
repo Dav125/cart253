@@ -89,15 +89,18 @@ class Procrastinator{
       let distX = Math.abs(ellipse.x - rect.x - rect.w/2);
       let distY = Math.abs(ellipse.y - rect.y - rect.h/2);
       // Check if the distance is less than their two radii (an overlap)
-      if (distX <= (rect.w/2)|| distY <= (rect.h/2)) {
+      if (distX <= rect.w/2|| distY <= rect.h/2) {
         // Increase predator health and constrain it to its possible range
         this.health += this.healthGainPerEat;
         this.health = constrain(this.health, 0, this.maxHealth);
+
+        // Decrease prey health by the same amount
+        prey.health -= this.healthGainPerEat;
+
         this.healthratio = this.health / this.maxHealth;
         this.width = this.baseWidth * this.healthratio;
         this.height = this.baseHeight* this.healthratio;
-        // Decrease prey health by the same amount
-        prey.health -= this.healthGainPerEat;
+
         // Check if the prey died and reset it if so
         if (prey.health < 0) {
           prey.reset();
