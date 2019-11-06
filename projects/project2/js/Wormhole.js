@@ -54,15 +54,13 @@ class Wormhole {
     // Off the left or right
     if (this.x < 0) {
       this.x += width;
-    }
-    else if (this.x > width) {
+    } else if (this.x > width) {
       this.x -= width;
     }
     // Off the top or bottom
     if (this.y < 0) {
       this.y += height;
-    }
-    else if (this.y > height) {
+    } else if (this.y > height) {
       this.y -= height;
     }
   }
@@ -71,39 +69,39 @@ class Wormhole {
   //
   // if this object touches a other object, its moves them a other
   // postion
-  handleWarping(prey){
+  handleWarping(prey) {
 
     let d = dist(this.x, this.y, prey.x, prey.y);
 
-      // d < this.radius + objects.radius
-      //
-      // To keep track of the collision from ellipse to ellipse
-      if (d < this.radius + prey.radius) {
-        prey.x = random(0, width);
-        prey.y = random(0, height);
-      }
+    // d < this.radius + objects.radius
+    //
+    // To keep track of the collision from ellipse to ellipse
+    if (d < this.radius + prey.radius) {
+      prey.x = random(0, width);
+      prey.y = random(0, height);
+    }
 
-      }
+  }
 
-      // handleWarp
-      //
-      // if this object touches a other object, its moves them a other
-      // postion
-      handleWarp(rectangle){
-        // Math.abs()
-        //
-        // variables to keep track of the collision between ellipse and rectangle
-        let distX = Math.abs(ellipse.x - rect.x - rect.w/2);
-        let distY = Math.abs(ellipse.y - rect.y - rect.h/2);
+  // handleWarp
+  //
+  // if this object touches a other object, its moves them a other
+  // postion
+  handleWarp(rectangle) {
+    // Math.abs()
+    //
+    // variables to keep track of the collision between ellipse and rectangle
+    let distX = Math.abs(ellipse.x - rect.x - rect.w / 2);
+    let distY = Math.abs(ellipse.y - rect.y - rect.h / 2);
 
-          // distX and distY
-          //
-          // To keep track of the collision between ellipse and rectangle
-          if (distX <= (rect.w/2)|| distY <= (rect.h/2)){
-            rectangle.x = random(0, width);
-            rectangle.y = random(0, height);
+    // distX and distY
+    //
+    // To keep track of the collision between ellipse and rectangle
+    if (distX <= (rect.w / 2) || distY <= (rect.h / 2)) {
+      rectangle.x = random(0, width);
+      rectangle.y = random(0, height);
 
-          }
+    }
 
   }
 

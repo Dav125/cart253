@@ -61,53 +61,53 @@ function setup() {
   // New class called Procrastinator
   //
   // its a lion which also eats its preys
-  lion = new Procrastinator(100,100, 7, color(0, 100, 255), 60, 40);
+  lion = new Procrastinator(100, 100, 7, color(0, 100, 255), 60, 40);
 
   // New wormhole class
   //
   // Its to change the postion of the other objects
-  wormhole = new Wormhole(width/2, height/2, 3, color(200, 0, 200), 30);
+  wormhole = new Wormhole(width / 2, height / 2, 3, color(200, 0, 200), 30);
 
   // color()
   //
   // Setting these 2 set of color to make gradient
   // it allows me to modify my color picker
-  startColor = color(200,0,255);
+  startColor = color(200, 0, 255);
   endColor = color(0);
 
   // for loop
   //
   // Using this code to make all of my prey as array objects
-   for (let i = 0; i < numPreys; i++) {
+  for (let i = 0; i < numPreys; i++) {
 
-     // random()
-     //
-     // Both the reX and reY are here
-     // to change the postion of the preys
-     let reX = random(0, width);
-     let reY = random(0, height);
+    // random()
+    //
+    // Both the reX and reY are here
+    // to change the postion of the preys
+    let reX = random(0, width);
+    let reY = random(0, height);
 
-     // Moved all of the original prey codes
-     // here to turn them into array objects
-     newAntelope = new Prey(reX, reY, 10, color(255, 100, 10), 50);
-     newZebra = new Prey(reX, reY, 8, color(255, 255, 255), 60);
-     newBee = new Prey(reX, reY, 20, color(255, 255, 0), 10);
+    // Moved all of the original prey codes
+    // here to turn them into array objects
+    newAntelope = new Prey(reX, reY, 10, color(255, 100, 10), 50);
+    newZebra = new Prey(reX, reY, 8, color(255, 255, 255), 60);
+    newBee = new Prey(reX, reY, 20, color(255, 255, 0), 10);
 
-     // push()
-     //
-     // To add new preys in the containner of the array
-     // so that new preys will appear
-     antelope.push(newAntelope);
-     zebra.push(newZebra);
-     bee.push(newBee);
+    // push()
+    //
+    // To add new preys in the containner of the array
+    // so that new preys will appear
+    antelope.push(newAntelope);
+    zebra.push(newZebra);
+    bee.push(newBee);
 
-   }
+  }
 }
 
 // startGame()
 //
 // Displaying the title screen of the game
-function startScreen(){
+function startScreen() {
 
   // push() and pop()
   //
@@ -133,7 +133,7 @@ function startScreen(){
   pop();
 
   // The game starts when a button is pressed
-  if (keyIsPressed){
+  if (keyIsPressed) {
     state = "playGame";
   }
 }
@@ -171,48 +171,48 @@ function gameScreen() {
   for (let i = 0; i < antelope.lengh; i++) {
 
     // All of the move() and display() of the new antelope
-  antelope[i].move();
-  antelope[i].display();
+    antelope[i].move();
+    antelope[i].display();
 
-  //handleEating()
-  //
-  // The tiger will be able to eat the
-  // new array object version of the preys
-  //
-  // Also having the [i] with the new animals
-  // helps keep track of the new animals
-  tiger.handleEating(antelope[i]);
-  lion.handleEating(antelope[i]);
+    //handleEating()
+    //
+    // The tiger will be able to eat the
+    // new array object version of the preys
+    //
+    // Also having the [i] with the new animals
+    // helps keep track of the new animals
+    tiger.handleEating(antelope[i]);
+    lion.handleEating(antelope[i]);
 
-  // handleWarping()
-  //
-  // to change the postion of the new objects
-  wormhole.handleWarping(antelope[i]);
+    // handleWarping()
+    //
+    // to change the postion of the new objects
+    wormhole.handleWarping(antelope[i]);
 
 
   }
 
   // For the zebra that will appear
-  for (let i = 0; i < zebra.length; i++){
+  for (let i = 0; i < zebra.length; i++) {
     // All of the move() and display() of the new Zebra
     zebra[i].move();
     zebra[i].display();
 
 
-  //handleEating()
-  //
-  // The tiger will be able to eat the
-  // new array object version of the preys
-  //
-  // Also having the [i] with the new animals
-  // helps keep track of the new animals
-  tiger.handleEating(zebra[i]);
-  lion.handleEating(zebra[i]);
+    //handleEating()
+    //
+    // The tiger will be able to eat the
+    // new array object version of the preys
+    //
+    // Also having the [i] with the new animals
+    // helps keep track of the new animals
+    tiger.handleEating(zebra[i]);
+    lion.handleEating(zebra[i]);
 
-  // handleWarping()
-  //
-  // to change the postion of the new objects
-  wormhole.handleWarping(zebra[i]);
+    // handleWarping()
+    //
+    // to change the postion of the new objects
+    wormhole.handleWarping(zebra[i]);
 
 
   }
@@ -246,7 +246,7 @@ function gameScreen() {
   // This code will keep track of the predator's heatlh
   // if the tiger's health reaches 0, the game will go
   // to the game over screen
-  if( tiger.health === 0 ) {
+  if (tiger.health === 0) {
 
     // Copying all of these classes here to refresh there HP
     tiger = new Predator(100, 100, 5, color(200, 200, 0), 40);
@@ -257,7 +257,7 @@ function gameScreen() {
     // New class called Procrastinator
     //
     // its a lion which also eats its preys
-    lion = new Procrastinator(100,100, 7, color(0, 100, 255), 60, 40);
+    lion = new Procrastinator(100, 100, 7, color(0, 100, 255), 60, 40);
 
     // The next state of the game
     state = "endGame";
@@ -284,7 +284,7 @@ function draw() {
 
   // Applying this code as a background color
   // to make
-  setGradient(0,0,windowWidth, windowHeight, startColor, endColor);
+  setGradient(0, 0, windowWidth, windowHeight, startColor, endColor);
 
   // switch()
   //
@@ -327,30 +327,30 @@ function draw() {
 //
 // Im using this function to set up the parameter
 // to create my gradient
-function setGradient(x, y, w, h, c1, c2){
+function setGradient(x, y, w, h, c1, c2) {
 
-push();
-noFill();
+  push();
+  noFill();
 
-// Using for loop
-//
-// it allows me to create a starting point (cx)
-// it creates lines of color that changes
-// from the start to finish with window width
-for(let cx = x; cx <= x + w; cx++ ){
-
-  // map()
+  // Using for loop
   //
-  // the program allows me to calculate the ratio
-  // of the background by percentage decimal from
-  // left to right
-  let inter = map(cx, x, x + w, 0, 1);
-  let c = lerpColor(c1 ,c2 ,inter);
-  stroke(c);
-  line(cx, y, cx, y + h);
-}
+  // it allows me to create a starting point (cx)
+  // it creates lines of color that changes
+  // from the start to finish with window width
+  for (let cx = x; cx <= x + w; cx++) {
 
-pop();
+    // map()
+    //
+    // the program allows me to calculate the ratio
+    // of the background by percentage decimal from
+    // left to right
+    let inter = map(cx, x, x + w, 0, 1);
+    let c = lerpColor(c1, c2, inter);
+    stroke(c);
+    line(cx, y, cx, y + h);
+  }
+
+  pop();
 
 }
 
@@ -358,7 +358,7 @@ pop();
 //
 // This is the screen where the is over when the predator's HP
 // hits 0
-function gameOver(){
+function gameOver() {
   // Adding push and pop
   //
   // Display the game over title at the screen
@@ -376,7 +376,7 @@ function gameOver(){
   //
   // if either the mouse or the key is pressed,
   // the game restart to the beginning of the screen
-  if (mouseIsPressed){
+  if (mouseIsPressed) {
     state = "startGame";
   }
 }
