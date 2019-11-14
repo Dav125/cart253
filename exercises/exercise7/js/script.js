@@ -39,17 +39,17 @@ let quantumfont;
 // for the mountain
 
 function preload() {
-// background()
-//
-// To load the bottom part of the mauntain
-climbImg = loadImage("assets/images/AvatarClimber.jpg");
-platShortImg = loadImage("assets/images/platform.jpg");
-platLongImg = loadImage("assets/images/platform2.jpg");
-mountainImg = loadImage("assets/images/mountain.jpg");
+  // background()
+  //
+  // To load the bottom part of the mauntain
+  climbImg = loadImage("assets/images/AvatarClimber.jpg");
+  platShortImg = loadImage("assets/images/platform.jpg");
+  platLongImg = loadImage("assets/images/platform2.jpg");
+  mountainImg = loadImage("assets/images/mountain.jpg");
 
-// Adding a new font: -----> source:
-// https://www.1001freefonts.com/sci-fi-fonts-5.php
-quantumfont = loadFont("assets/fonts/quantum/quantflt.ttf");
+  // Adding a new font: -----> source:
+  // https://www.1001freefonts.com/sci-fi-fonts-5.php
+  quantumfont = loadFont("assets/fonts/quantum/quantflt.ttf");
 
 }
 
@@ -126,15 +126,15 @@ function startScreen() {
 // gameScreen()
 //
 // thus function is for the game to be able to start and end
-function gameScreen(){
+function gameScreen() {
 
   // for loop
   //
   // new platform will appear as array
 
   for (let i = 0; i < platformShort.length; i++) {
-      platformShort[i].display();
-      climber.handleStanding(platformShort[i]);
+    platformShort[i].display();
+    climber.handleStanding(platformShort[i]);
   }
 
   for (let i = 0; i < platformLong.length; i++) {
@@ -143,14 +143,14 @@ function gameScreen(){
   }
 
 
-    // Handle input for the climber
-    climber.handleInput();
-    // A function that pull the climber down
-    climber.gravity();
-    // This function help the climber move
-    climber.move();
-    // This function display the climber
-    climber.display();
+  // Handle input for the climber
+  climber.handleInput();
+  // A function that pull the climber down
+  climber.gravity();
+  // This function help the climber move
+  climber.move();
+  // This function display the climber
+  climber.display();
 
 }
 

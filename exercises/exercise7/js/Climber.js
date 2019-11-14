@@ -45,26 +45,26 @@ class Climber {
     }
 
     // Jumping movement
-    if (keyIsDown(this.upKey)&& this.fall === false) {
+    if (keyIsDown(this.upKey) && this.fall === false) {
       // The jumping power
       this.vy = -20;
 
     }
-      // else if (keyIsDown(this.downKey)) {
-      //   this.vy = this.speed;
-      // }
-      // else {
-      //   this.vy = 0;
-      // }
-    }
+    // else if (keyIsDown(this.downKey)) {
+    //   this.vy = this.speed;
+    // }
+    // else {
+    //   this.vy = 0;
+    // }
+  }
 
-    move() {
-      // Update position
-      this.x += this.vx;
-      this.y += this.vy;
-      // handle wrapping
-      this.handleWrapping();
-    }
+  move() {
+    // Update position
+    this.x += this.vx;
+    this.y += this.vy;
+    // handle wrapping
+    this.handleWrapping();
+  }
 
 
   // gravity()
@@ -102,37 +102,36 @@ class Climber {
     }
   }
 
-    // handleStanding()
+  // handleStanding()
+  //
+  // To make sure that when the avatar is in contact with the platform
+  // the climber will not fall
+  handleStanding(platform) {
+    // Variable
     //
-    // To make sure that when the avatar is in contact with the platform
-    // the climber will not fall
-    handleStanding(platform){
-      // Variable
+    // Variables to calculate the distance of the climber and the platform
+    let d = dist(this.x, this.y, platform.x, platform.y);
+
+    // dist()
+    //
+    // To keep track of the platform and the avatar are in contact
+    if (d < this.width / 2 + platform.width / 2) {
+      console.log("standing");
+      // this.vy
       //
-      // Variables to calculate the distance of the climber and the platform
-      let d = dist(this.x, this.y, platform.x, platform.y);
+      // To make sure that the climber doesn't fall
+      this.fall = false;
+      this.pull = 0;
 
-      // dist()
-      //
-      // To keep track of the platform and the avatar are in contact
-      if (d < this.width/2 + platform.width/2) {
-        console.log("standing");
-        // this.vy
-        //
-        // To make sure that the climber doesn't fall
-        this.fall = false;
-        this.pull = 0;
+      this.vy = 0;
 
-        this.vy = 0;
+    } else {
+      console.log("falling");
+      this.fall = true;
+      this.pull = 1;
 
-      }
-      else {
-          console.log("falling");
-        this.fall = true;  
-        this.pull= 1;
-
-      }
     }
+  }
 
 
   //display()
