@@ -2,45 +2,148 @@
 //
 // It is a class with the player controlling it
 
-class Climber { // A Climber class describes what a Predator is and does
-  constructor(x, y, speed, fillColor, radius) {
+class Climber {
+  constructor(x, y, width, height, speed, climberImg, upKey, downKey, leftKey, rightKey) {
+    // Postion
     this.x = x;
     this.y = y;
+    // width and height of the object
+    // The scale of the Image
+    this.scale = 0.1;
+    this.width = width * this.scale;
+    this.height = height * this.scale;
+    // Velocity and the speed
     this.vx = 0;
-    this.vy = 0;
+    this.vy = 2;
     this.speed = speed;
-    this.upKey = UP_ARROW;
-    this.downKey = DOWN_ARROW;
-    this.leftKey = LEFT_ARROW;
-    this.rightKey = RIGHT_ARROW;
+    // The climber Image
+    this.climberImg = climberImg;
+    // The directional keys
+    this.upKey = upKey;
+    this.downKey = downKey;
+    this.leftKey = leftKey;
+    this.rightKey = rightKey;
+    // gravity
+    this.pull = 1;
+
+    // grounded
+    this.fall = true;
+
   }
 
   //handleInput()
   //
   // The controls for the climber class
   handleInput() {
+    // Horizontal movement left to right
+    if (keyIsDown(this.leftKey)) {
+      this.vx = -this.speed;
+    } else if (keyIsDown(this.rightKey)) {
+      this.vx = this.speed;
+    } else {
+      this.vx = 0;
+    }
 
-  }
+    // Jumping movement
+    if (keyIsDown(this.upKey)&& this.fall === false) {
+      // The jumping power
+      this.vy = -20;
 
-  // move()
+    }
+      // else if (keyIsDown(this.downKey)) {
+      //   this.vy = this.speed;
+      // }
+      // else {
+      //   this.vy = 0;
+      // }
+    }
+
+    move() {
+      // Update position
+      this.x += this.vx;
+      this.y += this.vy;
+      // handle wrapping
+      this.handleWrapping();
+    }
+
+
+  // gravity()
   //
-  //
-  move() {
+  // When the climber is up, it has to come down
+  gravity() {
+    // The climber pulls to the ground
+    this.vy = this.pull;
+
+    // handle wrapping
+    this.handleWrapping();
 
   }
 
   // handleWrapping()
   //
-  //
+  // if the climber goes up, it goes up a level
+  // if the climber falls down, the game is over
   handleWrapping() {
+    if (this.y < 0) {
+      // Temporary state
+      //
+      // For now, the game will over but for the project
+      // will go to the next level
+      this.x = width / 2;
+      this.y = height / 2;
 
+    } else if (this.y > height) {
+      // Game Over state
+      //
+      // the game will go game over
+      this.x = width / 2;
+      this.y = height / 2;
 
+    }
   }
+
+    // handleStanding()
+    //
+    // To make sure that when the avatar is in contact with the platform
+    // the climber will not fall
+    handleStanding(platform){
+      // Variable
+      //
+      // Variables to calculate the distance of the climber and the platform
+      let d = dist(this.x, this.y, platform.x, platform.y);
+
+      // dist()
+      //
+      // To keep track of the platform and the avatar are in contact
+      if (d < this.width/2 + platform.width/2) {
+        console.log("standing");
+        // this.vy
+        //
+        // To make sure that the climber doesn't fall
+        this.fall = false;
+        this.pull = 0;
+
+        this.vy = 0;
+
+      }
+      else {
+          console.log("falling");
+        this.fall = true;  
+        this.pull= 1;
+
+      }
+    }
+
 
   //display()
   //
   //
   display() {
+    push();
+    imageMode(CENTER);
+    image(this.climberImg, this.x, this.y, this.width, this.height);
+    pop();
+
 
   }
 }
