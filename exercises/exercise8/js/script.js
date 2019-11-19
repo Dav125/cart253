@@ -48,9 +48,17 @@ function preload() {
 
 // setup()
 //
-// Description of setup
+// To set-up the background of the mountain
 
 function setup() {
+createCanvas(1280, 720);
+
+  // climber class
+  //
+  // To put postion, the size, putting image and the speed
+  climber = new Climber(500, 500, 500, 500, 2, climbImg, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW);
+
+  
 
 }
 
