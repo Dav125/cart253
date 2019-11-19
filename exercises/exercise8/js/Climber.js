@@ -123,4 +123,27 @@ class Climber {
     }
 }
 
+  // handleWrapping()
+  //
+  // if the climber goes up, it goes up a level
+  // if the climber falls down, the game is over
+  handleWrapping() {
+    if (this.y < 0) {
+      // Temporary state
+      //
+      // For now, the game will over but for the project
+      // will go to the next level
+      this.x = width / 2;
+      this.y = height / 2;
+
+    } else if (this.y > height) {
+      // Game Over state
+      //
+      // the game will go game over
+      this.x = width / 2;
+      this.y = height / 2;
+
+    }
+  }
+
 }
