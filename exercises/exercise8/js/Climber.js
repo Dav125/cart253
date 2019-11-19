@@ -61,10 +61,25 @@ class Climber {
     // if it is, it will be able to jump
     if (keyIsDown(this.upKey) && this.grounded === true) {
       console.log("jumping");
-      // The jumping power velocity 
+      // The jumping power velocity
       this.vy = -20;
 
     }
+
+  }
+  // move()
+  //
+  // To allow the climber to move in the screen
+  move() {
+    // Update the position of the object
+    this.x += this.vx;
+    this.y += this.vy;
+
+    // handleWrapping
+    //
+    // To link this code to handleWrapping
+    this.handleWrapping();
+
   }
 
 
