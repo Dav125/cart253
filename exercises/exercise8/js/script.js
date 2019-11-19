@@ -14,6 +14,10 @@ exercise 7 with the platform climber to the top
 // Variable for the player avatar
 let climber;
 
+// Variable for platforms
+let platformShort = [];
+let platformLong = [];
+
 // Variable for the background image
 let mountainImage;
 
@@ -28,7 +32,7 @@ let mountainImg;
 
 // preload()
 //
-// To load the image assets for the game 
+// To load the image assets for the game
 
 function preload() {
   // background()
