@@ -146,4 +146,15 @@ class Climber {
     }
   }
 
+  //display()
+  //
+  // To display the image of the avatar
+  display() {
+    push();
+    imageMode(CENTER);
+    image(this.climberImg, this.x, this.y, this.width, this.height);
+    pop();
+
+  }
+
 }
