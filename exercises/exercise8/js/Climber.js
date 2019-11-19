@@ -98,5 +98,29 @@ class Climber {
 
   }
 
+  // handleStanding()
+  //
+  // To make sure that when the avatar is in contact with the platform
+  // the climber will not fall
+  handleStanding(platform) {
+    // Variable
+    //
+    // Variables to calculate the distance of the climber and the platform
+    let d = dist(this.x, this.y, platform.x, platform.y);
+
+    // dist()
+    //
+    // To keep track of the platform and the avatar are in contact
+    if (d < this.width / 2 + platform.width / 2) {
+      console.log("standing");
+      // this.vy
+      //
+      // To make sure that the climber doesn't fall
+      this.grounded = true;
+      this.pull = 0;
+      this.vy = 0;
+
+    }
+}
 
 }
