@@ -82,5 +82,21 @@ class Climber {
 
   }
 
+  // gravity()
+  //
+  // When the climber is up in the air, it has to come down
+  gravity() {
+
+    // The climber pulls to the ground
+    this.vy += this.pull;
+
+
+    // handle wrapping
+    //
+    // To link this code to handleWrapping()
+    this.handleWrapping();
+
+  }
+
 
 }
