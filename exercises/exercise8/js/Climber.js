@@ -37,7 +37,35 @@ class Climber {
     this.grounded = false;
 
     // The pull variable is used
-    // to pull object down just like gravity 
+    // to pull object down just like gravity
     this.pull = 1;
+
   }
+
+  //handleInput()
+  //
+  // The controls for the climber class
+  handleInput() {
+    // Horizontal movement left to right
+    if (keyIsDown(this.leftKey)) {
+      this.vx = -this.speed;
+    } else if (keyIsDown(this.rightKey)) {
+      this.vx = this.speed;
+    } else {
+      this.vx = 0;
+    }
+
+    // Jumping movement
+    //
+    // Also detects if the object is grounded
+    // if it is, it will be able to jump
+    if (keyIsDown(this.upKey) && this.grounded === true) {
+      console.log("jumping");
+      // The jumping power velocity 
+      this.vy = -20;
+
+    }
+  }
+
+
 }
