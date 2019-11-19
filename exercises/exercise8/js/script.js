@@ -2,11 +2,12 @@
 
 /*****************
 
-Title of Project
-Author Name
+Exercise 8
 
-This is a template. You must fill in the title,
-author, and this description to match your project!
+David Fong
+
+In exercise 8, it is going to be an improved version of the
+exercise 7 with the platform climber to the top 
 
 ******************/
 
