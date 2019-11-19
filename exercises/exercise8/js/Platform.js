@@ -21,5 +21,13 @@ class Platform {
     this.platformImg = platformImg;
 
   }
-  
+  // diplay();
+  //
+  // Display the platform in the background
+  display() {
+    push();
+    imageMode(CENTER);
+    image(this.platformImg, this.x, this.y, this.width, this.height);
+    pop();
+  }
 }
