@@ -84,10 +84,9 @@ class Procrastinator {
   // the predator's. If the prey dies, it gets reset.
   handleEating(prey) {
     // Calculate distance from this predator to the prey
-    let distX = Math.abs(ellipse.x - rect.x - rect.w / 2);
-    let distY = Math.abs(ellipse.y - rect.y - rect.h / 2);
+    let d = dist(this.x, this.y, prey.x, prey.y);
     // Check if the distance is less than their two radii (an overlap)
-    if (distX <= rect.w / 2 || distY <= rect.h / 2) {
+    if (d < this.width/2 + prey.radius) {
       // Increase predator health and constrain it to its possible range
       this.health += this.healthGainPerEat;
       this.health = constrain(this.health, 0, this.maxHealth);
@@ -114,6 +113,7 @@ class Procrastinator {
   display() {
     push();
     noStroke();
+    rectMode(CENTER);
     fill(this.fillColor);
     this.radius = this.health;
     rect(this.x, this.y, this.width, this.height);
