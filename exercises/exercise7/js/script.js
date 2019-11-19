@@ -16,7 +16,7 @@ let platformLong = [];
 let mountainImage;
 
 // Variable for the number of platform
-let numbPlat = 5;
+let numbPlat = 40;
 
 // Images assets for the game
 let climbImg;
@@ -128,21 +128,6 @@ function startScreen() {
 // thus function is for the game to be able to start and end
 function gameScreen() {
 
-  // for loop
-  //
-  // new platform will appear as array
-
-  for (let i = 0; i < platformShort.length; i++) {
-    platformShort[i].display();
-    climber.handleStanding(platformShort[i]);
-  }
-
-  for (let i = 0; i < platformLong.length; i++) {
-    platformLong[i].display();
-    climber.handleStanding(platformLong[i]);
-  }
-
-
   // Handle input for the climber
   climber.handleInput();
   // A function that pull the climber down
@@ -151,6 +136,27 @@ function gameScreen() {
   climber.move();
   // This function display the climber
   climber.display();
+
+  climber.pull = 1;
+
+  climber.grounded = false;
+  // for loop
+  //
+  // new platform will appear as array
+
+  for (let i = 0; i < platformShort.length; i++) {
+    platformShort[i].display();
+    climber.handleStanding(platformShort[i]);
+
+
+  }
+
+  for (let i = 0; i < platformLong.length; i++) {
+    platformLong[i].display();
+    climber.handleStanding(platformLong[i]);
+
+  }
+
 
 }
 

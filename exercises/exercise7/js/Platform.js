@@ -22,6 +22,7 @@ class Platform {
   }
 
 
+
   // diplay();
   //
   // Display the platform in the background
