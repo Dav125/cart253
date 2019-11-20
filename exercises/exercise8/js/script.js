@@ -30,6 +30,11 @@ let platShortImg;
 let platLongImg;
 let mountainImg;
 
+// state and startGame
+//
+// Variable for using switch function
+let state = "startGame"; 
+
 // preload()
 //
 // To load the image assets for the game
