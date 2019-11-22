@@ -95,6 +95,37 @@ createCanvas(1280, 720);
 
   }
 
+// startGame()
+//
+//Displaying the title screen of the game
+function startGame(){
+
+  // push() and pop()
+  //
+  // To keep the text size, text font, and text alignment
+  // from spreading trough other text that I might add
+  push();
+
+  // To adjust my font size
+  textSize(30);
+
+  // text alignment
+  textAlign(CENTER, CENTER);
+
+  // No stroke
+  noStroke();
+
+  // Color fill of the title
+  text("Press a button to start", width / 2, height / 4);
+
+  pop();
+
+  // The game starts when a button is pressed
+  if (keyIsPressed) {
+    state = "playGame";
+  }
+}
+
 
 }
 
@@ -105,7 +136,7 @@ createCanvas(1280, 720);
 function draw() {
   // background()
   //
-  // Using the mountain image 
+  // Using the mountain image
   background(mountainImg, 1280, 720);
 
 
