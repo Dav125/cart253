@@ -33,7 +33,7 @@ let mountainImg;
 // state and startGame
 //
 // Variable for using switch function
-let state = "startGame"; 
+let state = "startGame";
 
 // preload()
 //
@@ -101,8 +101,45 @@ createCanvas(1280, 720);
 
 // draw()
 //
-// Description of draw()
-
+// Using the switch function
 function draw() {
+  // background()
+  //
+  // Using the mountain image 
+  background(mountainImg, 1280, 720);
 
+
+    // switch()
+    //
+    // Adding this function to be able to be able change
+    // the screen state of the game
+    switch (state) {
+      // "startGame"
+      //
+      // This is the state of the game where it
+      // takes you to the the starting screen
+      case "startGame":
+        // startScreen()
+        //
+        // This is the start menu of the game
+        startScreen();
+        break;
+        // "playGame"
+        //
+        // This is the state of the screen of the where the game start to play
+      case "playGame":
+        // gameScreen()
+        //
+        // This is where the action takes place in the game
+        gameScreen();
+        break;
+        // "endGame"
+        //
+        // This is the state of game where it is over
+      case "endGame":
+        // gameOver()
+        //
+        // This is game over screen
+        gameOver();
+    }
 }
