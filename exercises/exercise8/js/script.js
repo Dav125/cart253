@@ -101,6 +101,8 @@ createCanvas(1280, 720);
     platformLong.push(platformLongPlus);
 
   }
+}
+
 
 // startGame()
 //
@@ -135,9 +137,52 @@ function startGame(){
     state = "playGame";
   }
 }
+// gameScreen()
+//
+// thus function is for the game to be able to start and end
+function gameScreen() {
+
+  // Handle input for the climber
+  climber.handleInput();
+  // A function that pull the climber down
+  climber.gravity();
+  // This function help the climber move
+  climber.move();
+  // This function display the climber
+  climber.display();
+
+  // climber.pull
+  //
+  // Making the climber to fall down to the screen
+  // as a universal function that is not part of the code
+  climber.pull = 1;
+
+  // climber.grounded
+  //
+  // To detect if the climber is touching the platform
+  climber.grounded = false;
+
+  // for loop
+  //
+  // new platform will appear as array
+
+  for (let i = 0; i < platformShort.length; i++) {
+    platformShort[i].display();
+    climber.handleStanding(platformShort[i]);
+
+
+  }
+
+  for (let i = 0; i < platformLong.length; i++) {
+    platformLong[i].display();
+    climber.handleStanding(platformLong[i]);
+
+  }
 
 
 }
+
+
 
 
 // draw()
@@ -204,7 +249,7 @@ function gameOver(){
   // if statement
   //
   // if the mouse is pressed in the game over screen,
-  // the 
+  // the game return to the
   if(mouseIsPressed) {
     state = "startGame";
   }
