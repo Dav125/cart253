@@ -35,6 +35,9 @@ let mountainImg;
 // Variable for using switch function
 let state = "startGame";
 
+// Variable to store new font
+let quantumfont;
+
 // preload()
 //
 // To load the image assets for the game
@@ -47,6 +50,10 @@ function preload() {
   platShortImg = loadImage("assets/images/platform.jpg");
   platLongImg = loadImage("assets/images/platform2.jpg");
   mountainImg = loadImage("assets/images/mountain.jpg");
+
+  // Adding a new font: -----> source:
+// https://www.1001freefonts.com/sci-fi-fonts-5.php
+quantumfont = loadFont("assets/fonts/quantum/quantflt.ttf");
 
 }
 
@@ -106,6 +113,9 @@ function startGame(){
   // from spreading trough other text that I might add
   push();
 
+  // Adding a new font
+  textFont(quantumfont);
+
   // To adjust my font size
   textSize(30);
 
@@ -115,7 +125,7 @@ function startGame(){
   // No stroke
   noStroke();
 
-  // Color fill of the title
+  // Title of the game
   text("Press a button to start", width / 2, height / 4);
 
   pop();
