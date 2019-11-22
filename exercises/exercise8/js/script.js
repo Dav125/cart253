@@ -184,3 +184,29 @@ function draw() {
         gameOver();
     }
 }
+
+// gameOver()
+//
+// This is the screen where the game is over when the
+// the avatar falls off the screen
+function gameOver(){
+  // Adding push and pop
+  //
+  // Display the game over screen
+  push();
+  textFont(quantumfont);
+  textAlign(CENTER, CENTER);
+  noStroke();
+  fill(255, 100, 100);
+  text("Game Over", width / 2, height / 4);
+  pop();
+
+  // if statement
+  //
+  // if the mouse is pressed in the game over screen,
+  // the 
+  if(mouseIsPressed) {
+    state = "startGame";
+  }
+
+}
