@@ -177,6 +177,29 @@ function gameScreen() {
 
   }
 
+  // Climber.handleWrapping
+  //
+  // if the climber either goes up, the player moves to the next level
+  // if it goes down, the game is over
+  if (climber.y < 0) {
+
+  }
+  else if(climber.y > height) {
+
+    // climber class
+    //
+    // To put postion, the size, putting image and the speed
+    // This is also to reset the position when the climber falls to the abyss
+    climber = new Climber(500, 500, 500, 500, 2, climbImg, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW);
+
+    // endGame
+    //
+    // to change the state of the game 
+    state = "endGame";
+
+
+  }
+
 
 }
 
