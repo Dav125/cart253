@@ -20,7 +20,7 @@ let platformLong = [];
 let mountainImage;
 
 // Variable for the number of platform
-let numbPlat = 20;
+let numbPlat = 10;
 
 // Images asset for the game
 let climbImg;
@@ -194,7 +194,7 @@ function gameScreen() {
 
     // endGame
     //
-    // to change the state of the game 
+    // to change the state of the game
     state = "endGame";
 
 
