@@ -1,5 +1,3 @@
-"use strict";
-
 /*****************
 
 Exercise 8
@@ -22,7 +20,7 @@ let platformLong = [];
 let mountainImage;
 
 // Variable for the number of platform
-let numPlat = 20;
+let numbPlat = 20;
 
 // Images asset for the game
 let climbImg;
@@ -86,7 +84,7 @@ function setup() {
 
     // For the position for long platform
     let reLongX = random(0, width);
-    let reLongY = random(0, width);
+    let reLongY = random(0, height);
 
     // Platform classes
     //
@@ -107,7 +105,7 @@ function setup() {
 // startGame()
 //
 //Displaying the title screen of the game
-function startGame() {
+function startScreen() {
 
   // push() and pop()
   //
@@ -240,6 +238,7 @@ function gameOver() {
   // Display the game over screen
   push();
   textFont(quantumfont);
+  textSize(40);
   textAlign(CENTER, CENTER);
   noStroke();
   fill(255, 100, 100);
