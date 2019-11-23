@@ -52,8 +52,8 @@ function preload() {
   mountainImg = loadImage("assets/images/mountain.jpg");
 
   // Adding a new font: -----> source:
-// https://www.1001freefonts.com/sci-fi-fonts-5.php
-quantumfont = loadFont("assets/fonts/quantum/quantflt.ttf");
+  // https://www.1001freefonts.com/sci-fi-fonts-5.php
+  quantumfont = loadFont("assets/fonts/quantum/quantflt.ttf");
 
 }
 
@@ -63,7 +63,7 @@ quantumfont = loadFont("assets/fonts/quantum/quantflt.ttf");
 // To set-up the background of the mountain
 
 function setup() {
-createCanvas(1280, 720);
+  createCanvas(1280, 720);
 
   // climber class
   //
@@ -107,7 +107,7 @@ createCanvas(1280, 720);
 // startGame()
 //
 //Displaying the title screen of the game
-function startGame(){
+function startGame() {
 
   // push() and pop()
   //
@@ -195,46 +195,46 @@ function draw() {
   background(mountainImg, 1280, 720);
 
 
-    // switch()
+  // switch()
+  //
+  // Adding this function to be able to be able change
+  // the screen state of the game
+  switch (state) {
+    // "startGame"
     //
-    // Adding this function to be able to be able change
-    // the screen state of the game
-    switch (state) {
-      // "startGame"
+    // This is the state of the game where it
+    // takes you to the the starting screen
+    case "startGame":
+      // startScreen()
       //
-      // This is the state of the game where it
-      // takes you to the the starting screen
-      case "startGame":
-        // startScreen()
-        //
-        // This is the start menu of the game
-        startScreen();
-        break;
-        // "playGame"
-        //
-        // This is the state of the screen of the where the game start to play
-      case "playGame":
-        // gameScreen()
-        //
-        // This is where the action takes place in the game
-        gameScreen();
-        break;
-        // "endGame"
-        //
-        // This is the state of game where it is over
-      case "endGame":
-        // gameOver()
-        //
-        // This is game over screen
-        gameOver();
-    }
+      // This is the start menu of the game
+      startScreen();
+      break;
+      // "playGame"
+      //
+      // This is the state of the screen of the where the game start to play
+    case "playGame":
+      // gameScreen()
+      //
+      // This is where the action takes place in the game
+      gameScreen();
+      break;
+      // "endGame"
+      //
+      // This is the state of game where it is over
+    case "endGame":
+      // gameOver()
+      //
+      // This is game over screen
+      gameOver();
+  }
 }
 
 // gameOver()
 //
 // This is the screen where the game is over when the
 // the avatar falls off the screen
-function gameOver(){
+function gameOver() {
   // Adding push and pop
   //
   // Display the game over screen
@@ -250,7 +250,7 @@ function gameOver(){
   //
   // if the mouse is pressed in the game over screen,
   // the game return to the
-  if(mouseIsPressed) {
+  if (mouseIsPressed) {
     state = "startGame";
   }
 
