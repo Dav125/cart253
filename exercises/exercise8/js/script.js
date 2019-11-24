@@ -196,8 +196,6 @@ function gameScreen() {
     //
     // to change the state of the game
     state = "endGame";
-
-
   }
 
 
@@ -231,6 +229,7 @@ function draw() {
       // This is the start menu of the game
       startScreen();
       break;
+
       // "playGame"
       //
       // This is the state of the screen of the where the game start to play
@@ -240,6 +239,27 @@ function draw() {
       // This is where the action takes place in the game
       gameScreen();
       break;
+
+      // nextLevel
+      //
+      // Once the climber goes up level, the background changes
+    case "nextLevel":
+      // secondLevel
+      //
+      // the middle part of the mountain
+      secondLevel();
+      break;
+
+      // lastLevel
+      //
+      // Once the climber goes up level, the background changes
+    case "lastLevel":
+      // thirdLevel
+      //
+      // the top part of the mountain 
+      thirdLevel();
+      break;
+
       // "endGame"
       //
       // This is the state of game where it is over
