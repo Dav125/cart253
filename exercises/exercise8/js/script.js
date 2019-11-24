@@ -68,6 +68,11 @@ function setup() {
   // To put postion, the size, putting image and the speed
   climber = new Climber(500, 500, 500, 500, 2, climbImg, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW);
 
+  // Starting platform
+  //
+  //this is a platform for the climber for the start of the game
+  // in case all the the random platform doesn't spawn under
+  startingPlat = new Platform(500, 700, 1000, 500, platLongImg);
 
   // For loop
   //
@@ -160,6 +165,153 @@ function gameScreen() {
   // To detect if the climber is touching the platform
   climber.grounded = false;
 
+
+  // startingPlat
+  //
+  // To display the starting platform and the handleStanding
+  startingPlat.display();
+  climber.handleStanding(startingPlat);
+
+
+
+  // for loop
+  //
+  // new platform will appear as array
+
+  for (let i = 0; i < platformShort.length; i++) {
+    platformShort[i].display();
+    climber.handleStanding(platformShort[i]);
+
+
+  }
+
+  for (let i = 0; i < platformLong.length; i++) {
+    platformLong[i].display();
+    climber.handleStanding(platformLong[i]);
+
+  }
+
+  // Climber.handleWrapping
+  //
+  // if the climber either goes up, the player moves to the next level
+  // if it goes down, the game is over
+  if (climber.y < height) {
+
+    // nextLevel()
+    //
+    // Once the climber goes up, the state moves to the next level
+    state = "nextLevel";
+
+  }
+  else if(climber.y > height) {
+
+    // climber class
+    //
+    // To put postion, the size, putting image and the speed
+    // This is also to reset the position when the climber falls to the abyss
+    climber = new Climber(500, 500, 500, 500, 2, climbImg, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW);
+
+    // endGame
+    //
+    // to change the state of the game
+    state = "endGame";
+  }
+
+
+}
+
+// secondLevel()
+//
+// This the middle part of the mountain
+function secondLevel(){
+  // Handle input for the climber
+  climber.handleInput();
+  // A function that pull the climber down
+  climber.gravity();
+  // This function help the climber move
+  climber.move();
+  // This function display the climber
+  climber.display();
+
+  // climber.pull
+  //
+  // Making the climber to fall down to the screen
+  // as a universal function that is not part of the code
+  climber.pull = 1;
+
+  // climber.grounded
+  //
+  // To detect if the climber is touching the platform
+  climber.grounded = false;
+
+  // for loop
+  //
+  // new platform will appear as array
+
+  for (let i = 0; i < platformShort.length; i++) {
+    platformShort[i].display();
+    climber.handleStanding(platformShort[i]);
+
+
+  }
+
+  for (let i = 0; i < platformLong.length; i++) {
+    platformLong[i].display();
+    climber.handleStanding(platformLong[i]);
+
+  }
+
+  // Climber.handleWrapping
+  //
+  // if the climber either goes up, the player moves to the next level
+  // if it goes down, the game is over
+  if (climber.y < 0) {
+    // lastLevel()
+    //
+    // Once the climber goes up, the state moves to the next level
+    state = "lastLevel";
+
+  }
+  else if(climber.y > height) {
+
+    // climber class
+    //
+    // To put postion, the size, putting image and the speed
+    // This is also to reset the position when the climber falls to the abyss
+    climber = new Climber(500, 500, 500, 500, 2, climbImg, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW);
+
+    // endGame
+    //
+    // to change the state of the game
+    state = "endGame";
+  }
+
+}
+
+// thirdLevel()
+//
+// This the top part of the mountain
+function thirdLevel(){
+  // Handle input for the climber
+  climber.handleInput();
+  // A function that pull the climber down
+  climber.gravity();
+  // This function help the climber move
+  climber.move();
+  // This function display the climber
+  climber.display();
+
+  // climber.pull
+  //
+  // Making the climber to fall down to the screen
+  // as a universal function that is not part of the code
+  climber.pull = 1;
+
+  // climber.grounded
+  //
+  // To detect if the climber is touching the platform
+  climber.grounded = false;
+
   // for loop
   //
   // new platform will appear as array
@@ -197,7 +349,6 @@ function gameScreen() {
     // to change the state of the game
     state = "endGame";
   }
-
 
 }
 
@@ -256,7 +407,7 @@ function draw() {
     case "lastLevel":
       // thirdLevel
       //
-      // the top part of the mountain 
+      // the top part of the mountain
       thirdLevel();
       break;
 
