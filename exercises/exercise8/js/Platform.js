@@ -30,4 +30,14 @@ class Platform {
     image(this.platformImg, this.x, this.y, this.width, this.height);
     pop();
   }
+
+  // reset
+  //
+  // It is to help reposition to a random location of the screen
+  reset() {
+    // random position
+    this.x = random(0, width);
+    this.y = random(0, height);
+
+  }
 }
