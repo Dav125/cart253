@@ -55,6 +55,8 @@ function preload() {
   platShortImg = loadImage("assets/images/platform.jpg");
   platLongImg = loadImage("assets/images/platform2.jpg");
   mountainImg = loadImage("assets/images/mountain.jpg");
+  mountain2Img = loadImage("assets/images/mountain 2.jpg");
+  mountain3Img = loadImage("assets/images/mountain 3.jpg");
 
   // Adding a new font: -----> source:
   // https://www.1001freefonts.com/sci-fi-fonts-5.php
@@ -230,6 +232,7 @@ function gameScreen() {
     // This is also to reset the position when the climber goes up
     climber = new Climber(500, 500, 500, 500, 2, climbImg, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW);
 
+
   }
   else if(climber.y > height) {
 
@@ -252,6 +255,9 @@ function gameScreen() {
 //
 // This the middle part of the mountain
 function secondLevel(){
+  // The background for second level
+  background(mountain2Img, 1280, 720);
+
   // Handle input for the climber
   climber.handleInput();
   // A function that pull the climber down
