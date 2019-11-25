@@ -16,6 +16,13 @@ let climber;
 let platformShort = [];
 let platformLong = [];
 
+// Variable for the starting platform
+let startingPlat = [];
+
+// For the number of the starting platform what supports the
+// climber at the beginning
+let numbStartP = 2;
+
 // Variable for the background image
 let mountainImage;
 
@@ -68,11 +75,20 @@ function setup() {
   // To put postion, the size, putting image and the speed
   climber = new Climber(500, 500, 500, 500, 2, climbImg, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW);
 
-  // Starting platform
-  //
-  //this is a platform for the climber for the start of the game
-  // in case all the the random platform doesn't spawn under
-  startingPlat = new Platform(500, 700, 1000, 500, platLongImg);
+
+
+  for (let s = 0; s < numbStartP; s++){
+    // Starting platform
+    //
+    //this is a platform for the climber for the start of the game
+    // in case all the the random platform doesn't spawn under
+    startingPlatPlus = new Platform(500, 700, 2000, 1000, platLongImg);
+
+    // push
+    //
+    // To add the platform as an array
+    startingPlat.push(startingPlatPlus);
+  }
 
   // For loop
   //
@@ -166,11 +182,17 @@ function gameScreen() {
   climber.grounded = false;
 
 
-  // startingPlat
+
+  // for loop for starting platform
   //
-  // To display the starting platform and the handleStanding
-  startingPlat.display();
-  climber.handleStanding(startingPlat);
+  // the starting platform will be an array
+  for(let s = 0; s < startingPlat.length; s++){
+    // startingPlat
+    //
+    // To display the starting platform and the handleStanding
+    startingPlat[s].display();
+    climber.handleStanding(startingPlat[s]);
+  }
 
 
 
@@ -195,12 +217,18 @@ function gameScreen() {
   //
   // if the climber either goes up, the player moves to the next level
   // if it goes down, the game is over
-  if (climber.y < height) {
+  if (climber.y < 0) {
 
     // nextLevel()
     //
     // Once the climber goes up, the state moves to the next level
     state = "nextLevel";
+
+    // climber class
+    //
+    // To put postion, the size, putting image and the speed
+    // This is also to reset the position when the climber goes up
+    climber = new Climber(500, 500, 500, 500, 2, climbImg, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW);
 
   }
   else if(climber.y > height) {
