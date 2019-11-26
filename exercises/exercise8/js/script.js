@@ -324,9 +324,6 @@ function NextlevelSetup(){
   platformShort = [];
   platformLong = [];
 
-  // To clear the amount of snow from the previous level
-  snowFall = [];
-
   // For loop for the second level
   //
   // To make array objects for platform
@@ -490,9 +487,6 @@ function thirdLevelSetup() {
   // and make new ones
   platformShort = [];
   platformLong = [];
-
-  // To clear the amount of snow from the previous level
-  snowFall = [];
 
   // For loop for the second level
   //
