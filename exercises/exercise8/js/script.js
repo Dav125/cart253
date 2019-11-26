@@ -86,7 +86,7 @@ function setup() {
   // For loop for snow
   //
   // To make the number of snows that will fall
-  for (let f = 0; f < snowNumb; f++){
+  for (let f = 0; f < snowNumb; f++) {
     // random()
     //
     // Making the snow spawn on top of the screen
@@ -97,7 +97,7 @@ function setup() {
     // snowFallPlus
     //
     // New snow that will fall
-    snowFallPlus = new Snow(snowX, snowY, color(230,255,255), 5);
+    snowFallPlus = new Snow(snowX, snowY, color(230, 255, 255), 5);
 
     // push()
     //
@@ -108,7 +108,7 @@ function setup() {
   //Array
   //
   // For the starting platform
-  for (let s = 0; s < numbStartP; s++){
+  for (let s = 0; s < numbStartP; s++) {
     // Starting platform
     //
     //this is a platform for the climber for the start of the game
@@ -229,7 +229,7 @@ function gameScreen() {
   // for loop for starting platform
   //
   // the starting platform will be an array
-  for(let s = 0; s < startingPlat.length; s++){
+  for (let s = 0; s < startingPlat.length; s++) {
     // startingPlat
     //
     // To display the starting platform and the handleStanding
@@ -269,8 +269,7 @@ function gameScreen() {
 
     // To lead to a different level of setup
     NextlevelSetup();
-  }
-  else if(climber.y > height) {
+  } else if (climber.y > height) {
 
     // climber class
     //
@@ -290,7 +289,7 @@ function gameScreen() {
 // NextlevelSetup()
 //
 // A new setup for the 2nd level
-function NextlevelSetup(){
+function NextlevelSetup() {
   // climber class
   //
   // To put postion, the size, putting image and the speed
@@ -300,7 +299,7 @@ function NextlevelSetup(){
   // For loop for snow
   //
   // To make the number of snows that will fall
-  for (let f = 0; f < snowNumb; f++){
+  for (let f = 0; f < snowNumb; f++) {
     // random()
     //
     // Making the snow spawn on top of the screen
@@ -311,7 +310,7 @@ function NextlevelSetup(){
     // snowFallPlus
     //
     // New snow that will fall
-    snowFallPlus = new Snow(snowX, snowY, color(230,255,255), 5);
+    snowFallPlus = new Snow(snowX, snowY, color(230, 255, 255), 5);
 
     // push()
     //
@@ -360,7 +359,7 @@ function NextlevelSetup(){
 // secondLevel()
 //
 // This the middle part of the mountain
-function secondLevel(){
+function secondLevel() {
   // The background for second level
   background(mountain2Img, 1280, 720);
 
@@ -433,8 +432,7 @@ function secondLevel(){
     // to lead to the next level
     thirdLevelSetup();
 
-  }
-  else if(climber.y > height) {
+  } else if (climber.y > height) {
 
     // climber class
     //
@@ -464,7 +462,7 @@ function thirdLevelSetup() {
   // For loop for snow
   //
   // To make the number of snows that will fall
-  for (let f = 0; f < snowNumb; f++){
+  for (let f = 0; f < snowNumb; f++) {
     // random()
     //
     // Making the snow spawn on top of the screen
@@ -475,7 +473,7 @@ function thirdLevelSetup() {
     // snowFallPlus
     //
     // New snow that will fall
-    snowFallPlus = new Snow(snowX, snowY, color(230,255,255), 5);
+    snowFallPlus = new Snow(snowX, snowY, color(230, 255, 255), 5);
 
     // push()
     //
@@ -525,7 +523,7 @@ function thirdLevelSetup() {
 // thirdLevel()
 //
 // This the top part of the mountain
-function thirdLevel(){
+function thirdLevel() {
   // Background()
   //
   // Changing the background to the top part of the maountain
@@ -590,8 +588,7 @@ function thirdLevel(){
     // when the climber reaches the top, you win the game
     state = "winGame";
 
-  }
-  else if(climber.y > height) {
+  } else if (climber.y > height) {
 
     // climber class
     //
@@ -675,9 +672,9 @@ function draw() {
       // This is game over screen
       gameOver();
       break;
-    // winGame
-    //
-    // This is the state with the win screen
+      // winGame
+      //
+      // This is the state with the win screen
     case "winGame":
       // winScreen()
       //
@@ -717,7 +714,7 @@ function gameOver() {
 //
 // This is the screen where the climber reaches the top
 // and wins
-function winScreen(){
+function winScreen() {
   // Adding push and pop
   //
   // Display the Win screen

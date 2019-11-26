@@ -3,7 +3,7 @@
 // It is a class with the player controlling their
 // moving avatar
 class Climber {
-  constructor(x, y, width, height, speed, climberImg, upKey, downKey, leftKey, rightKey){
+  constructor(x, y, width, height, speed, climberImg, upKey, downKey, leftKey, rightKey) {
     // x and y position
     this.x = x;
     this.y = y;
@@ -112,7 +112,7 @@ class Climber {
       this.vy = 0;
 
     }
-}
+  }
 
 
 

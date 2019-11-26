@@ -22,7 +22,7 @@ class Snow {
   // move()
   //
   // To make the snow fall
-  move(){
+  move() {
     // To update the position
     this.x += this.vx;
     this.y += this.vy;
@@ -33,7 +33,7 @@ class Snow {
   // gravity()
   //
   // Pulling the snows down
-  gravity(){
+  gravity() {
 
     this.vy = 0.7;
 
@@ -45,7 +45,7 @@ class Snow {
   //
   // To check if the snows are falling off the screen
   // if it is, it'll reapear on the top
-  handleWrapping(){
+  handleWrapping() {
     // When the snow goes off screen, more will come down
     if (this.y > height) {
       this.y -= height;
@@ -55,7 +55,7 @@ class Snow {
   // display
   //
   // Draw a white circle
-  display(){
+  display() {
     push();
     noStroke();
     fill(this.fillColor);
