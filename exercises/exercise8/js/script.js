@@ -49,6 +49,9 @@ let state = "startGame";
 // Variable to store new font
 let quantumfont;
 
+// Variable for the jump effect
+let jumpSFX;
+
 // preload()
 //
 // To load the image assets for the game
@@ -67,6 +70,10 @@ function preload() {
   // Adding a new font: -----> source:
   // https://www.1001freefonts.com/sci-fi-fonts-5.php
   quantumfont = loadFont("assets/fonts/quantum/quantflt.ttf");
+
+  // Sound for jump: --------> Source:
+  // https://freesound.org/people/cabled_mess/sounds/350906/
+  jumpSFX = new Audio("assets/sounds/Jump.wav");
 
 }
 

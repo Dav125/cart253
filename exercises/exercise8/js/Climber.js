@@ -64,6 +64,8 @@ class Climber {
       // The jumping power velocity
       this.vy = -20;
 
+      // To play the sound jumping 
+      jumpSFX.play();
     }
 
   }
