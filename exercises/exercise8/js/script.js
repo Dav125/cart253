@@ -27,7 +27,7 @@ let numbStartP = 1;
 let mountainImage;
 
 // Variable for the number of platform
-let numbPlat = 10;
+let numbPlat = 5;
 
 // Images asset for the game
 let climbImg;
@@ -120,6 +120,37 @@ function setup() {
     // To add more platform in the screen as an array
     platformShort.push(platformShortPlus);
     platformLong.push(platformLongPlus);
+
+  }
+
+  // For loop for the second level
+  //
+  // To make array objects for platform
+  for (let z = 0; z < numbPlat; z++) {
+
+    // random()
+    //
+    // adding position for the platforms
+
+    // For the position the short platform
+    let reShortXZ = random(0, width);
+    let reShortYZ = random(0, height);
+
+    // For the position for long platform
+    let reLongXZ = random(0, width);
+    let reLongYZ = random(0, height);
+
+    // Platform classes
+    //
+    // Platform that will be generated in the screen
+    platformShortPlusZ = new Platform(reShortXZ, reShortYZ, 500, 500, platShortImg);
+    platformLongPlusZ = new Platform(reLongXZ, reLongYZ, 1000, 500, platLongImg);
+
+    // push()
+    //
+    // To add more platform in the screen as an array
+    platformShort.push(platformShortPlusZ);
+    platformLong.push(platformLongPlusZ);
 
   }
 }
@@ -282,16 +313,16 @@ function secondLevel(){
   //
   // new platform will appear as array
 
-  for (let i = 0; i < platformShort.length; i++) {
-    platformShort[i].display();
-    climber.handleStanding(platformShort[i]);
+  for (let z = 0; z < platformShort.length; z++) {
+    platformShort[z].display();
+    climber.handleStanding(platformShort[z]);
 
 
   }
 
-  for (let i = 0; i < platformLong.length; i++) {
-    platformLong[i].display();
-    climber.handleStanding(platformLong[i]);
+  for (let z = 0; z < platformLong.length; z++) {
+    platformLong[z].display();
+    climber.handleStanding(platformLong[z]);
 
   }
 
@@ -304,6 +335,12 @@ function secondLevel(){
     //
     // Once the climber goes up, the state moves to the next level
     state = "lastLevel";
+
+    // climber class
+    //
+    // To put postion, the size, putting image and the speed
+    // This is also to reset the position when the climber goes up
+    climber = new Climber(500, 500, 500, 500, 2, climbImg, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW);
 
   }
   else if(climber.y > height) {
