@@ -326,6 +326,12 @@ function secondLevel(){
 //
 // This the top part of the mountain
 function thirdLevel(){
+  // Background()
+  //
+  // Changing the background to the top part of the maountain
+  background(mountain3Img, 1280, 720);
+
+
   // Handle input for the climber
   climber.handleInput();
   // A function that pull the climber down
