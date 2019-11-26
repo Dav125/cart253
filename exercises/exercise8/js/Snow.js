@@ -35,7 +35,7 @@ class Snow {
   // Pulling the snows down
   gravity(){
 
-    this.vy = 1;
+    this.vy = 0.7;
 
     // Handle wrapping
     this.handleWrapping();
