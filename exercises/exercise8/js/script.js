@@ -33,7 +33,7 @@ let numbStartP = 1;
 let mountainImage;
 
 // Variable for the number of platform
-let numbPlat = 5;
+let numbPlat = 10;
 
 // Images asset for the game
 let climbImg;
@@ -152,36 +152,7 @@ function setup() {
 
   }
 
-  // For loop for the second level
-  //
-  // To make array objects for platform
-  for (let z = 0; z < numbPlat; z++) {
 
-    // random()
-    //
-    // adding position for the platforms
-
-    // For the position the short platform
-    let reShortXZ = random(0, width);
-    let reShortYZ = random(0, height);
-
-    // For the position for long platform
-    let reLongXZ = random(0, width);
-    let reLongYZ = random(0, height);
-
-    // Platform classes
-    //
-    // Platform that will be generated in the screen
-    platformShortPlusZ = new Platform(reShortXZ, reShortYZ, 500, 500, platShortImg);
-    platformLongPlusZ = new Platform(reLongXZ, reLongYZ, 1000, 500, platLongImg);
-
-    // push()
-    //
-    // To add more platform in the screen as an array
-    platformShort.push(platformShortPlusZ);
-    platformLong.push(platformLongPlusZ);
-
-  }
 }
 
 
@@ -296,13 +267,8 @@ function gameScreen() {
     // Once the climber goes up, the state moves to the next level
     state = "nextLevel";
 
-    // climber class
-    //
-    // To put postion, the size, putting image and the speed
-    // This is also to reset the position when the climber goes up
-    climber = new Climber(500, 500, 500, 500, 2, climbImg, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW);
-
-
+    // To lead to a different level of setup
+    NextlevelSetup();
   }
   else if(climber.y > height) {
 
@@ -321,6 +287,76 @@ function gameScreen() {
 
 }
 
+// NextlevelSetup()
+//
+// A new setup for the 2nd level
+function NextlevelSetup(){
+  // climber class
+  //
+  // To put postion, the size, putting image and the speed
+  // This is also to reset the position when the climber goes up
+  climber = new Climber(500, 500, 500, 500, 2, climbImg, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW);
+
+  // For loop for snow
+  //
+  // To make the number of snows that will fall
+  for (let f = 0; f < snowNumb; f++){
+    // random()
+    //
+    // Making the snow spawn on top of the screen
+    let snowX = random(0, width);
+    let snowY = random(0, height);
+
+
+    // snowFallPlus
+    //
+    // New snow that will fall
+    snowFallPlus = new Snow(snowX, snowY, color(230,255,255), 5);
+
+    // push()
+    //
+    // to make array objects for snow
+    snowFall.push(snowFallPlus);
+  }
+
+  // To clear the previous platform from the last level
+  // and make new ones
+  platformShort = [];
+  platformLong = [];
+
+  // For loop for the second level
+  //
+  // To make array objects for platform
+  //
+  // and the z is to differentiate the array from the previous level
+  for (let z = 0; z < numbPlat; z++) {
+
+    // random()
+    //
+    // adding position for the platforms
+
+    // For the position the short platform
+    let reShortXZ = random(0, width);
+    let reShortYZ = random(0, height);
+
+    // For the position for long platform
+    let reLongXZ = random(0, width);
+    let reLongYZ = random(0, height);
+
+    // Platform classes
+    //
+    // Platform that will be generated in the screen
+    platformShortPlusZ = new Platform(reShortXZ, reShortYZ, 500, 500, platShortImg);
+    platformLongPlusZ = new Platform(reLongXZ, reLongYZ, 1000, 500, platLongImg);
+
+    // push()
+    //
+    // To add more platform in the screen as an array
+    platformShort.push(platformShortPlusZ);
+    platformLong.push(platformLongPlusZ);
+
+  }
+}
 // secondLevel()
 //
 // This the middle part of the mountain
@@ -347,6 +383,17 @@ function secondLevel(){
   //
   // To detect if the climber is touching the platform
   climber.grounded = false;
+
+  // snow
+  //
+  // for loop for snow
+  for (let f = 0; f < snowFall.length; f++) {
+    snowFall[f].display();
+    snowFall[f].move();
+    snowFall[f].gravity();
+    snowFall[f].handleWrapping();
+  }
+
 
   // for loop
   //
@@ -381,6 +428,11 @@ function secondLevel(){
     // This is also to reset the position when the climber goes up
     climber = new Climber(500, 500, 500, 500, 2, climbImg, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW);
 
+    // thirdLevelSetup
+    //
+    // to lead to the next level
+    thirdLevelSetup();
+
   }
   else if(climber.y > height) {
 
@@ -396,6 +448,78 @@ function secondLevel(){
     state = "endGame";
   }
 
+}
+
+// thirdLevelSetup
+//
+// the setup for the third level
+function thirdLevelSetup() {
+
+  // climber class
+  //
+  // To put postion, the size, putting image and the speed
+  // This is also to reset the position when the climber goes up
+  climber = new Climber(500, 500, 500, 500, 2, climbImg, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW);
+
+  // For loop for snow
+  //
+  // To make the number of snows that will fall
+  for (let f = 0; f < snowNumb; f++){
+    // random()
+    //
+    // Making the snow spawn on top of the screen
+    let snowX = random(0, width);
+    let snowY = random(0, height);
+
+
+    // snowFallPlus
+    //
+    // New snow that will fall
+    snowFallPlus = new Snow(snowX, snowY, color(230,255,255), 5);
+
+    // push()
+    //
+    // to make array objects for snow
+    snowFall.push(snowFallPlus);
+  }
+
+  // To clear the previous platform from the last level
+  // and make new ones
+  platformShort = [];
+  platformLong = [];
+
+  // For loop for the second level
+  //
+  // To make array objects for platform
+  //
+  // and the z is to differentiate the array from the previous level
+  for (let w = 0; w < numbPlat; w++) {
+
+    // random()
+    //
+    // adding position for the platforms
+
+    // For the position the short platform
+    let reShortXW = random(0, width);
+    let reShortYW = random(0, height);
+
+    // For the position for long platform
+    let reLongXW = random(0, width);
+    let reLongYW = random(0, height);
+
+    // Platform classes
+    //
+    // Platform that will be generated in the screen
+    platformShortPlusW = new Platform(reShortXW, reShortYW, 500, 500, platShortImg);
+    platformLongPlusW = new Platform(reLongXW, reLongYW, 1000, 500, platLongImg);
+
+    // push()
+    //
+    // To add more platform in the screen as an array
+    platformShort.push(platformShortPlusW);
+    platformLong.push(platformLongPlusW);
+
+  }
 }
 
 // thirdLevel()
@@ -428,20 +552,31 @@ function thirdLevel(){
   // To detect if the climber is touching the platform
   climber.grounded = false;
 
+  // snow
+  //
+  // for loop for snow
+  for (let f = 0; f < snowFall.length; f++) {
+    snowFall[f].display();
+    snowFall[f].move();
+    snowFall[f].gravity();
+    snowFall[f].handleWrapping();
+  }
+
+
   // for loop
   //
   // new platform will appear as array
 
-  for (let i = 0; i < platformShort.length; i++) {
-    platformShort[i].display();
-    climber.handleStanding(platformShort[i]);
+  for (let w = 0; w < platformShort.length; w++) {
+    platformShort[w].display();
+    climber.handleStanding(platformShort[w]);
 
 
   }
 
-  for (let i = 0; i < platformLong.length; i++) {
-    platformLong[i].display();
-    climber.handleStanding(platformLong[i]);
+  for (let w = 0; w < platformLong.length; w++) {
+    platformLong[w].display();
+    climber.handleStanding(platformLong[w]);
 
   }
 
