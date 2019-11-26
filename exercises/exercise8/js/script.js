@@ -19,6 +19,12 @@ let platformLong = [];
 // Variable for the starting platform
 let startingPlat = [];
 
+// Variable for the snows
+let snowFall = [];
+
+// Variable for the number of snow that will fall
+let snowNumb = 100;
+
 // For the number of the starting platform what supports the
 // climber at the beginning
 let numbStartP = 1;
@@ -77,8 +83,31 @@ function setup() {
   // To put postion, the size, putting image and the speed
   climber = new Climber(500, 500, 500, 500, 2, climbImg, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW);
 
+  // For loop for snow
+  //
+  // To make the number of snows that will fall
+  for (let f = 0; f < snowNumb; f++){
+    // random()
+    //
+    // Making the snow spawn on top of the screen
+    let snowX = random(0, width);
+    let snowY = random(0, height);
 
 
+    // snowFallPlus
+    //
+    // New snow that will fall
+    snowFallPlus = new Snow(snowX, snowY, color(230,255,255), 5);
+
+    // push()
+    //
+    // to make array objects for snow
+    snowFall.push(snowFallPlus);
+  }
+
+  //Array
+  //
+  // For the starting platform
   for (let s = 0; s < numbStartP; s++){
     // Starting platform
     //
@@ -213,6 +242,16 @@ function gameScreen() {
   //
   // To detect if the climber is touching the platform
   climber.grounded = false;
+
+  // snow
+  //
+  // for loop for snow
+  for (let f = 0; f < snowFall.length; f++) {
+    snowFall[f].display();
+    snowFall[f].move();
+    snowFall[f].gravity();
+    snowFall[f].handleWrapping();
+  }
 
 
 
