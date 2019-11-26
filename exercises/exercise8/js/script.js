@@ -21,7 +21,7 @@ let startingPlat = [];
 
 // For the number of the starting platform what supports the
 // climber at the beginning
-let numbStartP = 2;
+let numbStartP = 1;
 
 // Variable for the background image
 let mountainImage;
