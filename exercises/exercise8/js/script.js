@@ -585,6 +585,10 @@ function thirdLevel(){
   // if the climber either goes up, the player moves to the next level
   // if it goes down, the game is over
   if (climber.y < 0) {
+    // winGame
+    //
+    // when the climber reaches the top, you win the game
+    state = "winGame";
 
   }
   else if(climber.y > height) {
@@ -670,6 +674,15 @@ function draw() {
       //
       // This is game over screen
       gameOver();
+      break;
+    // winGame
+    //
+    // This is the state with the win screen
+    case "winGame":
+      // winScreen()
+      //
+      // this is where you win the game
+      winScreen();
   }
 }
 
@@ -698,4 +711,30 @@ function gameOver() {
     state = "startGame";
   }
 
+}
+
+// winScreen
+//
+// This is the screen where the climber reaches the top
+// and wins
+function winScreen(){
+  // Adding push and pop
+  //
+  // Display the Win screen
+  push();
+  textFont(quantumfont);
+  textSize(80);
+  textAlign(CENTER, CENTER);
+  noStroke();
+  fill(100, 200, 100);
+  text("You Win!", width / 2, height / 4);
+  pop();
+
+  // if statement
+  //
+  // if the mouse is pressed in the game over screen,
+  // the game return to the
+  if (mouseIsPressed) {
+    state = "startGame";
+  }
 }
