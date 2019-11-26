@@ -52,6 +52,9 @@ let quantumfont;
 // Variable for the jump effect
 let jumpSFX;
 
+// Variable for the BGM
+let mountMusic;
+
 // preload()
 //
 // To load the image assets for the game
@@ -73,7 +76,12 @@ function preload() {
 
   // Sound for jump: --------> Source:
   // https://freesound.org/people/cabled_mess/sounds/350906/
-  jumpSFX = new Audio("assets/sounds/Jump.wav");
+  jumpSFX = loadSound("assets/sounds/Jump.wav");
+
+  // Sound for the BGM:--------> Source:
+  // https://freesound.org/people/Michael-DB/sounds/489035/
+  mountMusic = loadSound("assets/sounds/mount.wav");
+
 
 }
 
@@ -194,6 +202,12 @@ function startScreen() {
   // The game starts when a button is pressed
   if (keyIsPressed) {
     state = "playGame";
+
+    // Play bgm
+    mountMusic.playMode("untilDone");
+    mountMusic.loop();
+    mountMusic.volume = 0.5;
+
   }
 }
 // gameScreen()
@@ -706,6 +720,11 @@ function gameOver() {
   fill(255, 100, 100);
   text("Game Over", width / 2, height / 4);
   pop();
+
+  // Pause Music
+  //
+  // to stop the Music
+  mountMusic.pause();
 
   // if statement
   //
