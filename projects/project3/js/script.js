@@ -5,7 +5,7 @@ Project 3 Grand finale
 David Fong
 
 This is the same climber game from exercise 7 and 8 but I continue
-where I left off and make it better 
+where I left off and make it better
 
 ******************/
 
@@ -186,7 +186,7 @@ function startScreen() {
   textFont(quantumfont);
 
   // To adjust my font size
-  textSize(30);
+  textSize(70);
 
   // text alignment
   textAlign(CENTER, CENTER);
@@ -195,7 +195,35 @@ function startScreen() {
   noStroke();
 
   // Title of the game
-  text("Press a button to start", width / 2, height / 4);
+  text("Mountain Jump", width / 2, height / 4);
+
+  pop();
+
+  // Push and pop
+  //
+  // Adding new text under the title
+  push();
+
+  // Adding the same font
+  textFont(quantumfont);
+
+  // Font size
+  textSize(20);
+
+  // textAlign
+  textAlign(CENTER, CENTER);
+
+  // No stroke
+  noStroke();
+
+  // fill
+  fill(80, 80, 80);
+
+  // Setting up for text
+
+  let startText = "Press a button\n";
+  startText = startText + "to start";
+  text(startText, width/2, height - 200);
 
   pop();
 
