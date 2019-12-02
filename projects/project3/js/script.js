@@ -22,6 +22,12 @@ let startingPlat = [];
 // Variable for the snows
 let snowFall = [];
 
+// Variable for the avalanche
+let avalanche = [];
+
+// Variable for the array number of Avalanche
+let avaNumb = 1;
+
 // Variable for the number of snow that will fall
 let snowNumb = 100;
 
@@ -118,6 +124,29 @@ function setup() {
     //
     // to make array objects for snow
     snowFall.push(snowFallPlus);
+  }
+
+  // Avalanche
+  //
+  // This part will show a falling avalanche
+  for (let a = 0; a < avaNumb; a++) {
+    // random()
+    //
+    // Making an avalanche spawn randomly at the top screen
+    let avalX = random(0, width);
+    let avalY = random(0, height);
+
+    // avalanchePlus
+    //
+    // Making avalanche into array
+    avalanchePlus = new Avalanche(avalX, avalY, color(255), 20);
+
+    // push()
+    //
+    // To make more array objects of avalanche
+    avalanche.push(avalanchePlus);
+
+
   }
 
   //Array
@@ -220,7 +249,6 @@ function startScreen() {
   fill(80, 80, 80);
 
   // Setting up for text
-
   let startText = "Press a button\n";
   startText = startText + "to start";
   text(startText, width/2, height - 200);
@@ -262,6 +290,19 @@ function gameScreen() {
   //
   // To detect if the climber is touching the platform
   climber.grounded = false;
+
+
+  // Avalanche array
+  //
+  // This is going to be the part where the avalanche happens
+  // like display, move, handleWrapping and etc
+  for(let a = 0; a < avalanche.length; a ++){
+    avalanche[a].display();
+    avalanche[a].move();
+    avalanche[a].gravity();
+    avalanche[a].handleWrapping(); 
+  }
+
 
   // snow
   //
