@@ -26,7 +26,7 @@ let snowFall = [];
 let avalanche = [];
 
 // Variable for the array number of Avalanche
-let avaNumb = 1;
+let avaNumb = 5;
 
 // Variable for the number of snow that will fall
 let snowNumb = 100;
@@ -69,9 +69,9 @@ function preload() {
   // background()
   //
   // To load the image assets for the start of the game
-  climbImg = loadImage("assets/images/AvatarClimber.jpg");
-  platShortImg = loadImage("assets/images/platform.jpg");
-  platLongImg = loadImage("assets/images/platform2.jpg");
+  climbImg = loadImage("assets/images/AvatarClimber.png");
+  platShortImg = loadImage("assets/images/platform.png");
+  platLongImg = loadImage("assets/images/platform2.png");
   mountainImg = loadImage("assets/images/mountain.jpg");
   mountain2Img = loadImage("assets/images/mountain 2.jpg");
   mountain3Img = loadImage("assets/images/mountain 3.jpg");
@@ -102,7 +102,7 @@ function setup() {
   // climber class
   //
   // To put postion, the size, putting image and the speed
-  climber = new Climber(500, 500, 500, 500, 2, climbImg, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW);
+  climber = new Climber(500, 500, 600, 600, 2, climbImg, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW);
 
   // For loop for snow
   //
@@ -300,7 +300,7 @@ function gameScreen() {
     avalanche[a].display();
     avalanche[a].move();
     avalanche[a].gravity();
-    avalanche[a].handleWrapping(); 
+    avalanche[a].handleWrapping();
   }
 
 
@@ -406,6 +406,29 @@ function NextlevelSetup() {
     //
     // to make array objects for snow
     snowFall.push(snowFallPlus);
+  }
+
+  // Avalanche
+  //
+  // This part will show a falling avalanche
+  for (let a = 0; a < avaNumb; a++) {
+    // random()
+    //
+    // Making an avalanche spawn randomly at the top screen
+    let avalX = random(0, width);
+    let avalY = random(0, height);
+
+    // avalanchePlus
+    //
+    // Making avalanche into array
+    avalanchePlus = new Avalanche(avalX, avalY, color(255), 20);
+
+    // push()
+    //
+    // To make more array objects of avalanche
+    avalanche.push(avalanchePlus);
+
+
   }
 
   // To clear the previous platform from the last level
@@ -569,6 +592,29 @@ function thirdLevelSetup() {
     //
     // to make array objects for snow
     snowFall.push(snowFallPlus);
+  }
+
+  // Avalanche
+  //
+  // This part will show a falling avalanche
+  for (let a = 0; a < avaNumb; a++) {
+    // random()
+    //
+    // Making an avalanche spawn randomly at the top screen
+    let avalX = random(0, width);
+    let avalY = random(0, height);
+
+    // avalanchePlus
+    //
+    // Making avalanche into array
+    avalanchePlus = new Avalanche(avalX, avalY, color(255), 20);
+
+    // push()
+    //
+    // To make more array objects of avalanche
+    avalanche.push(avalanchePlus);
+
+
   }
 
   // To clear the previous platform from the last level
