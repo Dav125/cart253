@@ -10,6 +10,10 @@ class Platform {
     this.x = x;
     this.y = y;
 
+    // the vx and vy
+    this.vx = 0;
+    this.vy = 0;
+
     // Scale of the image
     this.scale = 0.1;
 
@@ -22,6 +26,16 @@ class Platform {
 
   }
 
+  // move()
+  //
+  // platform will not move on it own but when the avalanche comes in contact
+  // to platform, it collapes
+  move(){
+    // To update the position
+    this.x += this.vx;
+    this.y += this.vy;
+
+  }
 
   // diplay();
   //

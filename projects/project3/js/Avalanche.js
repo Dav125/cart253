@@ -70,8 +70,28 @@ class Avalanche {
     //
     // To keep track of the avalanche and the avatar are in contact
     if (d < this.width / 2 + climber.width / 2) {
-
+      // this is to push the climber down
       climber.vy += 2;
+
+    }
+  }
+
+  // handleCollapse
+  //
+  // when the avalanche touches the platform, the platform falls
+  handleCollapse(platform){
+
+    // distance
+    //
+    // to calculate the distance between the avalanche and platform
+    let d = dist(this.x, this.y, platform.x, platform.y);
+
+    // dist()
+    //
+    // To keep track of the avalanche and the avatar are in contact
+    if (d < this.width / 2 + platform.width / 2) {
+      // this is to push the platform down
+      platform.vy = 2;
 
     }
   }
