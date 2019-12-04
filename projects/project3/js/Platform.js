@@ -21,6 +21,8 @@ class Platform {
     this.platformImg = platformImg;
 
   }
+
+
   // diplay();
   //
   // Display the platform in the background

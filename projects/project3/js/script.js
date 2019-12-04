@@ -304,6 +304,7 @@ function gameScreen() {
     avalanche[a].move();
     avalanche[a].gravity();
     avalanche[a].handleWrapping();
+    avalanche[a].handleCollision(climber);
   }
 
 
@@ -424,7 +425,7 @@ function NextlevelSetup() {
     // avalanchePlus
     //
     // Making avalanche into array
-    avalanchePlus = new Avalanche(avalX, avalY, color(255), 20);
+    avalanchePlus = new Avalanche(avalX, avalY, 1000, 500, avalancheImg);
 
     // push()
     //
@@ -498,6 +499,18 @@ function secondLevel() {
   //
   // To detect if the climber is touching the platform
   climber.grounded = false;
+
+  // Avalanche array
+  //
+  // This is going to be the part where the avalanche happens
+  // like display, move, handleWrapping and etc
+  for(let a = 0; a < avalanche.length; a ++){
+    avalanche[a].display();
+    avalanche[a].move();
+    avalanche[a].gravity();
+    avalanche[a].handleWrapping();
+    avalanche[a].handleCollision(climber);
+  }
 
   // snow
   //
@@ -610,7 +623,7 @@ function thirdLevelSetup() {
     // avalanchePlus
     //
     // Making avalanche into array
-    avalanchePlus = new Avalanche(avalX, avalY, color(255), 20);
+    avalanchePlus = new Avalanche(avalX, avalY, 1000, 500, avalancheImg);
 
     // push()
     //
@@ -619,7 +632,6 @@ function thirdLevelSetup() {
 
 
   }
-
   // To clear the previous platform from the last level
   // and make new ones
   platformShort = [];
@@ -688,6 +700,18 @@ function thirdLevel() {
   //
   // To detect if the climber is touching the platform
   climber.grounded = false;
+
+  // Avalanche array
+  //
+  // This is going to be the part where the avalanche happens
+  // like display, move, handleWrapping and etc
+  for(let a = 0; a < avalanche.length; a ++){
+    avalanche[a].display();
+    avalanche[a].move();
+    avalanche[a].gravity();
+    avalanche[a].handleWrapping();
+    avalanche[a].handleCollision(climber);
+  }
 
   // snow
   //

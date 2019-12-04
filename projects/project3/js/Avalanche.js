@@ -56,6 +56,27 @@ class Avalanche {
     }
   }
 
+  // handleCollision
+  //
+  // when the avalanche touches the climber, the climber falls
+  handleCollision(climber){
+
+    // distance
+    //
+    // to calculate the distance between the avalanche and climber
+    let d = dist(this.x, this.y, climber.x, climber.y);
+
+    // dist()
+    //
+    // To keep track of the avalanche and the avatar are in contact
+    if (d < this.width / 2 + climber.width / 2) {
+
+      climber.vy += 2;
+
+    }
+  }
+
+
   // display
   //
   // Draw a white circle

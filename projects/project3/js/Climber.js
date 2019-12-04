@@ -104,7 +104,7 @@ class Climber {
     // dist()
     //
     // To keep track of the platform and the avatar are in contact
-    if (d < this.width / 2.3 + platform.width / 2.3) {
+    if (d < this.width / 2 + platform.width / 2) {
       console.log("standing");
       // this.vy
       //
