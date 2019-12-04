@@ -69,7 +69,7 @@ function preload() {
   // background()
   //
   // To load the image assets for the start of the game
-  climbImg = loadImage("assets/images/AvatarClimber.png");
+  climbImg = loadImage("assets/images/AvatarClimber2.png");
   platShortImg = loadImage("assets/images/platform.png");
   platLongImg = loadImage("assets/images/platform2.png");
   mountainImg = loadImage("assets/images/mountain.jpg");
