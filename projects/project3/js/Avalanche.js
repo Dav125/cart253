@@ -5,7 +5,7 @@ class Avalanche {
   // Constructor
   //
   // Putting all the parametres in here
-  constructor(x, y, fillColor, radius) {
+  constructor(x, y, width, height, avalancheImg) {
 
     // Position
     this.x = x;
@@ -13,9 +13,13 @@ class Avalanche {
     // Velocity
     this.vx = 0;
     this.vy = 0;
+    // Scale
+    this.scale = 0.1;
     // Display properties
-    this.fillColor = fillColor;
-    this.radius = radius;
+    this.width = width * this.scale;
+    this.height = height * this.scale;
+    // Image
+    this.avalancheImg = avalancheImg;
 
   }
 
@@ -58,9 +62,8 @@ class Avalanche {
   display() {
     push();
     noStroke();
-    fill(this.fillColor);
-    ellipseMode(CENTER);
-    ellipse(this.x, this.y, this.radius * 2);
+    imageMode(CENTER);
+    image(this.avalancheImg, this.x, this.y, this.width, this.height);
     pop();
   }
 

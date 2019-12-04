@@ -46,6 +46,7 @@ let climbImg;
 let platShortImg;
 let platLongImg;
 let mountainImg;
+let avalancheImg;
 
 // state and startGame
 //
@@ -75,6 +76,8 @@ function preload() {
   mountainImg = loadImage("assets/images/mountain.jpg");
   mountain2Img = loadImage("assets/images/mountain 2.jpg");
   mountain3Img = loadImage("assets/images/mountain 3.jpg");
+  avalancheImg = loadImage("assets/images/avalanche.png");
+
 
   // Adding a new font: -----> source:
   // https://www.1001freefonts.com/sci-fi-fonts-5.php
@@ -139,7 +142,7 @@ function setup() {
     // avalanchePlus
     //
     // Making avalanche into array
-    avalanchePlus = new Avalanche(avalX, avalY, color(255), 20);
+    avalanchePlus = new Avalanche(avalX, avalY, 1000, 500, avalancheImg);
 
     // push()
     //
