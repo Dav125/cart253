@@ -85,11 +85,11 @@ function preload() {
 
   // Sound for jump: --------> Source:
   // https://freesound.org/people/cabled_mess/sounds/350906/
-  jumpSFX = loadSound("assets/sounds/jump.wav");
+  jumpSFX = loadSound("assets/sounds/up.wav");
 
   // Sound for the BGM:--------> Source:
   // https://freesound.org/people/Michael-DB/sounds/489035/
-  mountMusic = loadSound("assets/sounds/mount.wav");
+  mountMusic = loadSound("assets/sounds/mnt.wav");
 
 
 }
