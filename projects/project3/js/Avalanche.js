@@ -52,6 +52,7 @@ class Avalanche {
   handleWrapping() {
     // When the snow goes off screen, more will come down
     if (this.y > height) {
+      this.x = random(0, width);
       this.y -= height;
     }
   }

@@ -129,7 +129,7 @@ function setup() {
     snowFall.push(snowFallPlus);
   }
 
-  // Avalanche Setup 
+  // Avalanche Setup
   //
   // This part will show a falling avalanche
   for (let a = 0; a < avaNumb; a++) {
@@ -306,25 +306,25 @@ function gameScreen() {
     avalanche[a].handleWrapping();
     avalanche[a].handleCollision(climber);
 
-    // for loop
-    //
-    // new platform will appear as array
+      // for loop
+      //
+      // new platform will appear as array
 
-    for (let i = 0; i < platformShort.length; i++) {
-      platformShort[i].display();
-      climber.handleStanding(platformShort[i]);
-      avalanche[a].handleCollapse(platformShort[i]);
-      platformShort[i].move();
+      for (let i = 0; i < platformShort.length; i++) {
+        platformShort[i].display();
+        climber.handleStanding(platformShort[i]);
+        avalanche[a].handleCollapse(platformShort[i]);
+        platformShort[i].move();
 
-    }
+      }
 
-    for (let i = 0; i < platformLong.length; i++) {
-      platformLong[i].display();
-      climber.handleStanding(platformLong[i]);
-      avalanche[a].handleCollapse(platformLong[i]);
-      platformLong[i].move();
+      for (let i = 0; i < platformLong.length; i++) {
+        platformLong[i].display();
+        climber.handleStanding(platformLong[i]);
+        avalanche[a].handleCollapse(platformLong[i]);
+        platformLong[i].move();
 
-    }
+      }
   }
 
 
