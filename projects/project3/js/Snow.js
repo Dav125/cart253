@@ -16,6 +16,12 @@ class Snow {
     // Display properties
     this.fillColor = fillColor;
     this.radius = radius;
+    // Speed
+    this.speed = 0.7
+
+    // Time properties for noise function
+    // just the tx
+    this.tx = random(0, 1000);
 
   }
 
@@ -23,9 +29,13 @@ class Snow {
   //
   // To make the snow fall
   move() {
+    // Set velocity via tx noise()
+    this.vx = map(noise(this.tx), 0, 1, -this.speed, this.speed);
     // To update the position
     this.x += this.vx;
     this.y += this.vy;
+    // Update the time properties
+    this.tx += 0.01;
     // Handle wrapping
     this.handleWrapping();
   }
@@ -46,6 +56,12 @@ class Snow {
   // To check if the snows are falling off the screen
   // if it is, it'll reapear on the top
   handleWrapping() {
+    // When it moves off left or right, it respawns
+    if (this.x < 0) {
+      this.x += width;
+    } else if (this.x) {
+      this.x -= width;
+    }
     // When the snow goes off screen, more will come down
     if (this.y > height) {
       this.y -= height;
