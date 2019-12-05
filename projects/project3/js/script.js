@@ -513,6 +513,25 @@ function secondLevel() {
     avalanche[a].gravity();
     avalanche[a].handleWrapping();
     avalanche[a].handleCollision(climber);
+
+      // for loop
+      //
+      // new platform will appear as array
+      for (let z = 0; z < platformShort.length; z++) {
+        platformShort[z].display();
+        climber.handleStanding(platformShort[z]);
+        avalanche[a].handleCollapse(platformShort[z]);
+        platformShort[z].move();
+
+      }
+
+      for (let z = 0; z < platformLong.length; z++) {
+        platformLong[z].display();
+        climber.handleStanding(platformLong[z]);
+        avalanche[a].handleCollapse(platformLong[z]);
+        platformLong[z].move();
+      }
+
   }
 
   // snow
@@ -525,23 +544,6 @@ function secondLevel() {
     snowFall[f].handleWrapping();
   }
 
-
-  // for loop
-  //
-  // new platform will appear as array
-
-  for (let z = 0; z < platformShort.length; z++) {
-    platformShort[z].display();
-    climber.handleStanding(platformShort[z]);
-
-
-  }
-
-  for (let z = 0; z < platformLong.length; z++) {
-    platformLong[z].display();
-    climber.handleStanding(platformLong[z]);
-
-  }
 
   // Climber.handleWrapping
   //
@@ -714,6 +716,27 @@ function thirdLevel() {
     avalanche[a].gravity();
     avalanche[a].handleWrapping();
     avalanche[a].handleCollision(climber);
+
+    // for loop
+    //
+    // new platform will appear as array
+    for (let w = 0; w < platformShort.length; w++) {
+      platformShort[w].display();
+      climber.handleStanding(platformShort[w]);
+      avalanche[a].handleCollapse(platformShort[w]);
+      platformShort[w].move();
+
+
+
+    }
+
+    for (let w = 0; w < platformLong.length; w++) {
+      platformLong[w].display();
+      climber.handleStanding(platformLong[w]);
+      avalanche[a].handleCollapse(platformLong[w]);
+      platformLong[w].move();
+
+    }
   }
 
   // snow
@@ -727,22 +750,6 @@ function thirdLevel() {
   }
 
 
-  // for loop
-  //
-  // new platform will appear as array
-
-  for (let w = 0; w < platformShort.length; w++) {
-    platformShort[w].display();
-    climber.handleStanding(platformShort[w]);
-
-
-  }
-
-  for (let w = 0; w < platformLong.length; w++) {
-    platformLong[w].display();
-    climber.handleStanding(platformLong[w]);
-
-  }
 
   // Climber.handleWrapping
   //
