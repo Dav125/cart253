@@ -26,7 +26,7 @@ let snowFall = [];
 let avalanche = [];
 
 // Variable for the array number of Avalanche
-let avaNumb = 5;
+let avaNumb = 1;
 
 // Variable for the number of snow that will fall
 let snowNumb = 100;
@@ -70,12 +70,12 @@ function preload() {
   // background()
   //
   // To load the image assets for the start of the game
-  climbImg = loadImage("assets/images/AvatarClimber2.png");
+  climbImg = loadImage("assets/images/aclimber2.png");
   platShortImg = loadImage("assets/images/platform.png");
   platLongImg = loadImage("assets/images/platform2.png");
   mountainImg = loadImage("assets/images/mountain.jpg");
-  mountain2Img = loadImage("assets/images/mountain 2.jpg");
-  mountain3Img = loadImage("assets/images/mountain 3.jpg");
+  mountain2Img = loadImage("assets/images/mountain2.jpg");
+  mountain3Img = loadImage("assets/images/mountain3.jpg");
   avalancheImg = loadImage("assets/images/avalanche.png");
 
 
@@ -85,7 +85,7 @@ function preload() {
 
   // Sound for jump: --------> Source:
   // https://freesound.org/people/cabled_mess/sounds/350906/
-  jumpSFX = loadSound("assets/sounds/Jump.wav");
+  jumpSFX = loadSound("assets/sounds/jump.wav");
 
   // Sound for the BGM:--------> Source:
   // https://freesound.org/people/Michael-DB/sounds/489035/
