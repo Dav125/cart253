@@ -71,12 +71,12 @@ function preload() {
   //
   // To load the image assets for the start of the game
   climbImg = loadImage("assets/images/aclimber2.png");
-  platShortImg = loadImage("assets/images/platform.png");
-  platLongImg = loadImage("assets/images/platform2.png");
+  platShortImg = loadImage("assets/images/plat.png");
+  platLongImg = loadImage("assets/images/plat2.png");
   mountainImg = loadImage("assets/images/mountain.jpg");
   mountain2Img = loadImage("assets/images/mountain2.jpg");
   mountain3Img = loadImage("assets/images/mountain3.jpg");
-  avalancheImg = loadImage("assets/images/avalanche.png");
+  avalancheImg = loadImage("assets/images/ava.png");
 
 
   // Adding a new font: -----> source:
