@@ -59,7 +59,7 @@ class Snow {
     // When it moves off left or right, it respawns
     if (this.x < 0) {
       this.x += width;
-    } else if (this.x) {
+    } else if (this.x > width) {
       this.x -= width;
     }
     // When the snow goes off screen, more will come down

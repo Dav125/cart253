@@ -333,9 +333,9 @@ function gameScreen() {
   // for loop for snow
   for (let f = 0; f < snowFall.length; f++) {
     snowFall[f].display();
-    snowFall[f].move();
     snowFall[f].gravity();
     snowFall[f].handleWrapping();
+    snowFall[f].move();
   }
 
 
