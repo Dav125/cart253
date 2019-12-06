@@ -39,7 +39,7 @@ let numbStartP = 1;
 let mountainImage;
 
 // Variable for the number of platform
-let numbPlat = 10;
+let numbPlat = 5;
 
 // Images asset for the game
 let climbImg;
@@ -394,6 +394,24 @@ function NextlevelSetup() {
   // This is also to reset the position when the climber goes up
   climber = new Climber(500, 500, 500, 500, 2, climbImg, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW);
 
+
+  //Array
+  //
+  // For the starting platform
+  for (let s2 = 0; s2 < numbStartP; s2++) {
+    // Starting platform
+    //
+    //this is a platform for the climber for the start of the game
+    // in case all the the random platform doesn't spawn under
+    startingPlatPlus = new Platform(500, 700, 2000, 1000, platLongImg);
+
+    // push
+    //
+    // To add the platform as an array
+    startingPlat.push(startingPlatPlus);
+  }
+
+
   // Clearing the amount of snow from the last level
   snowFall = [];
 
@@ -510,6 +528,18 @@ function secondLevel() {
   // To detect if the climber is touching the platform
   climber.grounded = false;
 
+  // for loop for starting platform
+  //
+  // the starting platform will be an array
+  for (let s2 = 0; s2 < startingPlat.length; s2++) {
+    // startingPlat
+    //
+    // To display the starting platform and the handleStanding
+    startingPlat[s2].display();
+    climber.handleStanding(startingPlat[s2]);
+  }
+
+
   // Avalanche array
   //
   // This is going to be the part where the avalanche happens
@@ -518,7 +548,7 @@ function secondLevel() {
     avalanche[a2].display();
     avalanche[a2].move();
     avalanche[a2].gravity();
-    avalanche[a2.handleWrapping();
+    avalanche[a2].handleWrapping();
     avalanche[a2].handleCollision(climber);
 
       // for loop
@@ -601,6 +631,22 @@ function thirdLevelSetup() {
   // To put postion, the size, putting image and the speed
   // This is also to reset the position when the climber goes up
   climber = new Climber(500, 500, 500, 500, 2, climbImg, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW);
+
+  //Array
+  //
+  // For the starting platform
+  for (let s3 = 0; s3 < numbStartP; s3++) {
+    // Starting platform
+    //
+    //this is a platform for the climber for the start of the game
+    // in case all the the random platform doesn't spawn under
+    startingPlatPlus = new Platform(500, 700, 2000, 1000, platLongImg);
+
+    // push
+    //
+    // To add the platform as an array
+    startingPlat.push(startingPlatPlus);
+  }
 
   // Clearing the amount of snow from the last level
   snowFall = [];
@@ -720,6 +766,18 @@ function thirdLevel() {
   //
   // To detect if the climber is touching the platform
   climber.grounded = false;
+
+  // for loop for starting platform
+  //
+  // the starting platform will be an array
+  for (let s3 = 0; s3 < startingPlat.length; s3++) {
+    // startingPlat
+    //
+    // To display the starting platform and the handleStanding
+    startingPlat[s3].display();
+    climber.handleStanding(startingPlat[s3]);
+  }
+
 
   // Avalanche array
   //
