@@ -60,7 +60,7 @@ class Avalanche {
   // handleCollision
   //
   // when the avalanche touches the climber, the climber falls
-  handleCollision(climber){
+  handleCollision(climber) {
 
     // distance
     //
@@ -80,7 +80,7 @@ class Avalanche {
   // handleCollapse
   //
   // when the avalanche touches the platform, the platform falls
-  handleCollapse(platform){
+  handleCollapse(platform) {
 
     // distance
     //

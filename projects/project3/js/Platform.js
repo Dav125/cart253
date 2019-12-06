@@ -30,7 +30,7 @@ class Platform {
   //
   // platform will not move on it own but when the avalanche comes in contact
   // to platform, it collapes
-  move(){
+  move() {
     // To update the position
     this.x += this.vx;
     this.y += this.vy;

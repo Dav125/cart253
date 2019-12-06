@@ -17,7 +17,7 @@ class Snow {
     this.fillColor = fillColor;
     this.radius = radius;
     // Speed
-    this.speed = 2
+    this.speed = 1.5;
 
     // Time properties for noise function
     // just the tx
