@@ -26,7 +26,7 @@ let snowFall = [];
 let avalanche = [];
 
 // Variable for the array number of Avalanche
-let avaNumb = 1;
+let avaNumb = 2;
 
 // Variable for the number of snow that will fall
 let snowNumb = 100;
@@ -39,7 +39,7 @@ let numbStartP = 1;
 let mountainImage;
 
 // Variable for the number of platform
-let numbPlat = 5;
+let numbPlat = 7;
 
 // Images asset for the game
 let climbImg;
@@ -105,7 +105,7 @@ function setup() {
   // climber class
   //
   // To put postion, the size, putting image and the speed
-  climber = new Climber(500, 500, 600, 600, 2, climbImg, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW);
+  climber = new Climber(850, 500, 600, 600, 5, climbImg, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW);
 
   // For loop for snow
   //
@@ -182,7 +182,7 @@ function setup() {
     //
     //this is a platform for the climber for the start of the game
     // in case all the the random platform doesn't spawn under
-    startingPlatPlus = new Platform(500, 700, 2000, 1000, platLongImg);
+    startingPlatPlus = new Platform(width / 2, 700, 2000, 1000, platLongImg);
 
     // push
     //

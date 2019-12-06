@@ -38,7 +38,7 @@ class Climber {
 
     // The pull variable is used
     // to pull object down just like gravity
-    this.pull = 1;
+    this.pull = 1.5;
 
   }
 
@@ -62,7 +62,7 @@ class Climber {
     if (keyIsDown(this.upKey) && this.grounded === true) {
       console.log("jumping");
       // The jumping power velocity
-      this.vy = -20;
+      this.vy = -17.5;
 
       // To play the sound jumping
       jumpSFX.play();
@@ -105,7 +105,7 @@ class Climber {
     //
     // To keep track of the platform and the avatar are in contact
     if (d < this.width / 2 + platform.width / 2) {
-      console.log("standing");
+
       // this.vy
       //
       // To make sure that the climber doesn't fall

@@ -64,7 +64,7 @@ class Climber {
       // The jumping power velocity
       this.vy = -20;
 
-      // To play the sound jumping 
+      // To play the sound jumping
       jumpSFX.play();
     }
 
@@ -123,7 +123,7 @@ class Climber {
   // To display the image of the avatar
   display() {
     push();
-    imageMode(CENTER);
+    imageMode(CENTER, CENTER);
     image(this.climberImg, this.x, this.y, this.width, this.height);
     pop();
 

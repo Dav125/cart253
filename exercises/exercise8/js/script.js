@@ -96,7 +96,7 @@ function setup() {
   // climber class
   //
   // To put postion, the size, putting image and the speed
-  climber = new Climber(500, 500, 500, 500, 2, climbImg, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW);
+  climber = new Climber(width / 2, 500, 500, 500, 2, climbImg, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW);
 
   // For loop for snow
   //
@@ -128,7 +128,7 @@ function setup() {
     //
     //this is a platform for the climber for the start of the game
     // in case all the the random platform doesn't spawn under
-    startingPlatPlus = new Platform(500, 700, 2000, 1000, platLongImg);
+    startingPlatPlus = new Platform(width / 2, 700, 2000, 1000, platLongImg);
 
     // push
     //
@@ -296,7 +296,7 @@ function gameScreen() {
     //
     // To put postion, the size, putting image and the speed
     // This is also to reset the position when the climber falls to the abyss
-    climber = new Climber(500, 500, 500, 500, 2, climbImg, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW);
+    climber = new Climber(width / 2, 500, 500, 500, 2, climbImg, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW);
 
     // endGame
     //
@@ -315,7 +315,25 @@ function NextlevelSetup() {
   //
   // To put postion, the size, putting image and the speed
   // This is also to reset the position when the climber goes up
-  climber = new Climber(500, 500, 500, 500, 2, climbImg, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW);
+  climber = new Climber(width / 2, 500, 500, 500, 2, climbImg, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW);
+
+  startingPlat = [];
+
+  //Array
+  //
+  // For the starting platform
+  for (let s2 = 0; s2 < numbStartP; s2++) {
+    // Starting platform
+    //
+    //this is a platform for the climber for the start of the game
+    // in case all the the random platform doesn't spawn under
+    startingPlatPlus = new Platform(width / 2, 700, 2000, 1000, platLongImg);
+
+    // push
+    //
+    // To add the platform as an array
+    startingPlat.push(startingPlatPlus);
+  }
 
   // For loop for snow
   //
@@ -414,6 +432,17 @@ function secondLevel() {
     snowFall[f].handleWrapping();
   }
 
+  // for loop for starting platform
+  //
+  // the starting platform will be an array
+  for (let s2 = 0; s < startingPlat.length; s2++) {
+    // startingPlat
+    //
+    // To display the starting platform and the handleStanding
+    startingPlat[s2].display();
+    climber.handleStanding(startingPlat[s2]);
+  }
+
 
   // for loop
   //
@@ -446,7 +475,7 @@ function secondLevel() {
     //
     // To put postion, the size, putting image and the speed
     // This is also to reset the position when the climber goes up
-    climber = new Climber(500, 500, 500, 500, 2, climbImg, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW);
+    climber = new Climber(width / 2, 500, 500, 500, 2, climbImg, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW);
 
     // thirdLevelSetup
     //
@@ -459,7 +488,7 @@ function secondLevel() {
     //
     // To put postion, the size, putting image and the speed
     // This is also to reset the position when the climber falls to the abyss
-    climber = new Climber(500, 500, 500, 500, 2, climbImg, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW);
+    climber = new Climber(width / 2, 500, 500, 500, 2, climbImg, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW);
 
     // endGame
     //
@@ -478,7 +507,25 @@ function thirdLevelSetup() {
   //
   // To put postion, the size, putting image and the speed
   // This is also to reset the position when the climber goes up
-  climber = new Climber(500, 500, 500, 500, 2, climbImg, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW);
+  climber = new Climber(width / 2, 500, 500, 500, 2, climbImg, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW);
+
+  startingPlat = [];
+
+  //Array
+  //
+  // For the starting platform
+  for (let s3 = 0; s3 < numbStartP; s3++) {
+    // Starting platform
+    //
+    //this is a platform for the climber for the start of the game
+    // in case all the the random platform doesn't spawn under
+    startingPlatPlus = new Platform(width / 2, 700, 2000, 1000, platLongImg);
+
+    // push
+    //
+    // To add the platform as an array
+    startingPlat.push(startingPlatPlus);
+  }
 
   // For loop for snow
   //
@@ -581,6 +628,18 @@ function thirdLevel() {
     snowFall[f].handleWrapping();
   }
 
+  // for loop for starting platform
+  //
+  // the starting platform will be an array
+  for (let s3 = 0; s3 < startingPlat.length; s3++) {
+    // startingPlat
+    //
+    // To display the starting platform and the handleStanding
+    startingPlat[s3].display();
+    climber.handleStanding(startingPlat[s3]);
+  }
+
+
 
   // for loop
   //
@@ -615,7 +674,7 @@ function thirdLevel() {
     //
     // To put postion, the size, putting image and the speed
     // This is also to reset the position when the climber falls to the abyss
-    climber = new Climber(500, 500, 500, 500, 2, climbImg, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW);
+    climber = new Climber(width / 2, 500, 500, 500, 2, climbImg, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW);
 
     // endGame
     //
