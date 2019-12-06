@@ -419,10 +419,13 @@ function NextlevelSetup() {
     snowFall.push(snowFallPlus);
   }
 
+  // Clearing the amount of avalanche from the previous level
+  avalanche = [];
+
   // Avalanche
   //
   // This part will show a falling avalanche
-  for (let a = 0; a < avaNumb; a++) {
+  for (let a2 = 0; a2 < avaNumb; a2++) {
     // random()
     //
     // Making an avalanche spawn randomly at the top screen
@@ -511,12 +514,12 @@ function secondLevel() {
   //
   // This is going to be the part where the avalanche happens
   // like display, move, handleWrapping and etc
-  for(let a = 0; a < avalanche.length; a ++){
-    avalanche[a].display();
-    avalanche[a].move();
-    avalanche[a].gravity();
-    avalanche[a].handleWrapping();
-    avalanche[a].handleCollision(climber);
+  for(let a2 = 0; a2 < avalanche.length; a2 ++){
+    avalanche[a2].display();
+    avalanche[a2].move();
+    avalanche[a2].gravity();
+    avalanche[a2.handleWrapping();
+    avalanche[a2].handleCollision(climber);
 
       // for loop
       //
@@ -524,7 +527,7 @@ function secondLevel() {
       for (let z = 0; z < platformShort.length; z++) {
         platformShort[z].display();
         climber.handleStanding(platformShort[z]);
-        avalanche[a].handleCollapse(platformShort[z]);
+        avalanche[a2].handleCollapse(platformShort[z]);
         platformShort[z].move();
         platformShort[z].handleWrapping();
 
@@ -533,7 +536,7 @@ function secondLevel() {
       for (let z = 0; z < platformLong.length; z++) {
         platformLong[z].display();
         climber.handleStanding(platformLong[z]);
-        avalanche[a].handleCollapse(platformLong[z]);
+        avalanche[a2].handleCollapse(platformLong[z]);
         platformLong[z].move();
         platformLong[z].handleWrapping();
       }
@@ -624,10 +627,13 @@ function thirdLevelSetup() {
     snowFall.push(snowFallPlus);
   }
 
+  // Clearing the amount of avalanche from the previous level
+  avalanche = [];
+
   // Avalanche
   //
   // This part will show a falling avalanche
-  for (let a = 0; a < avaNumb; a++) {
+  for (let a3 = 0; a3 < avaNumb; a3++) {
     // random()
     //
     // Making an avalanche spawn randomly at the top screen
@@ -719,12 +725,12 @@ function thirdLevel() {
   //
   // This is going to be the part where the avalanche happens
   // like display, move, handleWrapping and etc
-  for(let a = 0; a < avalanche.length; a ++){
-    avalanche[a].display();
-    avalanche[a].move();
-    avalanche[a].gravity();
-    avalanche[a].handleWrapping();
-    avalanche[a].handleCollision(climber);
+  for(let a3 = 0; a3 < avalanche.length; a3 ++){
+    avalanche[a3].display();
+    avalanche[a3].move();
+    avalanche[a3].gravity();
+    avalanche[a3].handleWrapping();
+    avalanche[a3].handleCollision(climber);
 
     // for loop
     //
@@ -732,7 +738,7 @@ function thirdLevel() {
     for (let w = 0; w < platformShort.length; w++) {
       platformShort[w].display();
       climber.handleStanding(platformShort[w]);
-      avalanche[a].handleCollapse(platformShort[w]);
+      avalanche[a3].handleCollapse(platformShort[w]);
       platformShort[w].move();
       platformShort[w].handleWrapping();
 
@@ -742,7 +748,7 @@ function thirdLevel() {
     for (let w = 0; w < platformLong.length; w++) {
       platformLong[w].display();
       climber.handleStanding(platformLong[w]);
-      avalanche[a].handleCollapse(platformLong[w]);
+      avalanche[a3].handleCollapse(platformLong[w]);
       platformLong[w].move();
       platformLong[w].handleWrapping();
     }
