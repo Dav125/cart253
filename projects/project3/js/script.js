@@ -394,10 +394,13 @@ function NextlevelSetup() {
   // This is also to reset the position when the climber goes up
   climber = new Climber(500, 500, 500, 500, 2, climbImg, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW);
 
+  // Clearing the amount of snow from the last level
+  snowFall = [];
+
   // For loop for snow
   //
   // To make the number of snows that will fall
-  for (let f = 0; f < snowNumb; f++) {
+  for (let f2 = 0; f2 < snowNumb; f2++) {
     // random()
     //
     // Making the snow spawn on top of the screen
@@ -540,11 +543,11 @@ function secondLevel() {
   // snow
   //
   // for loop for snow
-  for (let f = 0; f < snowFall.length; f++) {
-    snowFall[f].display();
-    snowFall[f].move();
-    snowFall[f].gravity();
-    snowFall[f].handleWrapping();
+  for (let f2 = 0; f2 < snowFall.length; f2++) {
+    snowFall[f2].display();
+    snowFall[f2].move();
+    snowFall[f2].gravity();
+    snowFall[f2].handleWrapping();
   }
 
 
@@ -596,10 +599,13 @@ function thirdLevelSetup() {
   // This is also to reset the position when the climber goes up
   climber = new Climber(500, 500, 500, 500, 2, climbImg, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW);
 
+  // Clearing the amount of snow from the last level
+  snowFall = [];
+
   // For loop for snow
   //
   // To make the number of snows that will fall
-  for (let f = 0; f < snowNumb; f++) {
+  for (let f3 = 0; f3 < snowNumb; f3++) {
     // random()
     //
     // Making the snow spawn on top of the screen
@@ -745,11 +751,11 @@ function thirdLevel() {
   // snow
   //
   // for loop for snow
-  for (let f = 0; f < snowFall.length; f++) {
-    snowFall[f].display();
-    snowFall[f].move();
-    snowFall[f].gravity();
-    snowFall[f].handleWrapping();
+  for (let f3 = 0; f3 < snowFall.length; f3++) {
+    snowFall[f3].display();
+    snowFall[f3].move();
+    snowFall[f3].gravity();
+    snowFall[f3].handleWrapping();
   }
 
 
@@ -864,6 +870,10 @@ function draw() {
 // This is the screen where the game is over when the
 // the avatar falls off the screen
 function gameOver() {
+
+  // Clearing the amount of snow from the last level
+  snowFall = [];
+
   // Adding push and pop
   //
   // Display the game over screen
@@ -896,6 +906,10 @@ function gameOver() {
 // This is the screen where the climber reaches the top
 // and wins
 function winScreen() {
+
+  // Clearing the amount of snow from the last level
+  snowFall = [];
+
   // Adding push and pop
   //
   // Display the Win screen
