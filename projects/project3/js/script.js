@@ -105,7 +105,7 @@ function setup() {
   // climber class
   //
   // To put postion, the size, putting image and the speed
-  climber = new Climber(850, 500, 600, 600, 5, climbImg, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW);
+  climber = new Climber(width / 2, 500, 600, 600, 5, climbImg, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW);
 
   // For loop for snow
   //
@@ -300,6 +300,11 @@ function startScreen() {
 // thus function is for the game to be able to start and end
 function gameScreen() {
 
+  // background()
+  //
+  // Using the mountain image
+  background(mountainImg, 1280, 720);
+
   // Handle input for the climber
   climber.handleInput();
   // A function that pull the climber down
@@ -399,7 +404,7 @@ function gameScreen() {
     //
     // To put postion, the size, putting image and the speed
     // This is also to reset the position when the climber falls to the abyss
-    climber = new Climber(500, 500, 500, 500, 2, climbImg, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW);
+    climber = new Climber(width / 2, 500, 500, 500, 2, climbImg, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW);
 
     // endGame
     //
@@ -418,7 +423,7 @@ function NextlevelSetup() {
   //
   // To put postion, the size, putting image and the speed
   // This is also to reset the position when the climber goes up
-  climber = new Climber(500, 500, 500, 500, 2, climbImg, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW);
+  climber = new Climber(width / 2, 500, 500, 500, 2, climbImg, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW);
 
 
   //Array
@@ -429,7 +434,7 @@ function NextlevelSetup() {
     //
     //this is a platform for the climber for the start of the game
     // in case all the the random platform doesn't spawn under
-    startingPlatPlus = new Platform(500, 700, 2000, 1000, platLongImg);
+    startingPlatPlus = new Platform(width / 2, 700, 2000, 1000, platLongImg);
 
     // push
     //
@@ -657,7 +662,7 @@ function secondLevel() {
     //
     // To put postion, the size, putting image and the speed
     // This is also to reset the position when the climber goes up
-    climber = new Climber(500, 500, 500, 500, 2, climbImg, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW);
+    climber = new Climber(width / 2, 500, 500, 500, 2, climbImg, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW);
 
     // thirdLevelSetup
     //
@@ -670,7 +675,7 @@ function secondLevel() {
     //
     // To put postion, the size, putting image and the speed
     // This is also to reset the position when the climber falls to the abyss
-    climber = new Climber(500, 500, 500, 500, 2, climbImg, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW);
+    climber = new Climber(width / 2, 500, 500, 500, 2, climbImg, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW);
 
     // endGame
     //
@@ -689,7 +694,7 @@ function thirdLevelSetup() {
   //
   // To put postion, the size, putting image and the speed
   // This is also to reset the position when the climber goes up
-  climber = new Climber(500, 500, 500, 500, 2, climbImg, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW);
+  climber = new Climber(width / 2, 500, 500, 500, 2, climbImg, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW);
 
   //Array
   //
@@ -699,7 +704,7 @@ function thirdLevelSetup() {
     //
     //this is a platform for the climber for the start of the game
     // in case all the the random platform doesn't spawn under
-    startingPlatPlus = new Platform(500, 700, 2000, 1000, platLongImg);
+    startingPlatPlus = new Platform(width / 2, 700, 2000, 1000, platLongImg);
 
     // push
     //
@@ -931,7 +936,7 @@ function thirdLevel() {
     //
     // To put postion, the size, putting image and the speed
     // This is also to reset the position when the climber falls to the abyss
-    climber = new Climber(500, 500, 500, 500, 2, climbImg, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW);
+    climber = new Climber(width / 2, 500, 500, 500, 2, climbImg, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW);
 
     // endGame
     //
