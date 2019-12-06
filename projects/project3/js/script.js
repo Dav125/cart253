@@ -200,12 +200,13 @@ function setup() {
     // adding position for the platforms
 
     // For the position the short platform
-    let reShortX = random(0, width);
+    let reShortX = random(30, width - 30);
     let reShortY = random(0, height);
 
     // For the position for long platform
-    let reLongX = random(0, width);
+    let reLongX = random(30, width - 30);
     let reLongY = random(0, height);
+
 
     // Platform classes
     //
@@ -218,6 +219,9 @@ function setup() {
     // To add more platform in the screen as an array
     platformShort.push(platformShortPlus);
     platformLong.push(platformLongPlus);
+
+
+
 
   }
 
@@ -271,7 +275,7 @@ function startScreen() {
   noStroke();
 
   // fill
-  fill(80, 80, 80);
+  fill(255);
 
   // Setting up for text
   let startText = "Press a button\n";
@@ -339,6 +343,7 @@ function gameScreen() {
         platformShort[i].move();
         platformShort[i].handleWrapping();
 
+        
       }
 
       for (let i = 0; i < platformLong.length; i++) {
@@ -524,11 +529,11 @@ function NextlevelSetup() {
     // adding position for the platforms
 
     // For the position the short platform
-    let reShortXZ = random(0, width);
+    let reShortXZ = random(50, width - 50);
     let reShortYZ = random(0, height);
 
     // For the position for long platform
-    let reLongXZ = random(0, width);
+    let reLongXZ = random(50, width - 50);
     let reLongYZ = random(0, height);
 
     // Platform classes
@@ -792,12 +797,12 @@ function thirdLevelSetup() {
     // adding position for the platforms
 
     // For the position the short platform
-    let reShortXW = random(0, width);
+    let reShortXW = random(300, width - 300);
     let reShortYW = random(0, height);
 
     // For the position for long platform
-    let reLongXW = random(0, width);
-    let reLongYW = random(0, height);
+    let reLongXW = random(300, width - 300);
+    let reLongYW = random(0, height - 300);
 
     // Platform classes
     //

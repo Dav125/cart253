@@ -49,8 +49,8 @@ class Platform {
     // Random positions
     if (this.y > height) {
       this.vy = 0;
-      this.x = random(0, width);
-      this.y = random(0, height);
+      this.x = random(30, width - 30);
+      this.y = random(10, height - 10);
     }
   }
 
