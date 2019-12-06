@@ -129,6 +129,28 @@ function setup() {
     snowFall.push(snowFallPlus);
   }
 
+  // For loop for snow
+  //
+  // To make the number of snows that will fall
+  for (let fT = 0; fT < snowNumb; fT++) {
+    // random()
+    //
+    // Making the snow spawn on top of the screen
+    let snowX = random(0, width);
+    let snowY = random(0, height);
+
+
+    // snowFallPlus
+    //
+    // New snow that will fall
+    snowFallPlus = new Snow(snowX, snowY, color(230, 255, 255), 2);
+
+    // push()
+    //
+    // to make array objects for snow
+    snowFall.push(snowFallPlus);
+  }
+
   // Avalanche Setup
   //
   // This part will show a falling avalanche
@@ -437,6 +459,28 @@ function NextlevelSetup() {
     snowFall.push(snowFallPlus);
   }
 
+  // For loop for snow
+  //
+  // To make the number of snows that will fall
+  for (let fT2 = 0; fT2 < snowNumb; fT2++) {
+    // random()
+    //
+    // Making the snow spawn on top of the screen
+    let snowX = random(0, width);
+    let snowY = random(0, height);
+
+
+    // snowFallPlus
+    //
+    // New snow that will fall
+    snowFallPlus = new Snow(snowX, snowY, color(230, 255, 255), 2);
+
+    // push()
+    //
+    // to make array objects for snow
+    snowFall.push(snowFallPlus);
+  }
+
   // Clearing the amount of avalanche from the previous level
   avalanche = [];
 
@@ -583,6 +627,17 @@ function secondLevel() {
     snowFall[f2].handleWrapping();
   }
 
+  // snow
+  //
+  // for loop for snow
+  for (let fT2 = 0; fT2 < snowFall.length; fT2++) {
+    snowFall[fT2].display();
+    snowFall[fT2].gravity();
+    snowFall[fT2].handleWrapping();
+    snowFall[fT2].move();
+  }
+
+
 
   // Climber.handleWrapping
   //
@@ -666,6 +721,28 @@ function thirdLevelSetup() {
     //
     // New snow that will fall
     snowFallPlus = new Snow(snowX, snowY, color(230, 255, 255), 5);
+
+    // push()
+    //
+    // to make array objects for snow
+    snowFall.push(snowFallPlus);
+  }
+
+  // For loop for snow
+  //
+  // To make the number of snows that will fall
+  for (let fT3 = 0; fT3 < snowNumb; fT3++) {
+    // random()
+    //
+    // Making the snow spawn on top of the screen
+    let snowX = random(0, width);
+    let snowY = random(0, height);
+
+
+    // snowFallPlus
+    //
+    // New snow that will fall
+    snowFallPlus = new Snow(snowX, snowY, color(230, 255, 255), 2);
 
     // push()
     //
@@ -820,6 +897,16 @@ function thirdLevel() {
     snowFall[f3].move();
     snowFall[f3].gravity();
     snowFall[f3].handleWrapping();
+  }
+
+  // snow
+  //
+  // for loop for snow
+  for (let fT3 = 0; fT3 < snowFall.length; fT3++) {
+    snowFall[fT3].display();
+    snowFall[fT3].move();
+    snowFall[fT3].gravity();
+    snowFall[fT3].handleWrapping();
   }
 
 

@@ -73,7 +73,7 @@ class Snow {
   // Draw a white circle
   display() {
     push();
-    noStroke();
+    stroke(255);
     fill(this.fillColor);
     ellipseMode(CENTER);
     ellipse(this.x, this.y, this.radius * 2);
