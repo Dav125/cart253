@@ -871,9 +871,6 @@ function draw() {
 // the avatar falls off the screen
 function gameOver() {
 
-  // Clearing the amount of snow from the last level
-  snowFall = [];
-
   // Adding push and pop
   //
   // Display the game over screen
@@ -907,8 +904,6 @@ function gameOver() {
 // and wins
 function winScreen() {
 
-  // Clearing the amount of snow from the last level
-  snowFall = [];
 
   // Adding push and pop
   //
