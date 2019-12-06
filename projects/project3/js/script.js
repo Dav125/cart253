@@ -280,7 +280,7 @@ function startScreen() {
   // Setting up for text
   let startText = "Press a button\n";
   startText = startText + "to start";
-  text(startText, width/2, height - 200);
+  text(startText, width / 2, height - 200);
 
   pop();
 
@@ -325,34 +325,33 @@ function gameScreen() {
   //
   // This is going to be the part where the avalanche happens
   // like display, move, handleWrapping and etc
-  for(let a = 0; a < avalanche.length; a ++){
+  for (let a = 0; a < avalanche.length; a++) {
     avalanche[a].display();
     avalanche[a].move();
     avalanche[a].gravity();
     avalanche[a].handleWrapping();
     avalanche[a].handleCollision(climber);
 
-      // for loop
-      //
-      // new platform will appear as array
+    // for loop
+    //
+    // new platform will appear as array
 
-      for (let i = 0; i < platformShort.length; i++) {
-        platformShort[i].display();
-        climber.handleStanding(platformShort[i]);
-        avalanche[a].handleCollapse(platformShort[i]);
-        platformShort[i].move();
-        platformShort[i].handleWrapping();
+    for (let i = 0; i < platformShort.length; i++) {
+      platformShort[i].display();
+      climber.handleStanding(platformShort[i]);
+      avalanche[a].handleCollapse(platformShort[i]);
+      platformShort[i].move();
+      platformShort[i].handleWrapping();
 
-        
-      }
+    }
 
-      for (let i = 0; i < platformLong.length; i++) {
-        platformLong[i].display();
-        climber.handleStanding(platformLong[i]);
-        avalanche[a].handleCollapse(platformLong[i]);
-        platformLong[i].move();
-        platformLong[i].handleWrapping();
-      }
+    for (let i = 0; i < platformLong.length; i++) {
+      platformLong[i].display();
+      climber.handleStanding(platformLong[i]);
+      avalanche[a].handleCollapse(platformLong[i]);
+      platformLong[i].move();
+      platformLong[i].handleWrapping();
+    }
   }
 
 
@@ -593,32 +592,32 @@ function secondLevel() {
   //
   // This is going to be the part where the avalanche happens
   // like display, move, handleWrapping and etc
-  for(let a2 = 0; a2 < avalanche.length; a2 ++){
+  for (let a2 = 0; a2 < avalanche.length; a2++) {
     avalanche[a2].display();
     avalanche[a2].move();
     avalanche[a2].gravity();
     avalanche[a2].handleWrapping();
     avalanche[a2].handleCollision(climber);
 
-      // for loop
-      //
-      // new platform will appear as array
-      for (let z = 0; z < platformShort.length; z++) {
-        platformShort[z].display();
-        climber.handleStanding(platformShort[z]);
-        avalanche[a2].handleCollapse(platformShort[z]);
-        platformShort[z].move();
-        platformShort[z].handleWrapping();
+    // for loop
+    //
+    // new platform will appear as array
+    for (let z = 0; z < platformShort.length; z++) {
+      platformShort[z].display();
+      climber.handleStanding(platformShort[z]);
+      avalanche[a2].handleCollapse(platformShort[z]);
+      platformShort[z].move();
+      platformShort[z].handleWrapping();
 
-      }
+    }
 
-      for (let z = 0; z < platformLong.length; z++) {
-        platformLong[z].display();
-        climber.handleStanding(platformLong[z]);
-        avalanche[a2].handleCollapse(platformLong[z]);
-        platformLong[z].move();
-        platformLong[z].handleWrapping();
-      }
+    for (let z = 0; z < platformLong.length; z++) {
+      platformLong[z].display();
+      climber.handleStanding(platformLong[z]);
+      avalanche[a2].handleCollapse(platformLong[z]);
+      platformLong[z].move();
+      platformLong[z].handleWrapping();
+    }
 
   }
 
@@ -865,7 +864,7 @@ function thirdLevel() {
   //
   // This is going to be the part where the avalanche happens
   // like display, move, handleWrapping and etc
-  for(let a3 = 0; a3 < avalanche.length; a3 ++){
+  for (let a3 = 0; a3 < avalanche.length; a3++) {
     avalanche[a3].display();
     avalanche[a3].move();
     avalanche[a3].gravity();
