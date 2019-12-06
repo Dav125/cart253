@@ -94,6 +94,7 @@ function preload() {
 
 }
 
+///////////////////////////////// Level 01 ////////////////////////////////////////////////////////////////////////
 
 // setup()
 //
@@ -105,7 +106,7 @@ function setup() {
   // climber class
   //
   // To put postion, the size, putting image and the speed
-  climber = new Climber(width / 2, 500, 600, 600, 5, climbImg, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW);
+  climber = new Climber(width / 2, 500, 600, 600, 3.5, climbImg, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW);
 
   // For loop for snow
   //
@@ -404,16 +405,20 @@ function gameScreen() {
     //
     // To put postion, the size, putting image and the speed
     // This is also to reset the position when the climber falls to the abyss
-    climber = new Climber(width / 2, 500, 500, 500, 2, climbImg, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW);
+    climber = new Climber(width / 2, 500, 500, 500, 3.5, climbImg, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW);
 
     // endGame
     //
     // to change the state of the game
     state = "endGame";
   }
-
-
 }
+/////////////////////////////////////// End of Level 01 ///////////////////////////////////////////////////////////////
+
+
+
+//////////////////////////////////////// Level 02 ////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // NextlevelSetup()
 //
@@ -423,7 +428,7 @@ function NextlevelSetup() {
   //
   // To put postion, the size, putting image and the speed
   // This is also to reset the position when the climber goes up
-  climber = new Climber(width / 2, 500, 500, 500, 2, climbImg, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW);
+  climber = new Climber(width / 2, 500, 500, 500, 3.5, climbImg, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW);
 
 
   //Array
@@ -662,7 +667,7 @@ function secondLevel() {
     //
     // To put postion, the size, putting image and the speed
     // This is also to reset the position when the climber goes up
-    climber = new Climber(width / 2, 500, 500, 500, 2, climbImg, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW);
+    climber = new Climber(width / 2, 500, 500, 500, 3.5, climbImg, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW);
 
     // thirdLevelSetup
     //
@@ -685,6 +690,14 @@ function secondLevel() {
 
 }
 
+/////////////////////////////////////////// End Level 02 /////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+///////////////////////////////////////// Level 03 ///////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 // thirdLevelSetup
 //
 // the setup for the third level
@@ -694,7 +707,7 @@ function thirdLevelSetup() {
   //
   // To put postion, the size, putting image and the speed
   // This is also to reset the position when the climber goes up
-  climber = new Climber(width / 2, 500, 500, 500, 2, climbImg, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW);
+  climber = new Climber(width / 2, 500, 500, 500, 3.5, climbImg, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW);
 
   //Array
   //
@@ -936,16 +949,18 @@ function thirdLevel() {
     //
     // To put postion, the size, putting image and the speed
     // This is also to reset the position when the climber falls to the abyss
-    climber = new Climber(width / 2, 500, 500, 500, 2, climbImg, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW);
+    climber = new Climber(width / 2, 500, 500, 500, 3.5, climbImg, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW);
 
     // endGame
     //
     // to change the state of the game
     state = "endGame";
   }
-
 }
 
+///////////////////////////////////////////////////// End Level 03 ///////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 
