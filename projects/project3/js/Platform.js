@@ -35,6 +35,23 @@ class Platform {
     this.x += this.vx;
     this.y += this.vy;
 
+    // Handle wrapping
+    this.handleWrapping();
+
+  }
+
+  // handleWrapping
+  //
+  // Once the platform falls off screen, it will reapear in a
+  // different postion
+  handleWrapping() {
+
+    // Random positions
+    if (this.y > height) {
+      this.vy = 0;
+      this.x = random(0, width);
+      this.y = random(0, height);
+    }
   }
 
   // diplay();

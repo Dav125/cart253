@@ -14,7 +14,7 @@ class Avalanche {
     this.vx = 0;
     this.vy = 0;
     // Scale
-    this.scale = 0.1;
+    this.scale = 0.2;
     // Display properties
     this.width = width * this.scale;
     this.height = height * this.scale;

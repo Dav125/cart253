@@ -315,6 +315,7 @@ function gameScreen() {
         climber.handleStanding(platformShort[i]);
         avalanche[a].handleCollapse(platformShort[i]);
         platformShort[i].move();
+        platformShort[i].handleWrapping();
 
       }
 
@@ -323,7 +324,7 @@ function gameScreen() {
         climber.handleStanding(platformLong[i]);
         avalanche[a].handleCollapse(platformLong[i]);
         platformLong[i].move();
-
+        platformLong[i].handleWrapping();
       }
   }
 
@@ -522,6 +523,7 @@ function secondLevel() {
         climber.handleStanding(platformShort[z]);
         avalanche[a].handleCollapse(platformShort[z]);
         platformShort[z].move();
+        platformShort[z].handleWrapping();
 
       }
 
@@ -530,6 +532,7 @@ function secondLevel() {
         climber.handleStanding(platformLong[z]);
         avalanche[a].handleCollapse(platformLong[z]);
         platformLong[z].move();
+        platformLong[z].handleWrapping();
       }
 
   }
@@ -725,7 +728,7 @@ function thirdLevel() {
       climber.handleStanding(platformShort[w]);
       avalanche[a].handleCollapse(platformShort[w]);
       platformShort[w].move();
-
+      platformShort[w].handleWrapping();
 
 
     }
@@ -735,7 +738,7 @@ function thirdLevel() {
       climber.handleStanding(platformLong[w]);
       avalanche[a].handleCollapse(platformLong[w]);
       platformLong[w].move();
-
+      platformLong[w].handleWrapping();
     }
   }
 
